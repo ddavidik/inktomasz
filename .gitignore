@@ -9,3 +9,4 @@ dist
 *.log
 .netlify
 src/routeTree.gen.ts
+.bun

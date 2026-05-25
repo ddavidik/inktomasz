@@ -5,14 +5,14 @@ Portfolio site for tattoo artist Tomasz. Built with TanStack Start, TypeScript, 
 ## Dev
 
 ```bash
-pnpm install
-pnpm dev
+bun install
+bun run dev
 ```
 
 ## Build
 
 ```bash
-pnpm build
+bun run build
 ```
 
 Output goes to `dist/` (Netlify static).

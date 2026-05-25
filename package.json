@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite dev --port 3000",
     "build": "vite build",
-    "start": "node .output/server/index.mjs",
+    "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -23,5 +23,8 @@
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.2",
     "vite": "^8.0.14"
-  }
+  },
+  "trustedDependencies": [
+    "@parcel/watcher"
+  ]
 }
