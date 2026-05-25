@@ -1,0 +1,26 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "~/components/Hero";
+import { AboutTeaser } from "~/components/AboutTeaser";
+import { Portfolio } from "~/components/Portfolio";
+import { WannaDo } from "~/components/WannaDo";
+import { AftercareTease } from "~/components/AftercareTease";
+import { Inquiry } from "~/components/Inquiry";
+import { RevealMounter } from "~/components/RevealMounter";
+
+export const Route = createFileRoute("/")({
+  component: Home,
+});
+
+function Home() {
+  return (
+    <>
+      <RevealMounter />
+      <Hero />
+      <AboutTeaser />
+      <Portfolio />
+      <WannaDo />
+      <AftercareTease />
+      <Inquiry />
+    </>
+  );
+}

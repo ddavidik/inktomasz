@@ -1,0 +1,26 @@
+{
+  "teaser": {
+    "heading": "The hand behind the needle.",
+    "lead": "Tomasz works out of a quiet studio in Poland, drawing from nordic mythology, medieval woodcuts, and decades of folk ornament. Every piece is hand-drawn before it ever meets skin."
+  },
+  "full": {
+    "chapters": [
+      {
+        "title": "Origin",
+        "body": "Tomasz started tattooing in 2014 after years of sketching in margins and carving lino blocks at night. What began as a fascination with the engravings of Albrecht Dürer turned into a focused practice rooted in linework, stippling, and the iconography of the north."
+      },
+      {
+        "title": "Craft",
+        "body": "Each session begins with a long conversation. He asks about the story behind the piece before the pencil moves. Stencils are revised on-skin until they feel inevitable. Sessions are unhurried — the line decides the pace, not the clock."
+      },
+      {
+        "title": "Influences",
+        "body": "Old Norse rune-stones. Polish folk paper-cuts. Black-metal record sleeves. The texture of a winter forest at dusk. He cites Gustaf Tenggren and Theodor Kittelsen as much as he cites his own grandfather's woodworking tools."
+      },
+      {
+        "title": "Studio",
+        "body": "Private studio, single chair, by appointment only. No walk-ins, no flash. Sterile, single-use, and as quiet as you want it to be."
+      }
+    ]
+  }
+}

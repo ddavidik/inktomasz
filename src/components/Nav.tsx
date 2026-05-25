@@ -1,0 +1,108 @@
+import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
+import site from "@content/site.json";
+
+export function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color] duration-500 ${
+        scrolled
+          ? "bg-[color:var(--ink-void)]/80 backdrop-blur-md border-b border-white/5"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10">
+        <Link
+          to="/"
+          className="group flex items-baseline gap-2 text-[color:var(--bone-paper)]"
+          aria-label="inktomasz home"
+        >
+          <span className="display text-2xl leading-none md:text-3xl">
+            ink
+            <span className="text-[color:var(--blood-bright)]">tomasz</span>
+          </span>
+          <span className="mono hidden md:inline text-[10px] tracking-[0.4em] text-[color:var(--bone-fade)]">
+            ᛏ {site.artist.location}
+          </span>
+        </Link>
+
+        <nav className="hidden items-center gap-8 md:flex">
+          {site.navLinks.map((l) => (
+            <NavLink key={l.href} href={l.href} label={l.label} />
+          ))}
+        </nav>
+
+        <button
+          aria-label="Menu"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="relative h-10 w-10 md:hidden"
+        >
+          <span
+            className={`absolute left-2 top-4 h-px w-6 bg-[color:var(--bone-paper)] transition-transform duration-300 ${
+              open ? "translate-y-1 rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`absolute left-2 top-6 h-px w-6 bg-[color:var(--bone-paper)] transition-transform duration-300 ${
+              open ? "-translate-y-1 -rotate-45" : ""
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* mobile sheet */}
+      <div
+        className={`md:hidden overflow-hidden border-t border-white/5 bg-[color:var(--ink-pitch)]/95 backdrop-blur-md transition-[max-height,opacity] duration-500 ${
+          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav className="flex flex-col gap-1 px-6 py-4">
+          {site.navLinks.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="py-3 text-2xl display border-b border-white/5 last:border-0"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function NavLink({ href, label }: { href: string; label: string }) {
+  const isAnchor = href.startsWith("/#");
+  if (isAnchor) {
+    return (
+      <a
+        href={href}
+        className="mono link-underline text-[color:var(--bone-paper)] hover:text-[color:var(--bone-paper)]"
+      >
+        {label}
+      </a>
+    );
+  }
+  return (
+    <Link
+      to={href}
+      className="mono link-underline text-[color:var(--bone-paper)]"
+      activeProps={{ className: "text-[color:var(--blood-bright)]" }}
+    >
+      {label}
+    </Link>
+  );
+}

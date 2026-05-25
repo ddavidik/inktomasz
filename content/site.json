@@ -1,0 +1,23 @@
+{
+  "artist": {
+    "name": "Tomasz",
+    "handle": "inktomasz",
+    "location": "Poland",
+    "email": "hello@inktomasz.com",
+    "instagram": "https://instagram.com/inktomasz",
+    "tagline": "Ink etched in the old ways."
+  },
+  "hero": {
+    "kicker": "Custom tattoo work",
+    "title": "Marks of the North",
+    "subtitle": "Blackwork, runic script, and nordic-inspired ornament — applied with patience, line by line.",
+    "cta": "Book a consultation"
+  },
+  "navLinks": [
+    { "label": "About", "href": "/about" },
+    { "label": "Work", "href": "/#portfolio" },
+    { "label": "Wanna-do", "href": "/#wannado" },
+    { "label": "Aftercare", "href": "/aftercare" },
+    { "label": "Inquire", "href": "/#inquire" }
+  ]
+}

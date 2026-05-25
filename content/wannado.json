@@ -1,0 +1,13 @@
+{
+  "heading": "Wanna-do",
+  "lead": "Designs Tomasz is itching to put on skin. First-come, first-served. Reach out with the ID.",
+  "tags": ["all", "blackwork", "linework", "ornament", "lettering"],
+  "ideas": [
+    { "id": "w1", "title": "Stag of the longwinter", "tags": ["blackwork"], "src": "/images/wannado/w1.svg", "alt": "Concept sketch of a stag with ornamental antlers" },
+    { "id": "w2", "title": "Knotwork chestpiece", "tags": ["ornament"], "src": "/images/wannado/w2.svg", "alt": "Symmetrical knotwork chestpiece concept" },
+    { "id": "w3", "title": "Younger Futhark band", "tags": ["lettering"], "src": "/images/wannado/w3.svg", "alt": "Younger Futhark runic band concept" },
+    { "id": "w4", "title": "Crow & sigil", "tags": ["linework"], "src": "/images/wannado/w4.svg", "alt": "Linework crow perched on a sigil" },
+    { "id": "w5", "title": "Mjölnir reimagined", "tags": ["blackwork", "ornament"], "src": "/images/wannado/w5.svg", "alt": "Mjölnir reimagined with dense ornament" },
+    { "id": "w6", "title": "Wolfshead medallion", "tags": ["blackwork"], "src": "/images/wannado/w6.svg", "alt": "Circular medallion with a wolf head" }
+  ]
+}
