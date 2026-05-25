@@ -1,0 +1,11 @@
+node_modules
+.output
+.nitro
+.tanstack
+dist
+.DS_Store
+.env*
+!.env.example
+*.log
+.netlify
+src/routeTree.gen.ts
