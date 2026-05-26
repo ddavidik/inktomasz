@@ -7,20 +7,18 @@ import { AftercareTease } from "~/components/AftercareTease";
 import { Inquiry } from "~/components/Inquiry";
 import { RevealMounter } from "~/components/RevealMounter";
 
+const Home = () => (
+  <>
+    <RevealMounter />
+    <Hero />
+    <AboutTeaser />
+    <Portfolio />
+    <WannaDo />
+    <AftercareTease />
+    <Inquiry />
+  </>
+);
+
 export const Route = createFileRoute("/")({
   component: Home,
 });
-
-function Home() {
-  return (
-    <>
-      <RevealMounter />
-      <Hero />
-      <AboutTeaser />
-      <Portfolio />
-      <WannaDo />
-      <AftercareTease />
-      <Inquiry />
-    </>
-  );
-}

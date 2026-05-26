@@ -4,13 +4,30 @@
   "before": {
     "title": "What to bring",
     "items": [
-      { "k": "ID", "v": "Valid government-issued photo ID. No ID, no ink." },
-      { "k": "Food", "v": "Eat a proper meal within two hours of arrival. Low blood sugar makes long sessions miserable." },
-      { "k": "Hydration", "v": "Drink water through the day. Avoid alcohol for 24 hours before — it thins your blood." },
-      { "k": "Clothing", "v": "Loose, dark clothing that gives easy access to the area being tattooed." },
-      { "k": "Distraction", "v": "Headphones, a downloaded show, a book. Long sessions need a way to vanish into your head." },
-      { "k": "Snacks & water", "v": "Bring something small. Tomasz will tell you when to take a break." },
-      { "k": "Sleep", "v": "Show up rested. Sessions on no sleep are sessions you'll regret." }
+      {
+        "k": "Well-rested body",
+        "v": "Show up rested. Sessions on no sleep are sessions you'll regret."
+      },
+      {
+        "k": "Food",
+        "v": "Eat a proper meal within two hours before your arrival. Low blood sugar makes long sessions miserable."
+      },
+      {
+        "k": "Hydration",
+        "v": "Drink water through the day. Avoid alcohol for 24 hours before — it thins your blood."
+      },
+      {
+        "k": "Clothing",
+        "v": "Loose, dark clothing that gives easy access to the area being tattooed."
+      },
+      {
+        "k": "Distraction",
+        "v": "Headphones, a downloaded show, a book. Long sessions need a way to vanish into your head."
+      },
+      {
+        "k": "Snacks & water",
+        "v": "Bring something to eat and drink for breaks. Keep some simple sugars on hand for a quick energy boost if you start feeling faint."
+      }
     ]
   },
   "after": {
@@ -18,19 +35,42 @@
     "phases": [
       {
         "label": "Day 0 — the first night",
-        "body": "Leave the wrap on for the time Tomasz tells you (usually 2–4 hours, or overnight if it's a Saniderm-style film). Gently wash with lukewarm water and a fragrance-free soap. Pat dry with a clean paper towel. Do not rub."
+        "body": [
+          "Leave the wrap on until you get home or to a hotel. Gently wash with lukewarm water and a fragrance-free soap. Pat dry with a clean paper towel. Do not rub. Apply a thin layer of ",
+          {
+            "text": "Bepanthen Antiseptische Creme",
+            "href": "https://www.bepanthen.de/produkte/bepanthen-antiseptische-salbe/"
+          },
+          ". Re-wrap with a fresh ",
+          {
+            "text": "absorbing pad",
+            "href": "https://www.dm.de/p/d/1575910/babylove-wickelunterlagen"
+          },
+          ". Sleep on clean sheets. Wear loose or no clothing over the area."
+        ]
       },
       {
-        "label": "Days 1–3",
-        "body": "Wash twice a day. Apply a thin layer of an unscented healing balm. The tattoo will weep plasma and ink — this is normal. Sleep on clean sheets. Wear loose clothing over the area."
+        "label": "Days 1-3",
+        "body": [
+          "Wash and re-wrap ideally every 4 hours. Apply a thin layer of an unscented healing balm like ",
+          {
+            "text": "Bepanthen Antiseptische Creme",
+            "href": "https://www.bepanthen.de/produkte/bepanthen-antiseptische-salbe/"
+          },
+          ". The tattoo will weep plasma and ink — this is normal. Sleep on clean sheets. Wear loose or no clothing over the area."
+        ]
       },
       {
-        "label": "Days 4–14",
-        "body": "It will scab and flake. Do not pick, scratch, or peel. Keep moisturising with an unscented lotion. Itch is normal — slap, don't scratch. No pools, no baths, no saunas, no sea."
+        "label": "Days 4-14",
+        "body": [
+          "It will scab and flake. Do not pick, scratch, or peel. Keep moisturising with an unscented lotion. Itch is normal — slap, don't scratch. No pools, no baths, no saunas, no sea."
+        ]
       },
       {
-        "label": "Weeks 2–6",
-        "body": "The surface heals first, the deeper skin takes longer. Stay out of direct sun. Once fully healed, use SPF 50 on the tattoo any time it sees sunlight — this is the single biggest thing you can do to keep it sharp for decades."
+        "label": "Weeks 2-6",
+        "body": [
+          "The surface heals first, the deeper skin takes longer. Stay out of direct sun. Once fully healed, use SPF 50+ on the tattoo any time it sees sunlight — this is the single biggest thing you can do to keep it sharp for decades."
+        ]
       }
     ],
     "donts": [

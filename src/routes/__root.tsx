@@ -11,6 +11,28 @@ import site from "@content/site.json";
 import { Nav } from "~/components/Nav";
 import { Footer } from "~/components/Footer";
 
+const RootComponent = () => (
+  <>
+    <Nav />
+    <main>
+      <Outlet />
+    </main>
+    <Footer />
+  </>
+);
+
+const RootDocument = ({ children }: { children: ReactNode }) => (
+  <html lang="en">
+    <head>
+      <HeadContent />
+    </head>
+    <body>
+      {children}
+      <Scripts />
+    </body>
+  </html>
+);
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -20,12 +42,12 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1, viewport-fit=cover",
       },
       { name: "theme-color", content: "#07060a" },
-      { title: `${site.artist.handle} — ${site.artist.tagline}` },
+      { title: `${site.artist.name} — ${site.artist.tagline}` },
       {
         name: "description",
-        content: `${site.artist.name} — custom blackwork and nordic-inspired tattoo work. Based in ${site.artist.location}. By appointment.`,
+        content: `${site.artist.name} (@${site.artist.handle}) — custom blackwork and nordic-inspired tattoo work at ${site.artist.studio}, ${site.artist.studioCity}. By appointment.`,
       },
-      { property: "og:title", content: `${site.artist.handle}` },
+      { property: "og:title", content: site.artist.name },
       { property: "og:description", content: site.artist.tagline },
       { property: "og:type", content: "website" },
     ],
@@ -47,29 +69,3 @@ export const Route = createRootRoute({
   component: RootComponent,
   shellComponent: RootDocument,
 });
-
-function RootComponent() {
-  return (
-    <>
-      <Nav />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
-    </>
-  );
-}
-
-function RootDocument({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}

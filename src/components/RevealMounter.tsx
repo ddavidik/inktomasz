@@ -1,6 +1,7 @@
 import { useRevealOnScroll } from "~/lib/use-reveal";
 
-export function RevealMounter() {
+export const RevealMounter = () => {
   useRevealOnScroll();
+
   return null;
-}
+};

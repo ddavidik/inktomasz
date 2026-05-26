@@ -1,8 +1,12 @@
 {
   "artist": {
-    "name": "Tomasz",
+    "name": "Tomasz Górnicki",
+    "firstName": "Tomasz",
+    "lastName": "Górnicki",
     "handle": "inktomasz",
-    "location": "Poland",
+    "location": "Berlin",
+    "studio": "Der Grimm Tattoo",
+    "studioCity": "Berlin",
     "email": "hello@inktomasz.com",
     "instagram": "https://instagram.com/inktomasz",
     "tagline": "Ink etched in the old ways."
@@ -14,10 +18,25 @@
     "cta": "Book a consultation"
   },
   "navLinks": [
-    { "label": "About", "href": "/about" },
-    { "label": "Work", "href": "/#portfolio" },
-    { "label": "Wanna-do", "href": "/#wannado" },
-    { "label": "Aftercare", "href": "/aftercare" },
-    { "label": "Inquire", "href": "/#inquire" }
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Work",
+      "href": "/#portfolio"
+    },
+    {
+      "label": "Wanna-do",
+      "href": "/#wannado"
+    },
+    {
+      "label": "Aftercare",
+      "href": "/aftercare"
+    },
+    {
+      "label": "Inquire",
+      "href": "/#inquire"
+    }
   ]
 }

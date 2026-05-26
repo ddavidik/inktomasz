@@ -15,11 +15,12 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"],
-      "@content/*": ["./content/*"]
-    }
+      "@content/*": ["./content/*"],
+      "*": ["./*"]
+    },
+    "types": ["react", "react-dom"]
   },
   "include": ["src", "content", "vite.config.ts"]
 }

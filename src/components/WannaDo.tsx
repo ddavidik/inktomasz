@@ -1,7 +1,22 @@
 import { useMemo, useState } from "react";
 import wannado from "@content/wannado.json";
 
-export function WannaDo() {
+const pickIdea = (id: string, title: string): void => {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.setItem(
+      "inktomasz:idea",
+      JSON.stringify({ id, title }),
+    );
+    window.dispatchEvent(
+      new CustomEvent("inktomasz:prefill-idea", { detail: { id, title } }),
+    );
+  } catch {
+    /* sessionStorage may be unavailable */
+  }
+};
+
+export const WannaDo = () => {
   const [active, setActive] = useState<string>("all");
   const filtered = useMemo(
     () =>
@@ -13,28 +28,29 @@ export function WannaDo() {
 
   return (
     <section id="wannado" className="relative border-t border-white/5 py-28 md:py-40">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+      <div className="mx-auto max-w-350 px-6 md:px-10">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mono mb-6 text-[color:var(--bone-fade)]">ᚹ &nbsp; Wanna-do</p>
+            <p className="mono mb-6 text-(--bone-fade)">ᚹ &nbsp; Wanna-do</p>
             <h2 className="display text-5xl leading-[0.95] md:text-7xl">
               {wannado.heading}
             </h2>
           </div>
-          <p className="max-w-md text-[color:var(--bone-warm)]">{wannado.lead}</p>
+          <p className="max-w-md text-(--bone-warm)">{wannado.lead}</p>
         </div>
 
         <div className="mb-10 flex flex-wrap gap-2">
           {wannado.tags.map((t) => {
-            const on = active === t;
+            const isOn = active === t;
+
             return (
               <button
                 key={t}
                 onClick={() => setActive(t)}
                 className={`mono border px-4 py-2 transition-colors ${
-                  on
-                    ? "border-[color:var(--blood-bright)] bg-[color:var(--blood-bright)]/10 text-[color:var(--bone-paper)]"
-                    : "border-white/10 text-[color:var(--bone-fade)] hover:border-white/40 hover:text-[color:var(--bone-paper)]"
+                  isOn
+                    ? "border-(--blood-bright) bg-(--blood-bright)/10 text-(--bone-paper)"
+                    : "border-white/10 text-(--bone-fade) hover:border-white/40 hover:text-(--bone-paper)"
                 }`}
               >
                 {t}
@@ -47,27 +63,54 @@ export function WannaDo() {
           {filtered.map((idea) => (
             <figure
               key={idea.id}
-              className="reveal group relative overflow-hidden border border-white/5 bg-[color:var(--ink-iron)]"
+              className="reveal group relative flex flex-col overflow-hidden border border-white/5 bg-(--ink-iron)"
             >
-              <img
-                src={idea.src}
-                alt={idea.alt}
-                loading="lazy"
-                className="block aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]"
-              />
-              <figcaption className="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-transparent to-black/85 p-4">
-                <div className="mono self-end rounded-none bg-black/60 px-2 py-1 text-[10px] text-[color:var(--bone-paper)] backdrop-blur-sm">
-                  {idea.id}
+              <div className="relative overflow-hidden">
+                <img
+                  src={idea.src}
+                  alt={idea.alt}
+                  loading="lazy"
+                  className="block aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]"
+                />
+                <div className="pointer-events-none absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-transparent to-black/85 p-4">
+                  <div className="mono self-end rounded-none bg-black/60 px-2 py-1 text-[10px] text-(--bone-paper) backdrop-blur-sm">
+                    {idea.id}
+                  </div>
+                  <div>
+                    <div className="display text-xl leading-tight">{idea.title}</div>
+                    <div className="mono mt-1 text-[10px]">{idea.tags.join(" · ")}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="display text-xl leading-tight">{idea.title}</div>
-                  <div className="mono mt-1 text-[10px]">{idea.tags.join(" · ")}</div>
-                </div>
-              </figcaption>
+              </div>
+              <a
+                href="#inquire"
+                onClick={() => pickIdea(idea.id, idea.title)}
+                className="mono group/btn flex items-center justify-between gap-2 border-t border-white/5 bg-(--ink-stone) px-4 py-3 text-[10px] text-(--bone-paper) transition-colors hover:bg-(--blood-bright)/10 hover:text-(--blood-bright)"
+              >
+                <span>Claim this one</span>
+                <span aria-hidden className="transition-transform group-hover/btn:translate-x-1">
+                  →
+                </span>
+              </a>
             </figure>
           ))}
+        </div>
+
+        <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-white/5 pt-10">
+          <p className="serif-tight max-w-xl text-pretty text-xl text-(--bone-warm) md:text-2xl">
+            See something you want? First message wins it.
+          </p>
+          <a
+            href="#inquire"
+            className="mono group inline-flex items-center gap-3 border border-(--bone-paper)/30 px-7 py-4 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
+          >
+            Inquire about a wanna-do
+            <span aria-hidden className="transition-transform group-hover:translate-x-1">
+              →
+            </span>
+          </a>
         </div>
       </div>
     </section>
   );
-}
+};

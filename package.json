@@ -6,11 +6,15 @@
     "dev": "vite dev --port 3000",
     "build": "vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@tanstack/react-router": "^1.95.0",
-    "@tanstack/react-start": "^1.95.0",
+    "@tanstack/react-router": "^1.95",
+    "@tanstack/react-start": "^1.95",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -20,6 +24,8 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^6.0.2",
+    "oxfmt": "^0.51.0",
+    "oxlint": "^1.66.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.2",
     "vite": "^8.0.14"
