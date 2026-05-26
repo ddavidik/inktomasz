@@ -2,25 +2,21 @@ import { createFileRoute } from "@tanstack/react-router";
 import aftercare from "@content/aftercare.json";
 import site from "@content/site.json";
 import { RevealMounter } from "~/components/RevealMounter";
+import { PageHeader } from "~/components/PageHeader";
+import { CarvedDivider } from "~/components/CarvedDivider";
 
 const AftercarePage = () => (
   <>
     <RevealMounter />
     <article className="pt-40 pb-32">
-      <header className="mx-auto max-w-350 px-6 md:px-10">
-        <p className="mono mb-6 text-(--blood-bright)">ᛟ &nbsp; Care</p>
-        <h1 className="display text-balance text-[14vw] leading-[0.9] md:text-[clamp(4rem,8vw,9rem)]">
-          Before
-          <br />
-          <span className="italic">&amp;</span> after.
-        </h1>
-        <p className="serif-tight mt-8 max-w-2xl text-pretty text-xl text-(--bone-warm) md:text-2xl">
-          Read this before your session. Come back to it every day for two weeks
-          after. Bookmark it.
-        </p>
-      </header>
+      <PageHeader
+        rune="ᛟ"
+        label="Care"
+        heading={<>Before<br /><span className="italic">&amp;</span> after.</>}
+        subtitle="Read this before your session. Come back to it every day for two weeks after. Bookmark it."
+      />
 
-      <div className="carved-divider mx-auto mt-24 max-w-350" />
+      <CarvedDivider className="mt-24" />
 
       {/* BEFORE */}
       <section className="mx-auto mt-24 max-w-350 px-6 md:px-10">
@@ -50,7 +46,7 @@ const AftercarePage = () => (
         </div>
       </section>
 
-      <div className="carved-divider mx-auto mt-32 max-w-350" />
+      <CarvedDivider className="mt-32" />
 
       {/* AFTER — phased */}
       <section className="mx-auto mt-24 max-w-350 px-6 md:px-10">

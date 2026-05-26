@@ -1,4 +1,5 @@
 import aftercare from "@content/aftercare.json";
+import { SectionHeader } from "~/components/SectionHeader";
 
 export const AftercareTease = () => {
   const previewItems = aftercare.before.items.slice(0, 3);
@@ -9,10 +10,7 @@ export const AftercareTease = () => {
       <div className="mx-auto max-w-350 px-6 md:px-10">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mono mb-6 text-(--bone-fade)">ᛟ &nbsp; Care</p>
-            <h2 className="display text-5xl leading-[0.95] md:text-7xl">
-              {aftercare.heading}
-            </h2>
+            <SectionHeader rune="ᛟ" label="Care" heading={aftercare.heading} />
           </div>
           <p className="max-w-md text-(--bone-warm)">{aftercare.lead}</p>
         </div>

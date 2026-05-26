@@ -14,6 +14,10 @@ Invoke both via the `skill` tool before producing output that touches code, copy
 
 For commits, follow **Conventional Commits** (`feat:`, `fix:`, `chore:`, `refactor:`, `docs:`, `style:`). Subject ≤ 50 chars. Use `caveman-commit` style — terse, no fluff.
 
+## Design system
+
+See **[DESIGN.md](./DESIGN.md)** for the full design system: color tokens, typography scale, layout system, motion rules, component patterns, and applied design rationale.
+
 ## Project shape
 
 ```txt
@@ -23,6 +27,7 @@ src/
   routes/       # file-based routes (TanStack Router)
   components/   # UI components
   styles/       # tailwind + design tokens
+DESIGN.md       # design system reference
 ```
 
 ## Aesthetic guardrails
@@ -47,6 +52,7 @@ src/
 - **Blank line before every `return`** — always put one empty line before a `return` statement, unless it is the first (and only) statement in the function body
 - **Tailwind CSS variable shorthand**: use `utility-(--token)` syntax (e.g. `text-(--bone-fade)`, `bg-(--ink-pitch)`) — never `utility-[color:var(--token)]`
 - **Tailwind canonical classes**: prefer canonical scale utilities over arbitrary values when the value maps to the spacing/sizing scale — e.g. `max-w-350` not `max-w-[1400px]` (350 × 0.25rem = 87.5rem = 1400px at 16px base)
+- **Tailwind v4 canonical names**: this project uses Tailwind v4 (`@tailwindcss/vite`); use v4 names — `bg-linear-to-*` not `bg-gradient-to-*`, `min-h-svh` / `min-h-dvh` not `min-h-[100svh]`, `scale-105` not `scale-[1.05]`. VS Code extension `bradlc.vscode-tailwindcss` surfaces these via `suggestCanonicalClasses`.
 - Avoid **De Morgan violations** - don't negate full boolean expressions, apply De Morgan's law instead
 - **Always use Context7 MCP** when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask
 

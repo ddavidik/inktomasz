@@ -2,21 +2,20 @@ import { createFileRoute } from "@tanstack/react-router";
 import about from "@content/about.json";
 import site from "@content/site.json";
 import { RevealMounter } from "~/components/RevealMounter";
+import { PageHeader } from "~/components/PageHeader";
+import { CarvedDivider } from "~/components/CarvedDivider";
 
 const AboutPage = () => (
   <>
     <RevealMounter />
     <article className="pt-40 pb-32">
-      <header className="mx-auto max-w-350 px-6 md:px-10">
-        <p className="mono mb-6 text-(--blood-bright)">ᛁ &nbsp; About</p>
-        <h1 className="display text-balance text-[14vw] leading-[0.9] md:text-[clamp(4rem,8vw,9rem)]">
-          The hand
-          <br />
-          <span className="italic">behind</span> the needle.
-        </h1>
-      </header>
+      <PageHeader
+        rune="ᛁ"
+        label="About"
+        heading={<>The hand<br /><span className="italic">behind</span> the needle.</>}
+      />
 
-      <div className="carved-divider mx-auto mt-24 max-w-350" />
+      <CarvedDivider className="mt-24" />
 
       <div className="mx-auto mt-24 grid max-w-350 gap-16 px-6 md:grid-cols-12 md:px-10">
         {about.full.chapters.map((ch, i) => (

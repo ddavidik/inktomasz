@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import wannado from "@content/wannado.json";
+import { SectionHeader } from "~/components/SectionHeader";
 
 const pickIdea = (id: string, title: string): void => {
   if (typeof window === "undefined") return;
@@ -31,10 +32,7 @@ export const WannaDo = () => {
       <div className="mx-auto max-w-350 px-6 md:px-10">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mono mb-6 text-(--bone-fade)">ᚹ &nbsp; Wanna-do</p>
-            <h2 className="display text-5xl leading-[0.95] md:text-7xl">
-              {wannado.heading}
-            </h2>
+            <SectionHeader rune="ᚹ" label="Wanna-do" heading={wannado.heading} />
           </div>
           <p className="max-w-md text-(--bone-warm)">{wannado.lead}</p>
         </div>
@@ -70,9 +68,9 @@ export const WannaDo = () => {
                   src={idea.src}
                   alt={idea.alt}
                   loading="lazy"
-                  className="block aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]"
+                   className="block aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
                 />
-                <div className="pointer-events-none absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-transparent to-black/85 p-4">
+                <div className="pointer-events-none absolute inset-0 flex flex-col justify-between bg-linear-to-b from-transparent via-transparent to-black/85 p-4">
                   <div className="mono self-end rounded-none bg-black/60 px-2 py-1 text-[10px] text-(--bone-paper) backdrop-blur-sm">
                     {idea.id}
                   </div>

@@ -1,7 +1,7 @@
 import site from "@content/site.json";
 
 export const Hero = () => (
-  <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden pt-24">
+  <section className="relative isolate flex min-h-svh items-end overflow-hidden pt-24">
     {/* background runic ornament */}
     <div
       aria-hidden
@@ -27,9 +27,9 @@ export const Hero = () => (
       aria-hidden
       className="mono pointer-events-none absolute right-6 top-40 hidden flex-col gap-3 text-[10px] tracking-[0.6em] text-(--bone-fade) md:flex"
     >
-      <span>N 54°</span>
+      <span>ᚾ 54.35°</span>
       <span>·</span>
-      <span>E 18°</span>
+      <span>ᛖ 18.64°</span>
     </div>
 
     {/* vignette overlay */}
@@ -81,7 +81,7 @@ export const Hero = () => (
       aria-hidden
       className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 text-(--bone-fade)"
     >
-      <div className="mx-auto h-12 w-px bg-gradient-to-b from-transparent via-(--bone-fade) to-transparent" />
+      <div className="mx-auto h-12 w-px bg-linear-to-b from-transparent via-(--bone-fade) to-transparent" />
     </div>
   </section>
 );
