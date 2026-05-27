@@ -79,6 +79,7 @@ Design system reference for **inktomasz** — tattoo artist portfolio, Gdańsk, 
 - Kickers: always `.mono`. Prefix with a rune glyph + `&nbsp;&nbsp;`. Color `text-(--bone-fade)` in components, `text-(--blood-bright)` in page-level headers.
 - Body text: `text-(--bone-warm)` for descriptions, `text-(--bone-paper)` for emphasis.
 - Italic variation: `<span className="italic">` within display headings for rhythmic contrast.
+- **Letter-spacing on display headings**: intentionally `0.005em` (near-zero), **not** negative. UnifrakturCook blackletter collapses in legibility with negative tracking (`-0.04em` etc.). This is a deliberate deviation from conventional tight-heading rules that apply to grotesque/sans display fonts.
 
 ---
 
@@ -286,6 +287,8 @@ Mapped to five foundational web design skills:
 
 - **Single goal per section**: Hero → book / see work. Portfolio → build desire. Wanna-do → claim + inquire. Inquiry → contact.
 - **CTA above fold**: blood-bright border button in hero, visible on load.
+- **CTA frequency rule**: every 2–3 sections must carry an inquiry CTA. Pattern: Hero (CTA) → Portfolio (trailing CTA) → Wanna-do (per-card + bottom CTA). Nav carries an outlined blood-bright "Inquire" button distinct from plain text links. Mobile sheet surfaces same button at bottom of drawer.
+- **Nav CTA pattern**: the "Inquire" navLink is flagged `cta: true` in `site.json`; Nav.tsx renders it as `border border-(--blood-bright) px-4 py-2 text-(--blood-bright)` on desktop and full-width in mobile drawer, not styled as a text link.
 - **Prefill flow**: Wanna-do idea selection auto-fills inquiry form (`sessionStorage` + `CustomEvent`).
 - **Trust signals**: Real portfolio work, about section, physical studio location, precise GPS coords.
 

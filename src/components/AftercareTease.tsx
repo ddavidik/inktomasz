@@ -22,13 +22,9 @@ export const AftercareTease = () => {
             <ul className="space-y-4">
               {previewItems.map((it) => (
                 <li key={it.k} className="flex gap-4 text-(--bone-warm)">
-                  <span className="mono shrink-0 pt-1 text-(--blood-bright)">
-                    ᛏ
-                  </span>
+                  <span className="mono shrink-0 pt-1 text-(--blood-bright)">ᛏ</span>
                   <span>
-                    <span className="display block text-lg text-(--bone-paper)">
-                      {it.k}
-                    </span>
+                    <span className="display block text-lg text-(--bone-paper)">{it.k}</span>
                     <span className="text-sm">{it.v}</span>
                   </span>
                 </li>
@@ -46,14 +42,22 @@ export const AftercareTease = () => {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>
-                    <span className="display block text-lg text-(--bone-paper)">
-                      {p.label}
-                    </span>
+                    <span className="display block text-lg text-(--bone-paper)">{p.label}</span>
                     <span className="text-sm text-(--bone-warm)">
                       {p.body.map((segment, index) =>
-                        typeof segment === "string"
-                          ? segment
-                          : <a key={index} href={segment.href} target="_blank" rel="noreferrer" className="link-underline text-(--blood-bright) hover:text-(--blood-bright)">{segment.text}</a>
+                        typeof segment === "string" ? (
+                          segment
+                        ) : (
+                          <a
+                            key={index}
+                            href={segment.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="link-underline font-bold text-(--bone-paper)"
+                          >
+                            {segment.text}
+                          </a>
+                        ),
                       )}
                     </span>
                   </span>

@@ -1,13 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import about from "@content/about.json";
 import site from "@content/site.json";
-import { RevealMounter } from "~/components/RevealMounter";
 import { PageHeader } from "~/components/PageHeader";
 import { CarvedDivider } from "~/components/CarvedDivider";
 
 const AboutPage = () => (
   <>
-    <RevealMounter />
     <article className="pt-40 pb-32">
       <PageHeader
         rune="ᛁ"

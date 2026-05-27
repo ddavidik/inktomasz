@@ -5,11 +5,9 @@ import { Portfolio } from "~/components/Portfolio";
 import { WannaDo } from "~/components/WannaDo";
 import { AftercareTease } from "~/components/AftercareTease";
 import { Inquiry } from "~/components/Inquiry";
-import { RevealMounter } from "~/components/RevealMounter";
 
 const Home = () => (
   <>
-    <RevealMounter />
     <Hero />
     <AboutTeaser />
     <Portfolio />

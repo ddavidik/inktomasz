@@ -10,9 +10,11 @@ import appCss from "~/styles/app.css?url";
 import site from "@content/site.json";
 import { Nav } from "~/components/Nav";
 import { Footer } from "~/components/Footer";
+import { RevealMounter } from "~/components/RevealMounter";
 
 const RootComponent = () => (
   <>
+    <RevealMounter />
     <Nav />
     <main>
       <Outlet />

@@ -1,6 +1,7 @@
 import portfolio from "@content/portfolio.json";
 import site from "@content/site.json";
 import { SectionHeader } from "~/components/SectionHeader";
+import { CtaButton } from "~/components/CtaButton";
 
 export const Portfolio = () => (
   <section
@@ -18,7 +19,7 @@ export const Portfolio = () => (
             href={site.artist.instagram}
             target="_blank"
             rel="noreferrer"
-            className="link-underline text-(--bone-paper) underline decoration-(--blood-bright) underline-offset-4 hover:text-(--blood-bright)"
+            className="link-underline font-bold text-(--bone-paper)"
           >
             Instagram
           </a>
@@ -47,6 +48,15 @@ export const Portfolio = () => (
             </figcaption>
           </figure>
         ))}
+      </div>
+
+      <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-white/5 pt-10">
+        <p className="serif-tight max-w-xl text-pretty text-xl text-(--bone-warm) md:text-2xl">
+          Seen something that speaks to you?
+        </p>
+        <CtaButton href="/#inquire" showArrow className="px-7 py-4">
+          {site.hero.cta}
+        </CtaButton>
       </div>
     </div>
   </section>

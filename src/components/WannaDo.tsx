@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import wannado from "@content/wannado.json";
 import { SectionHeader } from "~/components/SectionHeader";
+import { CtaButton } from "~/components/CtaButton";
 
 const pickIdea = (id: string, title: string): void => {
   if (typeof window === "undefined") return;
@@ -98,15 +99,9 @@ export const WannaDo = () => {
           <p className="serif-tight max-w-xl text-pretty text-xl text-(--bone-warm) md:text-2xl">
             See something you want? First message wins it.
           </p>
-          <a
-            href="#inquire"
-            className="mono group inline-flex items-center gap-3 border border-(--bone-paper)/30 px-7 py-4 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
-          >
+          <CtaButton href="#inquire" showArrow className="px-7 py-4">
             Inquire about a wanna-do
-            <span aria-hidden className="transition-transform group-hover:translate-x-1">
-              →
-            </span>
-          </a>
+          </CtaButton>
         </div>
       </div>
     </section>

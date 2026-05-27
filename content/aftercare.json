@@ -73,12 +73,29 @@
         ]
       }
     ],
-    "donts": [
-      "No sun, no tanning beds.",
-      "No pools, baths, sea, or saunas for at least two weeks.",
-      "No picking or scratching, ever.",
-      "No scented lotions, no petroleum jelly on a fresh tattoo.",
-      "No gym sessions that stretch or sweat-soak the area for the first week."
-    ]
+      "donts": [
+        "No sun, no tanning beds.",
+        "No pools, baths, sea, or saunas for at least two weeks.",
+        "No picking or scratching, ever.",
+        "No scented lotions, no petroleum jelly on a fresh tattoo.",
+        "No gym sessions that stretch or sweat-soak the area for the first week."
+      ]
+    },
+    "tips": {
+      "title": "Tips",
+      "items": [
+        {
+          "k": "Buy baby products",
+          "v": "Everything you need for aftercare exists in the baby aisle — and it costs a fraction of what tattoo-branded products charge for the same thing. Bepanthen started as a nappy rash cream. The absorbing pads are baby changing mats. The skin does not know the difference."
+        },
+        {
+          "k": "Skip second skin",
+          "v": "I don't use second skin on my clients. I had a bad experience with a contaminated batch — people got infections. Even without that, some skin simply doesn't tolerate it. Baby pads, on the other hand, everybody tolerates."
+        },
+        {
+          "k": "Finding the right pad",
+          "v": "Head to the diaper aisle and look at the packaging. When it stops listing weight in kg and starts listing size in centimetres — something like 60×60 cm — that's the one you want. Those are the changing mats. They absorb exactly the same as any pad sold in a tattoo shop."
+        }
+      ]
+    }
   }
-}

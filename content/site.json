@@ -36,7 +36,8 @@
     },
     {
       "label": "Inquire",
-      "href": "/#inquire"
+      "href": "/#inquire",
+      "cta": true
     }
   ]
 }

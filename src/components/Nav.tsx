@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import site from "@content/site.json";
+import { CtaButton } from "./CtaButton";
 
 export const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,7 +42,7 @@ export const Nav = () => {
 
         <nav className="hidden items-center gap-8 md:flex">
           {site.navLinks.map((l) => (
-            <NavLink key={l.href} href={l.href} label={l.label} />
+            <NavLink key={l.href} href={l.href} label={l.label} isCta={l.cta ?? false} />
           ))}
         </nav>
 
@@ -71,24 +72,44 @@ export const Nav = () => {
         }`}
       >
         <nav className="flex flex-col gap-1 px-6 py-4">
-          {site.navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setIsOpen(false)}
-              className="py-3 text-2xl display border-b border-white/5 last:border-0"
-            >
-              {l.label}
-            </a>
-          ))}
+          {site.navLinks.map((l) =>
+            l.cta ? (
+              <CtaButton
+                key={l.href}
+                href={l.href}
+                onClick={() => setIsOpen(false)}
+                className="mt-2 justify-center px-6 py-4 text-xl"
+              >
+                {l.label}
+              </CtaButton>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setIsOpen(false)}
+                className="py-3 text-2xl display border-b border-white/5 last:border-0"
+              >
+                {l.label}
+              </a>
+            )
+          )}
         </nav>
       </div>
     </header>
   );
 };
 
-const NavLink = ({ href, label }: { href: string; label: string }) => {
+const NavLink = ({ href, label, isCta }: { href: string; label: string; isCta: boolean }): React.ReactElement => {
   const isAnchor = href.startsWith("/#");
+
+  if (isCta) {
+    return (
+      <CtaButton href={href} className="px-4 py-2">
+        {label}
+      </CtaButton>
+    );
+  }
+
   if (isAnchor) {
     return (
       <a

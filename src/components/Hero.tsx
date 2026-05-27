@@ -1,4 +1,5 @@
 import site from "@content/site.json";
+import { CtaButton } from "./CtaButton";
 
 export const Hero = () => (
   <section className="relative isolate flex min-h-svh items-end overflow-hidden pt-24">
@@ -57,15 +58,9 @@ export const Hero = () => (
           {site.hero.subtitle}
         </p>
         <div className="col-span-12 flex flex-wrap items-center gap-5 md:col-span-5 md:justify-end">
-          <a
-            href="/#inquire"
-            className="group relative inline-flex items-center gap-3 border border-(--bone-paper)/30 px-7 py-4 mono text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
-          >
-            <span>{site.hero.cta}</span>
-            <span aria-hidden className="transition-transform group-hover:translate-x-1">
-              →
-            </span>
-          </a>
+          <CtaButton href="/#inquire" showArrow className="px-7 py-4">
+            {site.hero.cta}
+          </CtaButton>
           <a
             href="/#portfolio"
             className="mono link-underline text-(--bone-warm)"
