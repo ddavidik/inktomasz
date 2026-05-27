@@ -25,11 +25,11 @@ const AftercarePage = () => (
       {/* BEFORE */}
       <section className="mx-auto mt-24 max-w-350 px-6 md:px-10">
         <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <div className="mono mb-4 text-(--bone-fade)">01 — Before</div>
             <h2 className="display text-5xl md:text-6xl">{aftercare.before.title}</h2>
           </div>
-          <ul className="md:col-span-8 md:col-start-5 divide-y divide-white/5 border-y border-white/5">
+          <ul className="md:col-span-9 md:col-start-4 divide-y divide-white/5 border-y border-white/5">
             {aftercare.before.items.map((it) => (
               <li key={it.k} className="reveal grid grid-cols-12 gap-6 py-6">
                 <div className="col-span-12 md:col-span-3">
@@ -50,11 +50,11 @@ const AftercarePage = () => (
       {/* AFTER — phased */}
       <section className="mx-auto mt-24 max-w-350 px-6 md:px-10">
         <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <div className="mono mb-4 text-(--bone-fade)">02 — After</div>
             <h2 className="display text-5xl md:text-6xl">{aftercare.after.title}</h2>
           </div>
-          <ol className="md:col-span-8 md:col-start-5 space-y-12">
+          <ol className="md:col-span-9 md:col-start-4 space-y-12">
             {aftercare.after.phases.map((p, i) => (
               <li key={p.label} className="reveal grid grid-cols-12 gap-6">
                 <div className="col-span-12 md:col-span-3">
@@ -108,11 +108,11 @@ const AftercarePage = () => (
       {/* TIPS */}
       <section className="mx-auto mt-24 max-w-350 px-6 md:px-10">
         <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <div className="mono mb-4 text-(--bone-fade)">03 — Tips</div>
             <h2 className="display text-5xl md:text-6xl">{aftercare.tips.title}</h2>
           </div>
-          <ul className="md:col-span-8 md:col-start-5 divide-y divide-white/5 border-y border-white/5">
+          <ul className="md:col-span-9 md:col-start-4 divide-y divide-white/5 border-y border-white/5">
             {aftercare.tips.items.map((it) => (
               <li key={it.k} className="reveal grid grid-cols-12 gap-6 py-6">
                 <div className="col-span-12 md:col-span-3">

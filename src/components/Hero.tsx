@@ -41,17 +41,17 @@ export const Hero = () => (
         ᛟ &nbsp; {site.hero.kicker}
       </p>
       <h1 className="display text-balance text-[14vw] leading-[0.9] md:text-[clamp(5rem,9vw,11rem)]">
-        Marks
-        <br />
-        <span className="italic">of the</span>{" "}
-        <span className="relative">
-          North
-          <span
-            aria-hidden
-            className="absolute -bottom-2 left-0 h-1 w-full bg-(--blood)"
-          />
-        </span>
-        .
+          Older
+          <br />
+          <span className="italic">than the</span>{" "}
+          <span className="relative">
+            North
+            <span
+              aria-hidden
+              className="absolute -bottom-2 left-0 h-1 w-full bg-(--blood)"
+            />
+          </span>
+          .
       </h1>
       <div className="mt-10 grid gap-8 md:grid-cols-12">
         <p className="serif-tight col-span-12 max-w-2xl text-pretty text-xl leading-snug text-(--bone-warm) md:col-span-7 md:text-2xl">

@@ -10,6 +10,7 @@ export const Inquiry = () => {
   const [preferredDate, setPreferredDate] = useState("");
   const [references, setReferences] = useState("");
   const [prefill, setPrefill] = useState<Prefill | null>(null);
+  const [isCopied, setIsCopied] = useState(false);
 
   // Consume wanna-do prefill: either set just-now via custom event,
   // or persisted in sessionStorage (e.g. on first load after click).
@@ -52,21 +53,22 @@ export const Inquiry = () => {
     }
   };
 
+  const body = [
+    `Name: ${name}`,
+    `Placement: ${placement}`,
+    `Preferred date: ${preferredDate}`,
+    prefill ? `Wanna-do: ${prefill.title} (${prefill.id})` : "",
+    "",
+    "Idea:",
+    idea,
+    "",
+    "Reference links:",
+    references,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
   const mailto = (() => {
-    const body = [
-      `Name: ${name}`,
-      `Placement: ${placement}`,
-      `Preferred date: ${preferredDate}`,
-      prefill ? `Wanna-do: ${prefill.title} (${prefill.id})` : "",
-      "",
-      "Idea:",
-      idea,
-      "",
-      "Reference links:",
-      references,
-    ]
-      .filter(Boolean)
-      .join("\n");
     const url = new URL(`mailto:${site.artist.email}`);
     const subject = prefill
       ? `Wanna-do inquiry — ${prefill.title}`
@@ -76,6 +78,12 @@ export const Inquiry = () => {
 
     return url.toString().replace(/\+/g, "%20");
   })();
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(body);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 1800);
+  };
 
   const igDM = `${site.artist.instagram.replace(/\/$/, "")}/`;
 
@@ -170,15 +178,24 @@ export const Inquiry = () => {
             />
           </div>
 
-          <button
-            type="submit"
-            className="mono group mt-8 inline-flex items-center gap-3 border border-(--bone-paper)/30 px-7 py-4 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
-          >
-            Open in email
-            <span aria-hidden className="transition-transform group-hover:translate-x-1">
-              →
-            </span>
-          </button>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <button
+              type="submit"
+              className="mono group inline-flex items-center gap-3 border border-(--bone-paper)/30 px-7 py-4 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
+            >
+              Open in email
+              <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={handleCopy}
+              className="mono border border-(--bone-paper)/20 px-7 py-4 text-(--bone-fade) transition-colors hover:border-(--bone-paper)/40 hover:text-(--bone-paper)"
+            >
+              {isCopied ? "copied" : "Copy"}
+            </button>
+          </div>
         </form>
       </div>
     </section>

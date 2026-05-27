@@ -24,21 +24,21 @@ export const Nav = () => {
       }`}
     >
       <div className="mx-auto flex max-w-350 items-center justify-between px-6 py-4 md:px-10">
-        <Link
-          to="/"
-          className="group flex items-baseline gap-2 text-(--bone-paper)"
-          aria-label={`${site.artist.name} home`}
-        >
-          <span className="display text-2xl leading-none md:text-3xl">
+        <div className="flex items-baseline gap-2 text-(--bone-paper)">
+          <Link
+            to="/"
+            className="display text-2xl leading-none md:text-3xl"
+            aria-label={`${site.artist.name} home`}
+          >
             {site.artist.firstName}{" "}
             <span className="text-(--blood-bright)">
               {site.artist.lastName}
             </span>
-          </span>
+          </Link>
           <span className="mono hidden md:inline text-[10px] tracking-[0.4em] text-(--bone-fade)">
             ᛏ {site.artist.studio} · {site.artist.studioCity}
           </span>
-        </Link>
+        </div>
 
         <nav className="hidden items-center gap-8 md:flex">
           {site.navLinks.map((l) => (
