@@ -27,7 +27,7 @@ export const Portfolio = () => (
         </p>
       </div>
 
-      <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [column-fill:_balance]">
+      <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [column-fill:balance]">
         {portfolio.pieces.map((p) => (
           <figure
             key={p.id}
@@ -37,7 +37,7 @@ export const Portfolio = () => (
               src={p.src}
               alt={p.alt}
               loading="lazy"
-              className="block w-full transition-transform duration-[1200ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04]"
+              className="block w-full transition-transform duration-1200 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04]"
             />
             <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-linear-to-t from-black/85 via-black/40 to-transparent p-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               <div>

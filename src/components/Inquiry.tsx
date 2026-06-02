@@ -19,11 +19,7 @@ export const Inquiry = () => {
 
     const apply = (p: Prefill) => {
       setPrefill(p);
-      setIdea((prev) =>
-        prev.trim()
-          ? prev
-          : `Wanna-do: ${p.title} (${p.id})\n\n`,
-      );
+      setIdea((prev) => (prev.trim() ? prev : `Wanna-do: ${p.title} (${p.id})\n\n`));
     };
 
     try {
@@ -46,6 +42,7 @@ export const Inquiry = () => {
 
   const clearPrefill = () => {
     setPrefill(null);
+    setIdea("");
     try {
       window.sessionStorage.removeItem("inktomasz:idea");
     } catch {
@@ -94,9 +91,7 @@ export const Inquiry = () => {
     >
       <div className="mx-auto grid max-w-350 gap-16 px-6 md:grid-cols-12 md:px-10">
         <div className="md:col-span-5">
-          <p className="mono mb-6 text-(--blood-bright)">
-            ᛒ &nbsp; Inquire
-          </p>
+          <p className="mono mb-6 text-(--blood-bright)">ᛒ &nbsp; Inquire</p>
           <h2 className="display text-5xl leading-[0.95] md:text-7xl">
             Tell me
             <br />
@@ -105,8 +100,8 @@ export const Inquiry = () => {
             first.
           </h2>
           <p className="serif-tight mt-8 max-w-md text-pretty text-xl text-(--bone-warm)">
-            The form below opens your email client with everything pre-filled.
-            Prefer Instagram? DM works too.
+            The form below opens your email client with everything pre-filled. Prefer Instagram? DM
+            works too.
           </p>
           <div className="mt-10 flex flex-col gap-3">
             <a
@@ -136,11 +131,8 @@ export const Inquiry = () => {
           {prefill && (
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border border-(--blood-bright)/40 bg-(--blood-bright)/5 px-4 py-3">
               <div className="mono text-[11px] text-(--bone-paper)">
-                Claiming{" "}
-                <span className="text-(--blood-bright)">
-                  {prefill.title}
-                </span>{" "}
-                · {prefill.id}
+                Claiming <span className="text-(--blood-bright)">{prefill.title}</span> ·{" "}
+                {prefill.id}
               </div>
               <button
                 type="button"
@@ -154,13 +146,9 @@ export const Inquiry = () => {
 
           <div className="grid gap-px bg-white/5 border border-white/5">
             <Field label="Your name" value={name} onChange={setName} />
+            <Field label="Placement (arm, ribs, calf…)" value={placement} onChange={setPlacement} />
             <Field
-              label="Placement (arm, ribs, calf…)"
-              value={placement}
-              onChange={setPlacement}
-            />
-            <Field
-              label="Preferred date (or rough window)"
+              label="Preferred date"
               type="date"
               value={preferredDate}
               onChange={setPreferredDate}
@@ -219,7 +207,7 @@ const Field = ({
       type={type}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="block w-full bg-transparent serif-tight pt-1 text-lg text-(--bone-paper) outline-none placeholder:text-(--bone-fade) [color-scheme:dark]"
+      className="block w-full bg-transparent serif-tight pt-1 text-lg text-(--bone-paper) outline-none placeholder:text-(--bone-fade) scheme:dark"
     />
   </label>
 );

@@ -15,7 +15,7 @@ export const PageHeader = ({
 }: PageHeaderProps) => (
   <header className="mx-auto max-w-350 px-6 md:px-10">
     <p className="mono mb-6 text-(--blood-bright)">{rune}&nbsp; {label}</p>
-    <h1 className="display text-balance text-[14vw] leading-[0.9] md:text-[clamp(4rem,8vw,9rem)]">
+    <h1 className="display text-balance text-[clamp(2.2rem,11vw,9rem)] leading-[0.9] md:text-[clamp(4rem,8vw,9rem)]">
       {heading}
     </h1>
     {subtitle !== undefined && (

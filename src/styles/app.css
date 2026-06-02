@@ -27,6 +27,7 @@
     color-scheme: dark;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
 
   body {
@@ -39,6 +40,8 @@
       var(--ink-void);
     background-attachment: fixed;
     min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden;
   }
 
@@ -59,13 +62,18 @@
     color: var(--bone-paper);
   }
 
-  h1, h2, h3, .display {
+  h1,
+  h2,
+  h3,
+  .display {
     font-family: "UnifrakturCook", "UnifrakturMaguntia", "Cinzel Decorative", serif;
     font-weight: 700;
     letter-spacing: 0.005em;
   }
 
-  .kicker, .meta, .mono {
+  .kicker,
+  .meta,
+  .mono {
     font-family: "JetBrains Mono", ui-monospace, monospace;
     text-transform: uppercase;
     letter-spacing: 0.22em;
@@ -75,7 +83,9 @@
 
   .serif-tight {
     font-family: "Fraunces", serif;
-    font-variation-settings: "opsz" 96, "SOFT" 60;
+    font-variation-settings:
+      "opsz" 96,
+      "SOFT" 60;
   }
 
   /* hairline rule with rune */
@@ -85,7 +95,8 @@
     gap: 1rem;
     color: var(--bone-fade);
   }
-  .rune-rule::before, .rune-rule::after {
+  .rune-rule::before,
+  .rune-rule::after {
     content: "";
     flex: 1;
     height: 1px;
@@ -94,8 +105,12 @@
 }
 
 @layer utilities {
-  .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
 
   .edge-fade-b {
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
@@ -116,7 +131,13 @@
   /* small carved divider */
   .carved-divider {
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--bone-fade) 20%, var(--bone-fade) 80%, transparent);
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--bone-fade) 20%,
+      var(--bone-fade) 80%,
+      transparent
+    );
     opacity: 0.4;
   }
 
@@ -134,21 +155,41 @@
   }
 
   .hero-vignette {
-    background:
-      radial-gradient(ellipse 70% 90% at 50% 60%, transparent 40%, rgba(0,0,0,0.65) 100%);
+    background: radial-gradient(
+      ellipse 70% 90% at 50% 60%,
+      transparent 40%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
   }
 }
 
 @keyframes flicker {
-  0%, 100% { opacity: 1; }
-  47% { opacity: 0.92; }
-  48% { opacity: 1; }
-  92% { opacity: 0.96; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  47% {
+    opacity: 0.92;
+  }
+  48% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 0.96;
+  }
 }
-.flicker { animation: flicker 7s infinite; }
+.flicker {
+  animation: flicker 7s infinite;
+}
 
 @keyframes drift {
-  from { transform: translateY(0); }
-  to { transform: translateY(-12px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-12px);
+  }
 }
-.drift { animation: drift 6s ease-in-out infinite alternate; }
+.drift {
+  animation: drift 6s ease-in-out infinite alternate;
+}

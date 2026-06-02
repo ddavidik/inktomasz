@@ -17,7 +17,7 @@ const AftercarePage = () => (
             <span className="italic">&amp;</span> after.
           </>
         }
-        subtitle="Read this before your session. Come back to it every day for two weeks after. Bookmark it."
+        subtitle="Read this before your session. Come back to it when you need it for two weeks after. Bookmark it."
       />
 
       <CarvedDivider className="mt-24" />

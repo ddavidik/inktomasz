@@ -6,13 +6,8 @@ import { CtaButton } from "~/components/CtaButton";
 const pickIdea = (id: string, title: string): void => {
   if (typeof window === "undefined") return;
   try {
-    window.sessionStorage.setItem(
-      "inktomasz:idea",
-      JSON.stringify({ id, title }),
-    );
-    window.dispatchEvent(
-      new CustomEvent("inktomasz:prefill-idea", { detail: { id, title } }),
-    );
+    window.sessionStorage.setItem("inktomasz:idea", JSON.stringify({ id, title }));
+    window.dispatchEvent(new CustomEvent("inktomasz:prefill-idea", { detail: { id, title } }));
   } catch {
     /* sessionStorage may be unavailable */
   }
@@ -21,10 +16,7 @@ const pickIdea = (id: string, title: string): void => {
 export const WannaDo = () => {
   const [active, setActive] = useState<string>("all");
   const filtered = useMemo(
-    () =>
-      active === "all"
-        ? wannado.ideas
-        : wannado.ideas.filter((i) => i.tags.includes(active)),
+    () => (active === "all" ? wannado.ideas : wannado.ideas.filter((i) => i.tags.includes(active))),
     [active],
   );
 
@@ -69,7 +61,7 @@ export const WannaDo = () => {
                   src={idea.src}
                   alt={idea.alt}
                   loading="lazy"
-                   className="block aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
+                  className="block aspect-4/5 w-full object-cover transition-transform duration-1200 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
                 />
                 <div className="pointer-events-none absolute inset-0 flex flex-col justify-between bg-linear-to-b from-transparent via-transparent to-black/85 p-4">
                   <div className="mono self-end rounded-none bg-black/60 px-2 py-1 text-[10px] text-(--bone-paper) backdrop-blur-sm">

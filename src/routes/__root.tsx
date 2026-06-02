@@ -1,22 +1,18 @@
 /// <reference types="vite/client" />
-import {
-  HeadContent,
-  Outlet,
-  Scripts,
-  createRootRoute,
-} from "@tanstack/react-router";
+import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import appCss from "~/styles/app.css?url";
 import site from "@content/site.json";
 import { Nav } from "~/components/Nav";
 import { Footer } from "~/components/Footer";
 import { RevealMounter } from "~/components/RevealMounter";
+import { NotFound } from "~/components/NotFound";
 
 const RootComponent = () => (
   <>
     <RevealMounter />
     <Nav />
-    <main>
+    <main className="flex flex-1 flex-col">
       <Outlet />
     </main>
     <Footer />
@@ -36,6 +32,7 @@ const RootDocument = ({ children }: { children: ReactNode }) => (
 );
 
 export const Route = createRootRoute({
+  notFoundComponent: NotFound,
   head: () => ({
     meta: [
       { charSet: "utf-8" },

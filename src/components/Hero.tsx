@@ -1,5 +1,4 @@
 import site from "@content/site.json";
-import { CtaButton } from "./CtaButton";
 
 export const Hero = () => (
   <section className="relative isolate flex min-h-svh items-end overflow-hidden pt-24">
@@ -37,37 +36,21 @@ export const Hero = () => (
     <div aria-hidden className="hero-vignette absolute inset-0 -z-10" />
 
     <div className="mx-auto w-full max-w-350 px-6 pb-20 md:px-10 md:pb-32">
-      <p className="mono mb-6 text-(--blood-bright)">
-        ᛟ &nbsp; {site.hero.kicker}
-      </p>
+      <p className="mono mb-6 text-(--blood-bright)">ᛟ &nbsp; {site.hero.kicker}</p>
       <h1 className="display text-balance text-[14vw] leading-[0.9] md:text-[clamp(5rem,9vw,11rem)]">
-          Older
-          <br />
-          <span className="italic">than the</span>{" "}
-          <span className="relative">
-            North
-            <span
-              aria-hidden
-              className="absolute -bottom-2 left-0 h-1 w-full bg-(--blood)"
-            />
-          </span>
-          .
+        Older
+        <br />
+        <span className="italic">than the</span>{" "}
+        <span className="relative">
+          North
+          <span aria-hidden className="absolute -bottom-2 left-0 h-1 w-full bg-(--blood)" />
+        </span>
+        .
       </h1>
       <div className="mt-10 grid gap-8 md:grid-cols-12">
         <p className="serif-tight col-span-12 max-w-2xl text-pretty text-xl leading-snug text-(--bone-warm) md:col-span-7 md:text-2xl">
           {site.hero.subtitle}
         </p>
-        <div className="col-span-12 flex flex-wrap items-center gap-5 md:col-span-5 md:justify-end">
-          <CtaButton href="/#inquire" showArrow className="px-7 py-4">
-            {site.hero.cta}
-          </CtaButton>
-          <a
-            href="/#portfolio"
-            className="mono link-underline text-(--bone-warm)"
-          >
-            See the work
-          </a>
-        </div>
       </div>
     </div>
 

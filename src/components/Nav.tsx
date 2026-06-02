@@ -78,7 +78,7 @@ export const Nav = () => {
                 key={l.href}
                 href={l.href}
                 onClick={() => setIsOpen(false)}
-                className="mt-2 justify-center px-6 py-4 text-xl"
+                className="mt-2 self-start px-5 py-2"
               >
                 {l.label}
               </CtaButton>
