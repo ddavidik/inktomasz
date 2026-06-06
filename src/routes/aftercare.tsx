@@ -30,14 +30,14 @@ const AftercarePage = () => (
             <h2 className="display text-5xl md:text-6xl">{aftercare.before.title}</h2>
           </div>
           <ul className="md:col-span-9 md:col-start-4 divide-y divide-white/5 border-y border-white/5">
-            {aftercare.before.items.map((it) => (
-              <li key={it.k} className="reveal grid grid-cols-12 gap-6 py-6">
+            {aftercare.before.items.map(({ title, text }) => (
+              <li key={title} className="reveal grid grid-cols-12 gap-6 py-6">
                 <div className="col-span-12 md:col-span-3">
                   <span className="mono text-(--blood-bright)">ᛏ</span>
-                  <span className="display ml-3 text-2xl">{it.k}</span>
+                  <span className="display ml-3 text-2xl">{title}</span>
                 </div>
                 <div className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-warm)">
-                  {it.v}
+                  {text}
                 </div>
               </li>
             ))}
@@ -113,14 +113,14 @@ const AftercarePage = () => (
             <h2 className="display text-5xl md:text-6xl">{aftercare.tips.title}</h2>
           </div>
           <ul className="md:col-span-9 md:col-start-4 divide-y divide-white/5 border-y border-white/5">
-            {aftercare.tips.items.map((it) => (
-              <li key={it.k} className="reveal grid grid-cols-12 gap-6 py-6">
+            {aftercare.tips.items.map(({ title, text }) => (
+              <li key={title} className="reveal grid grid-cols-12 gap-6 py-6">
                 <div className="col-span-12 md:col-span-3">
                   <span className="mono text-(--bone-fade)">ᚠ</span>
-                  <span className="display ml-3 text-2xl">{it.k}</span>
+                  <span className="display ml-3 text-2xl">{title}</span>
                 </div>
                 <div className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-warm)">
-                  {it.v}
+                  {text}
                 </div>
               </li>
             ))}

@@ -31,51 +31,51 @@ export const WannaDo = () => {
         </div>
 
         <div className="mb-10 flex flex-wrap gap-2">
-          {wannado.tags.map((t) => {
-            const isOn = active === t;
+          {wannado.tags.map((tag) => {
+            const isOn = active === tag;
 
             return (
               <button
-                key={t}
-                onClick={() => setActive(t)}
+                key={tag}
+                onClick={() => setActive(tag)}
                 className={`mono border px-4 py-2 transition-colors ${
                   isOn
                     ? "border-(--blood-bright) bg-(--blood-bright)/10 text-(--bone-paper)"
                     : "border-white/10 text-(--bone-fade) hover:border-white/40 hover:text-(--bone-paper)"
                 }`}
               >
-                {t}
+                {tag}
               </button>
             );
           })}
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
-          {filtered.map((idea) => (
+          {filtered.map(({ id, alt, src, title, tags }) => (
             <figure
-              key={idea.id}
+              key={id}
               className="reveal group relative flex flex-col overflow-hidden border border-white/5 bg-(--ink-iron)"
             >
               <div className="relative overflow-hidden">
                 <img
-                  src={idea.src}
-                  alt={idea.alt}
+                  src={src}
+                  alt={alt}
                   loading="lazy"
                   className="block aspect-4/5 w-full object-cover transition-transform duration-1200 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
                 />
                 <div className="pointer-events-none absolute inset-0 flex flex-col justify-between bg-linear-to-b from-transparent via-transparent to-black/85 p-4">
                   <div className="mono self-end rounded-none bg-black/60 px-2 py-1 text-[10px] text-(--bone-paper) backdrop-blur-sm">
-                    {idea.id}
+                    {id}
                   </div>
                   <div>
-                    <div className="display text-xl leading-tight">{idea.title}</div>
-                    <div className="mono mt-1 text-[10px]">{idea.tags.join(" · ")}</div>
+                    <div className="display text-xl leading-tight">{title}</div>
+                    <div className="mono mt-1 text-[10px]">{tags.join(" · ")}</div>
                   </div>
                 </div>
               </div>
               <a
                 href="#inquire"
-                onClick={() => pickIdea(idea.id, idea.title)}
+                onClick={() => pickIdea(id, title)}
                 className="mono group/btn flex items-center justify-between gap-2 border-t border-white/5 bg-(--ink-stone) px-4 py-3 text-[10px] text-(--bone-paper) transition-colors hover:bg-(--blood-bright)/10 hover:text-(--blood-bright)"
               >
                 <span>Claim this one</span>
