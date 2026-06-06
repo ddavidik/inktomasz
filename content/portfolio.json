@@ -2,11 +2,53 @@
   "heading": "Selected work",
   "lead": "A small selection. The full archive lives on",
   "pieces": [
-    { "id": "p1", "title": "Yggdrasil sleeve", "year": 2024, "style": "blackwork", "src": "/images/portfolio/p1.svg", "alt": "Blackwork sleeve depicting the world tree with knotwork roots" },
-    { "id": "p2", "title": "Vegvísir", "year": 2024, "style": "linework", "src": "/images/portfolio/p2.svg", "alt": "Linework rendering of the Icelandic Vegvísir compass" },
-    { "id": "p3", "title": "Hrafn", "year": 2023, "style": "blackwork", "src": "/images/portfolio/p3.svg", "alt": "Stylised raven in dense blackwork on a forearm" },
-    { "id": "p4", "title": "Runebound forearm", "year": 2024, "style": "lettering", "src": "/images/portfolio/p4.svg", "alt": "Runic inscription wrapping around a forearm" },
-    { "id": "p5", "title": "Fenrir", "year": 2023, "style": "blackwork", "src": "/images/portfolio/p5.svg", "alt": "Wolf head in heavy blackwork with ornamental border" },
-    { "id": "p6", "title": "Ornamental band", "year": 2024, "style": "ornament", "src": "/images/portfolio/p6.svg", "alt": "Ornamental knotwork band around a bicep" }
+    {
+      "id": "p1",
+      "title": "Yggdrasil sleeve",
+      "year": 2026,
+      "style": "blackwork",
+      "src": "/images/portfolio/p1.svg",
+      "alt": "Blackwork sleeve depicting the world tree with knotwork roots"
+    },
+    {
+      "id": "p2",
+      "title": "Vegvísir",
+      "year": 2026,
+      "style": "linework",
+      "src": "/images/portfolio/p2.svg",
+      "alt": "Linework rendering of the Icelandic Vegvísir compass"
+    },
+    {
+      "id": "p3",
+      "title": "Hrafn",
+      "year": 2025,
+      "style": "blackwork",
+      "src": "/images/portfolio/p3.svg",
+      "alt": "Stylised raven in dense blackwork on a forearm"
+    },
+    {
+      "id": "p4",
+      "title": "Runebound forearm",
+      "year": 2026,
+      "style": "lettering",
+      "src": "/images/portfolio/p4.svg",
+      "alt": "Runic inscription wrapping around a forearm"
+    },
+    {
+      "id": "p5",
+      "title": "Fenrir",
+      "year": 2025,
+      "style": "blackwork",
+      "src": "/images/portfolio/p5.svg",
+      "alt": "Wolf head in heavy blackwork with ornamental border"
+    },
+    {
+      "id": "p6",
+      "title": "Ornamental band",
+      "year": 2026,
+      "style": "ornament",
+      "src": "/images/portfolio/p6.svg",
+      "alt": "Ornamental knotwork band around a bicep"
+    }
   ]
 }

@@ -20,12 +20,12 @@ export const AftercareTease = () => {
             <div className="mono mb-6 text-(--bone-fade)">Before</div>
             <h3 className="display mb-6 text-3xl">{aftercare.before.title}</h3>
             <ul className="space-y-4">
-              {previewItems.map((it) => (
-                <li key={it.k} className="flex gap-4 text-(--bone-warm)">
+              {previewItems.map(({ title, text }) => (
+                <li key={title} className="flex gap-4 text-(--bone-warm)">
                   <span className="mono shrink-0 pt-1 text-(--blood-bright)">ᛏ</span>
                   <span>
-                    <span className="display block text-lg text-(--bone-paper)">{it.k}</span>
-                    <span className="text-sm">{it.v}</span>
+                    <span className="display block text-lg text-(--bone-paper)">{title}</span>
+                    <span className="text-sm">{text}</span>
                   </span>
                 </li>
               ))}
@@ -36,20 +36,20 @@ export const AftercareTease = () => {
             <div className="mono mb-6 text-(--bone-fade)">After</div>
             <h3 className="display mb-6 text-3xl">{aftercare.after.title}</h3>
             <ol className="space-y-6">
-              {previewPhases.map((p, i) => (
-                <li key={p.label} className="flex gap-4">
+              {previewPhases.map((phase, index) => (
+                <li key={phase.label} className="flex gap-4">
                   <span className="mono shrink-0 pt-1 text-(--blood-bright)">
-                    {String(i + 1).padStart(2, "0")}
+                    {String(index + 1).padStart(2, "0")}
                   </span>
                   <span>
-                    <span className="display block text-lg text-(--bone-paper)">{p.label}</span>
+                    <span className="display block text-lg text-(--bone-paper)">{phase.label}</span>
                     <span className="text-sm text-(--bone-warm)">
-                      {p.body.map((segment, index) =>
+                      {phase.body.map((segment, segmentIndex) =>
                         typeof segment === "string" ? (
                           segment
                         ) : (
                           <a
-                            key={index}
+                            key={segmentIndex}
                             href={segment.href}
                             target="_blank"
                             rel="noreferrer"

@@ -31,9 +31,7 @@ export const Nav = () => {
             aria-label={`${site.artist.name} home`}
           >
             {site.artist.firstName}{" "}
-            <span className="text-(--blood-bright)">
-              {site.artist.lastName}
-            </span>
+            <span className="text-(--blood-bright)">{site.artist.lastName}</span>
           </Link>
           <span className="mono hidden md:inline text-[10px] tracking-[0.4em] text-(--bone-fade)">
             ᛏ {site.artist.studio} · {site.artist.studioCity}
@@ -49,7 +47,7 @@ export const Nav = () => {
         <button
           aria-label="Menu"
           aria-expanded={isOpen}
-          onClick={() => setIsOpen((v) => !v)}
+          onClick={() => setIsOpen((isOpen) => !isOpen)}
           className="relative h-10 w-10 md:hidden"
         >
           <span
@@ -72,26 +70,26 @@ export const Nav = () => {
         }`}
       >
         <nav className="flex flex-col gap-1 px-6 py-4">
-          {site.navLinks.map((l) =>
-            l.cta ? (
+          {site.navLinks.map(({ href, label, cta }) =>
+            cta ? (
               <CtaButton
-                key={l.href}
-                href={l.href}
+                key={href}
+                href={href}
                 onClick={() => setIsOpen(false)}
                 className="mt-2 self-start px-5 py-2"
               >
-                {l.label}
+                {label}
               </CtaButton>
             ) : (
               <a
-                key={l.href}
-                href={l.href}
+                key={href}
+                href={href}
                 onClick={() => setIsOpen(false)}
                 className="py-3 text-2xl display border-b border-white/5 last:border-0"
               >
-                {l.label}
+                {label}
               </a>
-            )
+            ),
           )}
         </nav>
       </div>
@@ -99,7 +97,15 @@ export const Nav = () => {
   );
 };
 
-const NavLink = ({ href, label, isCta }: { href: string; label: string; isCta: boolean }): React.ReactElement => {
+const NavLink = ({
+  href,
+  label,
+  isCta,
+}: {
+  href: string;
+  label: string;
+  isCta: boolean;
+}): React.ReactElement => {
   const isAnchor = href.startsWith("/#");
 
   if (isCta) {
@@ -112,10 +118,7 @@ const NavLink = ({ href, label, isCta }: { href: string; label: string; isCta: b
 
   if (isAnchor) {
     return (
-      <a
-        href={href}
-        className="mono link-underline text-(--bone-paper) hover:text-(--bone-paper)"
-      >
+      <a href={href} className="mono link-underline text-(--bone-paper) hover:text-(--bone-paper)">
         {label}
       </a>
     );
