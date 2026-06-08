@@ -6,13 +6,11 @@ import site from "@content/site.json";
 import { Nav } from "~/components/Nav";
 import { Footer } from "~/components/Footer";
 import { RevealMounter } from "~/components/RevealMounter";
-import { ParallaxTendrils } from "~/components/ParallaxTendrils";
 import { NotFound } from "~/components/NotFound";
 
 const RootComponent = () => (
   <>
     <RevealMounter />
-    <ParallaxTendrils />
     <Nav />
     <main className="flex flex-1 flex-col">
       <Outlet />
