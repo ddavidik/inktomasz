@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import aftercare from "@content/aftercare.json";
 import site from "@content/site.json";
 import { PageHeader } from "~/components/PageHeader";
@@ -129,15 +129,16 @@ const AftercarePage = () => (
       </section>
 
       <div className="mx-auto mt-24 max-w-350 px-6 md:px-10">
-        <a
-          href="/#inquire"
+        <Link
+          to="/"
+          hash="inquire"
           className="mono group inline-flex items-center gap-3 border border-(--bone-paper)/30 px-7 py-4 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
         >
           Ready to book a session
           <span aria-hidden className="transition-transform group-hover:translate-x-1">
             →
           </span>
-        </a>
+        </Link>
       </div>
     </article>
   </>

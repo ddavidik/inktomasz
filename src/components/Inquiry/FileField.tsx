@@ -27,6 +27,7 @@ export const FileField = ({
   ...props
 }: Props) => {
   const [files, setFiles] = useState<File[]>([]);
+  const [sizeError, setSizeError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -39,6 +40,13 @@ export const FileField = ({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newFiles = Array.from(e.target.files ?? []);
+    const oversized = newFiles.some((f) => f.size > 8_388_608);
+    if (oversized) {
+      setSizeError("File exceeds 8 MB");
+      if (inputRef.current) inputRef.current.value = "";
+      return;
+    }
+    setSizeError(null);
     setFiles((prev) => {
       const next = multiple ? [...prev, ...newFiles] : newFiles.slice(0, 1);
       onChange?.(filesToFileList(next));
@@ -47,6 +55,7 @@ export const FileField = ({
   };
 
   const removeFile = (index: number) => {
+    setSizeError(null);
     setFiles((prev) => {
       const updated = prev.filter((_, i) => i !== index);
       onChange?.(filesToFileList(updated));
@@ -55,6 +64,7 @@ export const FileField = ({
   };
 
   const clearAllFiles = () => {
+    setSizeError(null);
     setFiles([]);
     onChange?.(filesToFileList([]));
     if (inputRef.current) {
@@ -133,6 +143,9 @@ export const FileField = ({
           <span className="text-(--bone-fade)">{multiple ? "Choose files…" : "Choose a file…"}</span>
         )}
       </div>
+      {sizeError && (
+        <p className="mono mt-1 text-[10px] text-(--blood-bright)">{sizeError}</p>
+      )}
     </label>
   );
 };

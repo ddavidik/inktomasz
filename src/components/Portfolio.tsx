@@ -31,6 +31,7 @@ export const Portfolio = () => (
         {portfolio.pieces.map(({ id, src, alt, title, style, year, width, height }) => (
           <figure
             key={id}
+            suppressHydrationWarning
             className="reveal group relative mb-6 break-inside-avoid overflow-hidden border border-white/5 bg-(--ink-iron)"
           >
             <img

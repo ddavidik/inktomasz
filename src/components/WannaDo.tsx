@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import wannado from "@content/wannado.json";
 import { SectionHeader } from "~/components/SectionHeader";
 import { CtaButton } from "~/components/CtaButton";
@@ -54,6 +55,7 @@ export const WannaDo = () => {
           {filtered.map(({ id, alt, src, title, tags, width, height }) => (
             <figure
               key={id}
+              suppressHydrationWarning
               className="reveal group relative flex flex-col overflow-hidden border border-white/5 bg-(--ink-iron)"
             >
               <div className="relative overflow-hidden">
@@ -75,8 +77,9 @@ export const WannaDo = () => {
                   </div>
                 </div>
               </div>
-              <a
-                href="#inquire"
+              <Link
+                to="/"
+                hash="inquire"
                 onClick={() => pickIdea(id, title)}
                 className="mono group/btn flex items-center justify-between gap-2 border-t border-white/5 bg-(--ink-stone) px-4 py-3 text-[10px] text-(--bone-paper) transition-colors hover:bg-(--blood-bright)/10 hover:text-(--blood-bright)"
               >
@@ -84,7 +87,7 @@ export const WannaDo = () => {
                 <span aria-hidden className="transition-transform group-hover/btn:translate-x-1">
                   →
                 </span>
-              </a>
+              </Link>
             </figure>
           ))}
         </div>

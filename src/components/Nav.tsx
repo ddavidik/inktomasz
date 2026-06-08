@@ -70,8 +70,9 @@ export const Nav = () => {
         }`}
       >
         <nav className="flex flex-col gap-1 px-6 py-4">
-          {site.navLinks.map(({ href, label, cta }) =>
-            cta ? (
+          {site.navLinks.map(({ href, label, cta }) => {
+            const { to, hash } = parseHref(href);
+            return cta ? (
               <CtaButton
                 key={href}
                 href={href}
@@ -81,20 +82,30 @@ export const Nav = () => {
                 {label}
               </CtaButton>
             ) : (
-              <a
+              <Link
                 key={href}
-                href={href}
+                to={to}
+                hash={hash}
                 onClick={() => setIsOpen(false)}
                 className="py-3 text-2xl display border-b border-white/5 last:border-0"
               >
                 {label}
-              </a>
-            ),
-          )}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </header>
   );
+};
+
+/** Parse "/#portfolio" → { to: "/", hash: "portfolio" }
+ *  Parse "/about"      → { to: "/about", hash: undefined } */
+const parseHref = (href: string) => {
+  const hashIdx = href.indexOf("#");
+  const to = hashIdx > 0 ? href.slice(0, hashIdx) : hashIdx === 0 ? "/" : href;
+  const hash = hashIdx !== -1 ? href.slice(hashIdx + 1) : undefined;
+  return { to, hash };
 };
 
 const NavLink = ({
@@ -106,8 +117,6 @@ const NavLink = ({
   label: string;
   isCta: boolean;
 }): React.ReactElement => {
-  const isAnchor = href.startsWith("/#");
-
   if (isCta) {
     return (
       <CtaButton href={href} className="px-4 py-2">
@@ -116,20 +125,12 @@ const NavLink = ({
     );
   }
 
-  if (isAnchor) {
-    return (
-      <a
-        href={href}
-        className="mono link-underline whitespace-nowrap text-(--bone-paper) hover:text-(--bone-paper)"
-      >
-        {label}
-      </a>
-    );
-  }
+  const { to, hash } = parseHref(href);
 
   return (
     <Link
-      to={href}
+      to={to}
+      hash={hash}
       className="mono link-underline whitespace-nowrap text-(--bone-paper)"
       activeProps={{ className: "text-(--blood-bright)" }}
     >

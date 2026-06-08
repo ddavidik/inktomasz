@@ -1,4 +1,5 @@
 import aftercare from "@content/aftercare.json";
+import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "~/components/SectionHeader";
 
 export const AftercareTease = () => {
@@ -68,15 +69,15 @@ export const AftercareTease = () => {
         </div>
 
         <div className="mt-10 flex justify-end">
-          <a
-            href="/aftercare"
+          <Link
+            to="/aftercare"
             className="mono group inline-flex items-center gap-3 border-b border-(--bone-fade) pb-2 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
           >
             Full before &amp; aftercare guide
             <span aria-hidden className="transition-transform group-hover:translate-x-1">
               →
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
