@@ -8,7 +8,9 @@
       "year": 2026,
       "style": "blackwork",
       "src": "/images/portfolio/p1.svg",
-      "alt": "Blackwork sleeve depicting the world tree with knotwork roots"
+      "alt": "Blackwork sleeve depicting the world tree with knotwork roots",
+      "width": 800,
+      "height": 1100
     },
     {
       "id": "p2",
@@ -16,7 +18,9 @@
       "year": 2026,
       "style": "linework",
       "src": "/images/portfolio/p2.svg",
-      "alt": "Linework rendering of the Icelandic Vegvísir compass"
+      "alt": "Linework rendering of the Icelandic Vegvísir compass",
+      "width": 800,
+      "height": 900
     },
     {
       "id": "p3",
@@ -24,7 +28,9 @@
       "year": 2025,
       "style": "blackwork",
       "src": "/images/portfolio/p3.svg",
-      "alt": "Stylised raven in dense blackwork on a forearm"
+      "alt": "Stylised raven in dense blackwork on a forearm",
+      "width": 800,
+      "height": 1000
     },
     {
       "id": "p4",
@@ -32,7 +38,9 @@
       "year": 2026,
       "style": "lettering",
       "src": "/images/portfolio/p4.svg",
-      "alt": "Runic inscription wrapping around a forearm"
+      "alt": "Runic inscription wrapping around a forearm",
+      "width": 800,
+      "height": 1300
     },
     {
       "id": "p5",
@@ -40,7 +48,9 @@
       "year": 2025,
       "style": "blackwork",
       "src": "/images/portfolio/p5.svg",
-      "alt": "Wolf head in heavy blackwork with ornamental border"
+      "alt": "Wolf head in heavy blackwork with ornamental border",
+      "width": 800,
+      "height": 950
     },
     {
       "id": "p6",
@@ -48,7 +58,9 @@
       "year": 2026,
       "style": "ornament",
       "src": "/images/portfolio/p6.svg",
-      "alt": "Ornamental knotwork band around a bicep"
+      "alt": "Ornamental knotwork band around a bicep",
+      "width": 800,
+      "height": 1050
     }
   ]
 }

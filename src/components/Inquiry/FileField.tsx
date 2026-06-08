@@ -40,9 +40,9 @@ export const FileField = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newFiles = Array.from(e.target.files ?? []);
     setFiles((prev) => {
-      const merged = [...prev, ...newFiles];
-      onChange?.(filesToFileList(merged));
-      return merged;
+      const next = multiple ? [...prev, ...newFiles] : newFiles.slice(0, 1);
+      onChange?.(filesToFileList(next));
+      return next;
     });
   };
 
@@ -84,21 +84,31 @@ export const FileField = ({
         }}
         tabIndex={0}
         role="button"
-        aria-label={files.length > 0 ? `${files.length} files selected` : "Choose files"}
+        aria-label={
+          files.length > 0
+            ? multiple
+              ? `${files.length} files selected`
+              : (files[0]?.name ?? "1 file selected")
+            : multiple
+              ? "Choose files"
+              : "Choose a file"
+        }
       >
         {files.length > 0 ? (
           <>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                clearAllFiles();
-              }}
-              className="mono mb-1 self-end text-[10px] text-(--bone-fade) hover:text-(--blood-bright) cursor-pointer"
-              aria-label="Clear all files"
-            >
-              Clear all
-            </button>
+            {multiple && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  clearAllFiles();
+                }}
+                className="mono mb-1 self-end text-[10px] text-(--bone-fade) hover:text-(--blood-bright) cursor-pointer"
+                aria-label="Clear all files"
+              >
+                Clear all
+              </button>
+            )}
             {files.map((file, i) => (
               <div
                 key={`${file.name}-${file.lastModified}-${i}`}
@@ -120,7 +130,7 @@ export const FileField = ({
             ))}
           </>
         ) : (
-          <span className="text-(--bone-fade)">Choose files…</span>
+          <span className="text-(--bone-fade)">{multiple ? "Choose files…" : "Choose a file…"}</span>
         )}
       </div>
     </label>

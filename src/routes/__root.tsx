@@ -54,16 +54,6 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Fraunces:opsz,wght,SOFT@9..144,300..900,30..100&family=JetBrains+Mono:wght@400;500&display=swap",
-      },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
   }),

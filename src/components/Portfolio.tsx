@@ -28,7 +28,7 @@ export const Portfolio = () => (
       </div>
 
       <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [column-fill:balance]">
-        {portfolio.pieces.map(({ id, src, alt, title, style, year }) => (
+        {portfolio.pieces.map(({ id, src, alt, title, style, year, width, height }) => (
           <figure
             key={id}
             className="reveal group relative mb-6 break-inside-avoid overflow-hidden border border-white/5 bg-(--ink-iron)"
@@ -36,6 +36,8 @@ export const Portfolio = () => (
             <img
               src={src}
               alt={alt}
+              width={width}
+              height={height}
               loading="lazy"
               className="block w-full transition-transform duration-1200 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
             />
