@@ -46,6 +46,7 @@ DESIGN.md       # design system reference
 
 - **Always use Context7 MCP** when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask
 - **Language**: write code comments and developer-facing log/debug messages (for example `console.log`/`console.error`) in **English**;
+- **Instead of npx** use bunx.
 
 ## Coding Behavior
 

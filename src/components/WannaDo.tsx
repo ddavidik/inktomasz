@@ -38,7 +38,7 @@ export const WannaDo = () => {
               <button
                 key={tag}
                 onClick={() => setActive(tag)}
-                className={`mono border px-4 py-2 transition-colors ${
+                className={`mono border px-4 py-2 transition-colors cursor-pointer ${
                   isOn
                     ? "border-(--blood-bright) bg-(--blood-bright)/10 text-(--bone-paper)"
                     : "border-white/10 text-(--bone-fade) hover:border-white/40 hover:text-(--bone-paper)"
