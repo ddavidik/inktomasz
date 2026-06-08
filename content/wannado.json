@@ -8,56 +8,72 @@
       "title": "Stag of the longwinter",
       "tags": ["blackwork"],
       "src": "/images/wannado/w1.svg",
-      "alt": "Concept sketch of a stag with ornamental antlers"
+      "alt": "Concept sketch of a stag with ornamental antlers",
+      "width": 800,
+      "height": 1000
     },
     {
       "id": "w2",
       "title": "Knotwork chestpiece",
       "tags": ["ornament"],
       "src": "/images/wannado/w2.svg",
-      "alt": "Symmetrical knotwork chestpiece concept"
+      "alt": "Symmetrical knotwork chestpiece concept",
+      "width": 800,
+      "height": 900
     },
     {
       "id": "w3",
       "title": "Younger Futhark band",
       "tags": ["lettering"],
       "src": "/images/wannado/w3.svg",
-      "alt": "Younger Futhark runic band concept"
+      "alt": "Younger Futhark runic band concept",
+      "width": 800,
+      "height": 1200
     },
     {
       "id": "w4",
       "title": "Crow & sigil",
       "tags": ["linework", "demonic"],
       "src": "/images/wannado/w4.svg",
-      "alt": "Linework crow perched on a sigil"
+      "alt": "Linework crow perched on a sigil",
+      "width": 800,
+      "height": 1050
     },
     {
       "id": "w5",
       "title": "Mjölnir reimagined",
       "tags": ["blackwork", "ornament"],
       "src": "/images/wannado/w5.svg",
-      "alt": "Mjölnir reimagined with dense ornament"
+      "alt": "Mjölnir reimagined with dense ornament",
+      "width": 800,
+      "height": 950
     },
     {
       "id": "w6",
       "title": "Wolfshead medallion",
       "tags": ["blackwork"],
       "src": "/images/wannado/w6.svg",
-      "alt": "Circular medallion with a wolf head"
+      "alt": "Circular medallion with a wolf head",
+      "width": 800,
+      "height": 1100
     },
     {
       "id": "w7",
       "title": "Baphomet vesica",
       "tags": ["demonic", "blackwork"],
       "src": "/images/wannado/w7.svg",
-      "alt": "Baphomet head inside a vesica piscis frame"
+      "alt": "Baphomet head inside a vesica piscis frame",
+      "width": 800,
+      "height": 1080
     },
     {
       "id": "w8",
       "title": "Goetic seal sleeve",
       "tags": ["demonic", "ornament"],
       "src": "/images/wannado/w8.svg",
-      "alt": "Goetic seal arranged as a sleeve composition"
+      "alt": "Goetic seal arranged as a sleeve composition",
+      "width": 800,
+      "height": 970
     }
   ]
 }

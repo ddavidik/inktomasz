@@ -51,7 +51,7 @@ export const WannaDo = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
-          {filtered.map(({ id, alt, src, title, tags }) => (
+          {filtered.map(({ id, alt, src, title, tags, width, height }) => (
             <figure
               key={id}
               className="reveal group relative flex flex-col overflow-hidden border border-white/5 bg-(--ink-iron)"
@@ -60,6 +60,8 @@ export const WannaDo = () => {
                 <img
                   src={src}
                   alt={alt}
+                  width={width}
+                  height={height}
                   loading="lazy"
                   className="block aspect-4/5 w-full object-cover transition-transform duration-1200 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
                 />
