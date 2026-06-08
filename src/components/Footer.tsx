@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import site from "@content/site.json";
 
 export const Footer = () => (
@@ -47,19 +48,19 @@ export const Footer = () => (
         <div className="mono mb-3">Read</div>
         <ul className="space-y-1.5 text-(--bone-warm)">
           <li>
-            <a href="/about" className="link-underline">
+            <Link to="/about" className="link-underline">
               About Tomasz
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/aftercare" className="link-underline">
+            <Link to="/aftercare" className="link-underline">
               Before &amp; aftercare
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/#inquire" className="link-underline">
+            <Link to="/" hash="inquire" className="link-underline">
               Inquire
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

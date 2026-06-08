@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import about from "@content/about.json";
 import site from "@content/site.json";
 import { PageHeader } from "~/components/PageHeader";
@@ -46,18 +46,19 @@ const AboutPage = () => (
       <div className="mx-auto mt-32 max-w-350 px-6 md:px-10">
         <div className="rune-rule mono">ᛟ</div>
         <div className="mt-12 flex flex-wrap gap-6">
-          <a
-            href="/#inquire"
+          <Link
+            to="/"
+            hash="inquire"
             className="mono group inline-flex items-center gap-3 border border-(--bone-paper)/30 px-7 py-4 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
           >
             Start an inquiry
             <span aria-hidden className="transition-transform group-hover:translate-x-1">
               →
             </span>
-          </a>
-          <a href="/#portfolio" className="mono link-underline self-center text-(--bone-warm)">
+          </Link>
+          <Link to="/" hash="portfolio" className="mono link-underline self-center text-(--bone-warm)">
             Or browse the work
-          </a>
+          </Link>
         </div>
       </div>
     </article>

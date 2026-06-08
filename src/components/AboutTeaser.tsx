@@ -1,4 +1,5 @@
 import about from "@content/about.json";
+import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "~/components/SectionHeader";
 
 export const AboutTeaser = () => (
@@ -16,15 +17,15 @@ export const AboutTeaser = () => (
         <p className="serif-tight reveal text-pretty text-2xl leading-snug text-(--bone-warm) md:text-3xl">
           {about.teaser.lead}
         </p>
-        <a
-          href="/about"
+        <Link
+          to="/about"
           className="mono group mt-10 inline-flex items-center gap-3 border-b border-(--bone-fade) pb-2 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
         >
           Read the full story
           <span aria-hidden className="transition-transform group-hover:translate-x-1">
             →
           </span>
-        </a>
+        </Link>
       </div>
     </div>
   </section>
