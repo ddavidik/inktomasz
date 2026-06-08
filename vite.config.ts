@@ -15,13 +15,12 @@ export default defineConfig({
         enabled: true,
         crawlLinks: true,
         autoSubfolderIndex: true,
+        autoStaticPathsDiscovery: true,
         failOnError: false,
+        onSuccess: ({ page }) => {
+          console.log(`Rendered ${page.path}!`);
+        },
       },
-      pages: [
-        { path: "/", prerender: { enabled: true } },
-        { path: "/about", prerender: { enabled: true } },
-        { path: "/aftercare", prerender: { enabled: true } },
-      ],
     }),
     viteReact(),
   ],
