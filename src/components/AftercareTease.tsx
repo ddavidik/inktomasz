@@ -1,6 +1,7 @@
 import aftercare from "@content/aftercare.json";
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "~/components/SectionHeader";
+import { FormattedText } from "~/components/FormattedText";
 
 export const AftercareTease = () => {
   const previewItems = aftercare.before.items.slice(0, 3);
@@ -45,21 +46,7 @@ export const AftercareTease = () => {
                   <span>
                     <span className="display block text-lg text-(--bone-paper)">{phase.label}</span>
                     <span className="text-sm text-(--bone-warm)">
-                      {phase.body.map((segment, segmentIndex) =>
-                        typeof segment === "string" ? (
-                          segment
-                        ) : (
-                          <a
-                            key={segmentIndex}
-                            href={segment.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="link-underline font-bold text-(--bone-paper)"
-                          >
-                            {segment.text}
-                          </a>
-                        ),
-                      )}
+                      <FormattedText segments={phase.body} />
                     </span>
                   </span>
                 </li>

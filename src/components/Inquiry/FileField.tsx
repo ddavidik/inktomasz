@@ -1,5 +1,6 @@
-import type { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes } from "react";
+import type { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent, MouseEvent, RefObject } from "react";
 import { useState, useRef, useEffect } from "react";
+import clsx from "clsx";
 
 type Props = {
   label: string;
@@ -17,6 +18,29 @@ const filesToFileList = (files: File[]): FileList => {
   files.forEach((file) => dt.items.add(file));
   return dt.files;
 };
+
+const handleKeyDown =
+  (inputRef: RefObject<HTMLInputElement | null>) =>
+  (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      inputRef.current?.click();
+    }
+  };
+
+const handleClearAll =
+  (clearAllFiles: () => void) =>
+  (e: MouseEvent) => {
+    e.stopPropagation();
+    clearAllFiles();
+  };
+
+const handleRemoveFile =
+  (removeFile: (i: number) => void, index: number) =>
+  (e: MouseEvent) => {
+    e.stopPropagation();
+    removeFile(index);
+  };
 
 export const FileField = ({
   label,
@@ -85,13 +109,11 @@ export const FileField = ({
         {...props}
       />
       <div
-        className={`flex flex-col gap-0.5 w-full bg-transparent serif-tight pt-1 text-lg text-(--bone-paper) outline-none placeholder:text-(--bone-fade) scheme:dark text-left px-0 cursor-pointer focus:outline-2 focus:outline-(--blood-bright) ${className ?? ""}`}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            inputRef.current?.click();
-          }
-        }}
+        className={clsx(
+          "flex flex-col gap-0.5 w-full bg-transparent serif-tight pt-1 text-lg text-(--bone-paper) outline-none placeholder:text-(--bone-fade) scheme:dark text-left px-0 cursor-pointer focus:outline-2 focus:outline-(--blood-bright)",
+          className,
+        )}
+        onKeyDown={handleKeyDown(inputRef)}
         tabIndex={0}
         role="button"
         aria-label={
@@ -109,10 +131,7 @@ export const FileField = ({
             {multiple && (
               <button
                 type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  clearAllFiles();
-                }}
+                onClick={handleClearAll(clearAllFiles)}
                 className="mono mb-1 self-end text-[10px] text-(--bone-fade) hover:text-(--blood-bright) cursor-pointer"
                 aria-label="Clear all files"
               >
@@ -127,10 +146,7 @@ export const FileField = ({
                 <span className="truncate">{file.name}</span>
                 <button
                   type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    removeFile(i);
-                  }}
+                  onClick={handleRemoveFile(removeFile, i)}
                   className="mono text-base leading-none cursor-pointer text-(--bone-fade) hover:text-(--blood-bright)"
                   aria-label={`Remove ${file.name}`}
                 >
@@ -140,12 +156,12 @@ export const FileField = ({
             ))}
           </>
         ) : (
-          <span className="text-(--bone-fade)">{multiple ? "Choose files…" : "Choose a file…"}</span>
+          <span className="text-(--bone-fade)">
+            {multiple ? "Choose files…" : "Choose a file…"}
+          </span>
         )}
       </div>
-      {sizeError && (
-        <p className="mono mt-1 text-[10px] text-(--blood-bright)">{sizeError}</p>
-      )}
+      {sizeError && <p className="mono mt-1 text-[10px] text-(--blood-bright)">{sizeError}</p>}
     </label>
   );
 };

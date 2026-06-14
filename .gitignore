@@ -10,3 +10,4 @@ dist
 .netlify
 src/routeTree.gen.ts
 .bun
+.env

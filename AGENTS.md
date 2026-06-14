@@ -47,6 +47,9 @@ DESIGN.md       # design system reference
 - **Always use Context7 MCP** when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask
 - **Language**: write code comments and developer-facing log/debug messages (for example `console.log`/`console.error`) in **English**;
 - **Instead of npx** use bunx.
+- Use **type** instead of **interface** for type definitions.
+- Do **not** use `any` types.
+- Do **not** write "use client" on top of files, as this is TanstackStart, not Next.js project.
 
 ## Coding Behavior
 
@@ -76,6 +79,14 @@ DESIGN.md       # design system reference
 ## Code standards
 
 Reference ./code-standards.md for code standards.
+
+### Additional code rules
+
+1. **Single-statement control flow** — Omit curly braces for `if`/`else` with only one statement. `if (x) return null` not `if (x) { return null; }`.
+2. **Event handler extraction** — Extract inline event handlers (e.g. `onClick`, `onKeyDown`) into named module-scope factory functions. Never define anonymous arrow functions inline in JSX props.
+3. **Type extraction** — Extract all inline type definitions into standalone `type` declarations. No ad-hoc object shapes in `.map()` callbacks.
+4. **Direct type imports** — Import types directly from `react` (e.g. `import { type ReactNode } from "react"`). Never use `React.ReactNode`, `React.TouchEvent`, etc.
+5. **Component modularization** — One component per file. No multiple `export`ed components from a single file. Split into separate files.
 
 ## MVP+ backlog (do NOT build yet unless asked)
 

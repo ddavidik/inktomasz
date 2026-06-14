@@ -15,7 +15,10 @@
       },
       {
         "title": "The North",
-        "body": "The pivot came through runes. Norse carving — stripped back, all line, no gradient — demanded a different kind of attention. The opposite of realism: symbolic, blunt, built for stone and permanence. His nordic period lasted years and became the spine of what he still does: the geometry, the weight, the reverence for marks that were made to outlast the hand that made them."
+        "body": "The pivot came through runes. Norse carving — stripped back, all line, no gradient — demanded a different kind of attention. The opposite of realism: symbolic, blunt, built for stone and permanence. His nordic period lasted years and became the spine of what he still does: the geometry, the weight, the reverence for marks that were made to outlast the hand that made them.",
+        "image": "/images/about/sideshot.jpg",
+        "imageAlt": "Tomasz Górnicki at work — ring light above, machine in hand, focused",
+        "imageSide": "right"
       },
       {
         "title": "The Descent",
@@ -23,7 +26,17 @@
       },
       {
         "title": "Studio",
-        "body": "Tomasz works out of Der Grimm Tattoo in Berlin. Private chair, by appointment only. No walk-ins. The sketchy style is fast by nature — a full back piece in a single session is not unusual. His process: lay the base with magnums, apply Angel Drops before the detail pass, keep the machine moving until it's done. Sterile, single-use, and as quiet or talkative as you need it to be."
+        "body": [
+          "Tomasz works out of ",
+          {
+            "text": "Der Grimm Tattoo",
+            "href": "https://dergrimm.com/"
+          },
+          " in Berlin. Private chair, by appointment only. No walk-ins. The sketchy style is fast by nature — a full back piece in a single session is not unusual. His process: lay the base with magnums, apply Angel Drops before the detail pass, keep the machine moving until it's done."
+        ],
+        "image": "/images/about/studio.jpg",
+        "imageAlt": "Der Grimm Tattoo — Berlin studio",
+        "imageSide": "left"
       }
     ]
   }
