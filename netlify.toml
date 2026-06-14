@@ -4,3 +4,7 @@ publish = "dist/client"
 
 [build.environment]
 NODE_VERSION = "24"
+
+[dev]
+command = "bun run dev"
+targetPort = 3000

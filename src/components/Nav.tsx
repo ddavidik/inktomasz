@@ -1,27 +1,47 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { useEffect, useState, type ReactElement, type MouseEvent, type Dispatch, type SetStateAction } from "react";
+import { Link, useRouterState } from "@tanstack/react-router";
+import clsx from "clsx";
 import site from "@content/site.json";
-import { CtaButton } from "./CtaButton";
+import { CtaLink } from "./CtaLink";
+import { parseHref } from "~/lib/href";
+import { scrollToHash, scrollToHashDelayed } from "~/lib/scroll-to-hash";
+
+const handleScroll = (setIsScrolled: (v: boolean) => void) => () =>
+  setIsScrolled(window.scrollY > 24);
+
+const toggleOpen = (setIsOpen: Dispatch<SetStateAction<boolean>>) => () =>
+  setIsOpen((prev) => !prev);
+
+const closeMobileMenu = (setIsOpen: Dispatch<SetStateAction<boolean>>) => () =>
+  setIsOpen(false);
+
+const handleMobileNavClick =
+  (setIsOpen: Dispatch<SetStateAction<boolean>>, hash: string | undefined) =>
+  (_e: MouseEvent) => {
+    setIsOpen(false);
+    if (hash) scrollToHashDelayed(hash, 320);
+  };
 
 export const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const onScrollHandler = handleScroll(setIsScrolled);
+    onScrollHandler();
+    window.addEventListener("scroll", onScrollHandler, { passive: true });
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScrollHandler);
   }, []);
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color] duration-500 ${
+      className={clsx(
+        "fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color] duration-500",
         isScrolled
           ? "bg-(--ink-void)/80 backdrop-blur-md border-b border-white/5"
-          : "bg-transparent border-b border-transparent"
-      }`}
+          : "bg-transparent border-b border-transparent",
+      )}
     >
       <div className="mx-auto flex max-w-350 items-center justify-between px-6 py-4 lg:px-10">
         <div className="flex items-baseline gap-2 text-(--bone-paper)">
@@ -47,46 +67,50 @@ export const Nav = () => {
         <button
           aria-label="Menu"
           aria-expanded={isOpen}
-          onClick={() => setIsOpen((isOpen) => !isOpen)}
-          className="relative h-10 w-10 md:hidden"
+          onClick={toggleOpen(setIsOpen)}
+          className="relative size-11 md:hidden"
         >
           <span
-            className={`absolute left-2 top-4 h-px w-6 bg-(--bone-paper) transition-transform duration-300 ${
-              isOpen ? "translate-y-1 rotate-45" : ""
-            }`}
+            className={clsx(
+              "absolute left-2 top-4 h-px w-6 bg-(--bone-paper) transition-transform duration-300",
+              isOpen && "translate-y-1 rotate-45",
+            )}
           />
           <span
-            className={`absolute left-2 top-6 h-px w-6 bg-(--bone-paper) transition-transform duration-300 ${
-              isOpen ? "-translate-y-1 -rotate-45" : ""
-            }`}
+            className={clsx(
+              "absolute left-2 top-6 h-px w-6 bg-(--bone-paper) transition-transform duration-300",
+              isOpen && "-translate-y-1 -rotate-45",
+            )}
           />
         </button>
       </div>
 
       {/* mobile sheet */}
       <div
-        className={`md:hidden overflow-hidden border-t border-white/5 bg-(--ink-pitch)/95 backdrop-blur-md transition-[max-height,opacity] duration-500 ${
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={clsx(
+          "md:hidden overflow-hidden border-t border-white/5 bg-(--ink-pitch)/95 backdrop-blur-md transition-[max-height,opacity] duration-500",
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
+        )}
       >
         <nav className="flex flex-col gap-1 px-6 py-4">
           {site.navLinks.map(({ href, label, cta }) => {
             const { to, hash } = parseHref(href);
+
             return cta ? (
-              <CtaButton
+              <CtaLink
                 key={href}
                 href={href}
-                onClick={() => setIsOpen(false)}
+                onClick={closeMobileMenu(setIsOpen)}
                 className="mt-2 self-start px-5 py-2"
               >
                 {label}
-              </CtaButton>
+              </CtaLink>
             ) : (
               <Link
                 key={href}
                 to={to}
                 hash={hash}
-                onClick={() => setIsOpen(false)}
+                onClick={handleMobileNavClick(setIsOpen, hash)}
                 className="py-3 text-2xl display border-b border-white/5 last:border-0"
               >
                 {label}
@@ -99,40 +123,39 @@ export const Nav = () => {
   );
 };
 
-/** Parse "/#portfolio" → { to: "/", hash: "portfolio" }
- *  Parse "/about"      → { to: "/about", hash: undefined } */
-const parseHref = (href: string) => {
-  const hashIdx = href.indexOf("#");
-  const to = hashIdx > 0 ? href.slice(0, hashIdx) : hashIdx === 0 ? "/" : href;
-  const hash = hashIdx !== -1 ? href.slice(hashIdx + 1) : undefined;
-  return { to, hash };
-};
-
-const NavLink = ({
-  href,
-  label,
-  isCta,
-}: {
+type NavLinkProps = {
   href: string;
   label: string;
   isCta: boolean;
-}): React.ReactElement => {
-  if (isCta) {
+};
+
+const NavLink = ({ href, label, isCta }: NavLinkProps): ReactElement => {
+  const currentPath = useRouterState({ select: (s) => s.location.pathname });
+
+  if (isCta)
     return (
-      <CtaButton href={href} className="px-4 py-2">
+      <CtaLink href={href} className="px-4 py-2">
         {label}
-      </CtaButton>
+      </CtaLink>
     );
-  }
 
   const { to, hash } = parseHref(href);
+
+  const handleClick = (e: MouseEvent) => {
+    if (hash && currentPath === to) {
+      e.preventDefault();
+      scrollToHash(hash);
+    }
+  };
 
   return (
     <Link
       to={to}
       hash={hash}
+      onClick={handleClick}
       className="mono link-underline whitespace-nowrap text-(--bone-paper)"
-      activeProps={{ className: "text-(--blood-bright)" }}
+      activeProps={!hash ? { className: "text-(--blood-bright)", "aria-current": "page" as const } : { "aria-current": "page" as const }}
+      activeOptions={!hash ? undefined : { exact: false }}
     >
       {label}
     </Link>

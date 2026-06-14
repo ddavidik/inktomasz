@@ -1,0 +1,22 @@
+# Inktomasz — Tattoo Artist Portfolio
+
+Tomasz Górnicki (@inktomasz) — custom blackwork, nordic, and rune-inspired tattoos at Der Grimm Tattoo, Berlin. By appointment only.
+
+## Site structure
+- Home (`/`): Hero, Portfolio, Wanna-do ideas, Inquiry form
+- About (`/about`): Background, artistic evolution, studio info
+- Aftercare (`/aftercare`): Before/after tattoo care instructions
+
+## Key details
+- Location: Der Grimm Tattoo, Berlin (52.56°N, 13.46°E)
+- Style: Blackwork, linework, nordic ornament, rune compositions
+- Pricing: €700 half-day, €1,400 full day
+- Booking: ~8 weeks out, free consultation, no deposit until confirmed
+- Contact: Inquire form on site, Instagram @inktomasz, email tomassorr@gmail.com
+
+## Content files
+- `content/site.json`: Artist info, SEO, nav, pricing
+- `content/portfolio.json`: Portfolio pieces
+- `content/wannado.json`: Wanna-do flash ideas
+- `content/about.json`: Artist story chapters
+- `content/aftercare.json`: Care instructions

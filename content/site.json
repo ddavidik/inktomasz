@@ -7,13 +7,33 @@
     "location": "Berlin",
     "studio": "Der Grimm Tattoo",
     "studioCity": "Berlin",
-    "email": "hello@inktomasz.com",
+    "email": "tomassorr@gmail.com",
     "instagram": "https://instagram.com/inktomasz",
-    "tagline": "Ink etched in the old ways."
+    "facebook": "https://www.facebook.com/inktomasz/",
+    "tiktok": "https://www.tiktok.com/@inktomasz",
+    "tagline": "Custom blackwork & nordic-inspired tattoo artist in Berlin",
+    "siteUrl": "https://inktomasz.com",
+    "ogImage": "/images/about/mugshot.jpg"
+  },
+  "seo": {
+    "defaultTitle": "Tomasz Górnicki — Blackwork & Nordic Tattoo Artist in Berlin | Inktomasz",
+    "defaultDescription": "Tomasz Górnicki (@inktomasz) — custom blackwork, nordic, and rune-inspired tattoos at Der Grimm Tattoo, Berlin. Characters, creatures, and compositions for people who know something darker came before the gods. By appointment.",
+    "aboutTitle": "About Tomasz Górnicki — Blackwork Tattoo Artist in Berlin | Inktomasz",
+    "aboutDescription": "Meet Tomasz Górnicki, a tattoo artist working out of Der Grimm Tattoo in Berlin. Polish-born, specializing in blackwork, nordic, and rune-inspired custom tattoos.",
+    "aftercareTitle": "Tattoo Aftercare — Before & After Instructions | Inktomasz",
+    "aftercareDescription": "How to prepare for your tattoo session and care for it afterwards. Read before your appointment — come back for two weeks after. Professional aftercare guidance from Der Grimm Tattoo, Berlin."
+  },
+  "booking": {
+    "weeksOut": 8
+  },
+  "pricing": {
+    "fullDay": "$VITE_PRICING_FULL_DAY",
+    "halfDay": "$VITE_PRICING_HALF_DAY",
+    "disclaimer": "Free consultation · no deposit until confirmed"
   },
   "hero": {
-    "kicker": "Custom tattoo work",
-    "title": "Older Than the North",
+    "kicker": "Carved in Berlin",
+    "title": "Skin is the oldest canvas",
     "subtitle": "Characters, creatures, and rune compositions — for people who know something darker came before the gods.",
     "cta": "Book a consultation"
   },

@@ -10,9 +10,15 @@ import { NotFound } from "~/components/NotFound";
 
 const RootComponent = () => (
   <>
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-300 focus:px-4 focus:py-2 focus:bg-(--blood-bright) focus:text-(--bone-paper) mono"
+    >
+      Skip to content
+    </a>
     <RevealMounter />
     <Nav />
-    <main className="flex flex-1 flex-col">
+    <main id="main-content" className="flex flex-1 flex-col" tabIndex={-1}>
       <Outlet />
     </main>
     <Footer />
@@ -41,14 +47,29 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1, viewport-fit=cover",
       },
       { name: "theme-color", content: "#07060a" },
-      { title: `${site.artist.name} — ${site.artist.tagline}` },
+      { title: site.seo.defaultTitle },
       {
         name: "description",
-        content: `${site.artist.name} (@${site.artist.handle}) — custom blackwork and nordic-inspired tattoo work at ${site.artist.studio}, ${site.artist.studioCity}. By appointment.`,
+        content: site.seo.defaultDescription,
       },
-      { property: "og:title", content: site.artist.name },
-      { property: "og:description", content: site.artist.tagline },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: site.artist.name },
+      { property: "og:title", content: site.seo.defaultTitle },
+      {
+        property: "og:description",
+        content: site.seo.defaultDescription,
+      },
+      { property: "og:url", content: site.artist.siteUrl },
+      { property: "og:image", content: `${site.artist.siteUrl}${site.artist.ogImage}` },
+      { property: "og:image:width", content: "956" },
+      { property: "og:image:height", content: "965" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: site.seo.defaultTitle },
+      {
+        name: "twitter:description",
+        content: site.seo.defaultDescription,
+      },
+      { name: "twitter:image", content: `${site.artist.siteUrl}${site.artist.ogImage}` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

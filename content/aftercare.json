@@ -86,19 +86,35 @@
     "items": [
       {
         "title": "Buy baby products",
-        "text": "Everything you need for aftercare exists in the baby aisle — and it costs a fraction of what tattoo-branded products charge for the same thing. Bepanthen started as a nappy rash cream. The absorbing pads are baby changing mats. The skin does not know the difference."
+        "body": ["Everything you need for aftercare exists in the baby aisle — and it costs a fraction of what tattoo-branded products charge for the same thing. Bepanthen started as a nappy rash cream. The absorbing pads are baby changing mats. The skin does not know the difference."]
       },
       {
         "title": "Skip second skin",
-        "text": "I don't use second skin on my clients. I had a bad experience with a contaminated batch — people got infections. Even without that, some skin simply doesn't tolerate it. Baby pads, on the other hand, everybody tolerates."
+        "body": ["I don't use second skin on my clients. I had a bad experience with a contaminated batch — people got infections. Even without that, some skin simply doesn't tolerate it. Baby pads, on the other hand, everybody tolerates."]
       },
       {
         "title": "Finding the right pad",
-        "text": "Head to the diaper aisle and look at the packaging. When it stops listing weight in kg and starts listing size in centimetres — something like 60x60 cm — that's the one you want. Those are the changing mats. They absorb exactly the same as any pad sold in a tattoo shop."
+        "body": ["Head to the diaper aisle and look at the packaging. When it stops listing weight in kg and starts listing size in centimetres — something like 60x60 cm — that's the one you want. Those are the changing mats. They absorb exactly the same as any pad sold in a tattoo shop."]
       },
       {
         "title": "Moisturise beforehand",
-        "text": "Hydrate the target area once or twice a day for 1-2 weeks before your appointment — fragrance-free, unscented lotion. Soft, elastic skin holds ink more evenly and tears less under the needle. Day of the session: skip the lotion entirely. Any residue interferes with the stencil transfer and creates hygiene problems."
+        "body": ["Hydrate the target area once or twice a day for 1-2 weeks before your appointment — fragrance-free, unscented lotion. Soft, elastic skin holds ink more evenly and tears less under the needle. Day of the session: skip the lotion entirely. Any residue interferes with the stencil transfer and creates hygiene problems."]
+      },
+      {
+        "title": "If it looks infected",
+        "body": [
+          "Use ",
+          {
+            "text": "Octenisept",
+            "href": "https://www.shop-apotheke.com/arzneimittel/7463832/octenisept-wund-desinfektions-spray.htm"
+          },
+          " — spray directly on the area, let it air dry. Do ",
+          {
+            "text": "not",
+            "bold": true
+          },
+          " use antiseptic spray with alcohol. Alcohol dries out the skin and can pull ink from the dermis."
+        ]
       }
     ]
   }

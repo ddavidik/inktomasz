@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import clsx from "clsx";
 
 type SectionHeaderProps = {
   rune: string;
@@ -13,7 +14,7 @@ export const SectionHeader = ({ rune, label, heading, headingClassName }: Sectio
       {rune}&nbsp; {label}
     </p>
     <h2
-      className={`display text-5xl leading-[0.95] md:text-7xl${headingClassName ? ` ${headingClassName}` : ""}`}
+      className={clsx("display text-5xl leading-[0.95] md:text-7xl", headingClassName)}
     >
       {heading}
     </h2>

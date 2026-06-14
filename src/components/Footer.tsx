@@ -19,22 +19,37 @@ export const Footer = () => (
             <a
               href={site.artist.instagram}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="link-underline"
             >
               @{site.artist.handle} on Instagram
             </a>
           </li>
           <li>
-            <a href={`mailto:${site.artist.email}`} className="link-underline">
-              {site.artist.email}
+            <a
+              href={site.artist.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline"
+            >
+              @{site.artist.handle} on TikTok
+            </a>
+          </li>
+          <li>
+            <a
+              href={site.artist.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline"
+            >
+              inktomasz on Facebook
             </a>
           </li>
           <li className="text-(--bone-fade)">
             <a
               href="https://dergrimm.com/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="link-underline"
             >
               {site.artist.studio}
@@ -54,7 +69,7 @@ export const Footer = () => (
           </li>
           <li>
             <Link to="/aftercare" className="link-underline">
-              Before &amp; aftercare
+              Before &amp; after
             </Link>
           </li>
           <li>
@@ -67,7 +82,9 @@ export const Footer = () => (
     </div>
     <div className="border-t border-white/5">
       <div className="mx-auto flex max-w-350 flex-col gap-2 px-6 py-6 text-xs text-(--bone-fade) md:flex-row md:items-center md:justify-between md:px-10">
-        <span className="mono">© {new Date().getFullYear()} Daniel Davidík</span>
+        <span className="mono">
+          © {new Date().getFullYear()} {site.artist.name} · Site by Daniel Davidík
+        </span>
         <span className="mono">ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ</span>
       </div>
     </div>

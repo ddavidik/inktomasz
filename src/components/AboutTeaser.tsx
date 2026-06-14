@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "~/components/SectionHeader";
 
 export const AboutTeaser = () => (
-  <section id="about" className="relative border-t border-white/5 py-28 md:py-40">
+  <section id="about" className="relative scroll-mt-20 border-t border-white/5 py-28 md:py-40">
     <div className="mx-auto grid max-w-350 gap-12 px-6 md:grid-cols-12 md:px-10">
       <div className="md:col-span-4">
         <SectionHeader

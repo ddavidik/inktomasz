@@ -1,8 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import aftercare from "@content/aftercare.json";
 import site from "@content/site.json";
 import { PageHeader } from "~/components/PageHeader";
 import { CarvedDivider } from "~/components/CarvedDivider";
+import { CtaLink } from "~/components/CtaLink";
+import { FormattedText } from "~/components/FormattedText";
 
 const AftercarePage = () => (
   <>
@@ -25,9 +27,9 @@ const AftercarePage = () => (
       {/* BEFORE */}
       <section className="mx-auto mt-24 max-w-350 px-6 md:px-10">
         <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-3">
+          <div className="min-w-0 overflow-hidden md:col-span-3">
             <div className="mono mb-4 text-(--bone-fade)">01 — Before</div>
-            <h2 className="display text-5xl md:text-6xl">{aftercare.before.title}</h2>
+            <h2 className="display text-5xl">{aftercare.before.title}</h2>
           </div>
           <ul className="md:col-span-9 md:col-start-4 divide-y divide-white/5 border-y border-white/5">
             {aftercare.before.items.map(({ title, text }) => (
@@ -50,9 +52,9 @@ const AftercarePage = () => (
       {/* AFTER — phased */}
       <section className="mx-auto mt-24 max-w-350 px-6 md:px-10">
         <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-3">
+          <div className="min-w-0 overflow-hidden md:col-span-3">
             <div className="mono mb-4 text-(--bone-fade)">02 — After</div>
-            <h2 className="display text-5xl md:text-6xl">{aftercare.after.title}</h2>
+            <h2 className="display text-5xl">{aftercare.after.title}</h2>
           </div>
           <ol className="md:col-span-9 md:col-start-4 space-y-12">
             {aftercare.after.phases.map((p, i) => (
@@ -64,21 +66,7 @@ const AftercarePage = () => (
                   <div className="display mt-1 text-2xl text-(--bone-paper)">{p.label}</div>
                 </div>
                 <p className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-warm)">
-                  {p.body.map((segment, index) =>
-                    typeof segment === "string" ? (
-                      segment
-                    ) : (
-                      <a
-                        key={index}
-                        href={segment.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="link-underline font-bold text-(--bone-paper)"
-                      >
-                        {segment.text}
-                      </a>
-                    ),
-                  )}
+                  <FormattedText segments={p.body} />
                 </p>
               </li>
             ))}
@@ -108,37 +96,30 @@ const AftercarePage = () => (
       {/* TIPS */}
       <section className="mx-auto mt-24 max-w-350 px-6 md:px-10">
         <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-3">
+          <div className="min-w-0 overflow-hidden md:col-span-3">
             <div className="mono mb-4 text-(--bone-fade)">03 — Tips</div>
-            <h2 className="display text-5xl md:text-6xl">{aftercare.tips.title}</h2>
+            <h2 className="display text-5xl">{aftercare.tips.title}</h2>
           </div>
           <ul className="md:col-span-9 md:col-start-4 divide-y divide-white/5 border-y border-white/5">
-            {aftercare.tips.items.map(({ title, text }) => (
-              <li key={title} className="reveal grid grid-cols-12 gap-6 py-6">
-                <div className="col-span-12 md:col-span-3">
-                  <span className="mono text-(--bone-fade)">ᚠ</span>
-                  <span className="display ml-3 text-2xl">{title}</span>
-                </div>
-                <div className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-warm)">
-                  {text}
-                </div>
-              </li>
-            ))}
+            {aftercare.tips.items.map((item) => (
+                <li key={item.title} className="reveal grid grid-cols-12 gap-6 py-6">
+                  <div className="col-span-12 md:col-span-3">
+                    <span className="mono text-(--bone-fade)">ᚠ</span>
+                    <span className="display ml-3 text-2xl">{item.title}</span>
+                  </div>
+                  <div className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-warm)">
+                    <FormattedText segments={item.body} />
+                  </div>
+                </li>
+              ))}
           </ul>
         </div>
       </section>
 
       <div className="mx-auto mt-24 max-w-350 px-6 md:px-10">
-        <Link
-          to="/"
-          hash="inquire"
-          className="mono group inline-flex items-center gap-3 border border-(--bone-paper)/30 px-7 py-4 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
-        >
+        <CtaLink href="/#inquire" showArrow className="px-7 py-4">
           Ready to book a session
-          <span aria-hidden className="transition-transform group-hover:translate-x-1">
-            →
-          </span>
-        </Link>
+        </CtaLink>
       </div>
     </article>
   </>
@@ -148,10 +129,10 @@ export const Route = createFileRoute("/aftercare")({
   component: AftercarePage,
   head: () => ({
     meta: [
-      { title: `Before & aftercare — ${site.artist.handle}` },
+      { title: site.seo.aftercareTitle },
       {
         name: "description",
-        content: "What to bring to your tattoo session and how to care for it afterwards.",
+        content: site.seo.aftercareDescription,
       },
     ],
   }),
