@@ -1,19 +1,23 @@
 {
   "teaser": {
     "heading": "The hand behind the needle.",
-    "lead": "Born in Poland, trained in fine arts, and built on years drawing creatures for video games — Tomasz arrived at the needle by way of realism: hyperdetailed portraits, photographic skin. Then the runes found him. Then the demons followed."
+    "lead": "Born in Poland, holding a master's in fine arts, and built on years drawing creatures for video games — Tomasz arrived at the needle by way of realism: hyperdetailed portraits, photographic skin. Then the runes found him. Then the demons followed.",
+    "ctaLink": "Read the full story"
   },
   "full": {
     "chapters": [
       {
+        "id": "origin",
         "title": "Origin",
         "body": "Tomasz grew up in Poland, earned a master's in fine arts, and spent years as a concept artist in the video game industry — designing worlds, creatures, and characters before deciding the most honest canvas was skin. He transitioned fully to tattooing in 2015, carrying an illustrator's instinct for composition, weight, and darkness."
       },
       {
+        "id": "realism",
         "title": "Realism",
         "body": "His first years with the machine were spent in realism. Hyperdetailed portraits, photographic skin texture, the painstaking discipline of making ink behave like light. It built his hand — taught him how skin holds tone, how depth is earned, how a needle must be trusted. But the work felt borrowed. He was translating photographs, not drawing from somewhere of his own."
       },
       {
+        "id": "the-north",
         "title": "The North",
         "body": "The pivot came through runes. Norse carving — stripped back, all line, no gradient — demanded a different kind of attention. The opposite of realism: symbolic, blunt, built for stone and permanence. His nordic period lasted years and became the spine of what he still does: the geometry, the weight, the reverence for marks that were made to outlast the hand that made them.",
         "image": "/images/about/sideshot.jpg",
@@ -21,10 +25,12 @@
         "imageSide": "right"
       },
       {
+        "id": "the-descent",
         "title": "The Descent",
         "body": "The demonic work arrived uninvited. Nordic ornament and creature design share a root — both draw on myth, on the monstrous, on forces with names older than writing. Demons started appearing in compositions alongside runes. Not decorative: structural. The nordic thread never broke — it just tangled itself around something older and considerably less holy."
       },
       {
+        "id": "studio",
         "title": "Studio",
         "body": [
           "Tomasz works out of ",
@@ -39,5 +45,24 @@
         "imageSide": "left"
       }
     ]
+  },
+  "page": {
+    "headingSegments": [
+      {
+        "text": "The hand",
+        "br": true
+      },
+      {
+        "text": "behind",
+        "italic": true,
+        "br": true
+      },
+      {
+        "text": "the needle."
+      }
+    ],
+    "ctaLink": "Start an inquiry",
+    "ctaAlt": "or",
+    "ctaSecondary": "Browse the work"
   }
 }

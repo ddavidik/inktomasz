@@ -36,7 +36,7 @@
       {
         "label": "Day 0 — the first night",
         "body": [
-          "Leave the wrap on until you get home or to a hotel. Gently wash with lukewarm water and a fragrance-free soap. Pat dry with a clean paper towel. Do not rub. Apply a thin layer of ",
+          "Leave the wrap on until you get home or to a hotel. Wash yourself, then wash the tattooed area gently with lukewarm water and a fragrance-free soap. Pat dry with a clean paper towel. Do not rub. Apply a thin layer of ",
           {
             "text": "Bepanthen Antiseptische Creme",
             "href": "https://www.dm.de/p/d/3096460/bepanthen-bepanthen-antiseptische-wundcreme-5-mg-g-50-mg-g-creme"
@@ -46,7 +46,7 @@
             "text": "absorbing pad",
             "href": "https://www.dm.de/p/d/1575910/babylove-wickelunterlagen"
           },
-          ". Sleep on clean sheets. Wear loose or no clothing over the area."
+          ". Sleep on clean sheets. Wear loose clothing over the area."
         ]
       },
       {
@@ -57,27 +57,27 @@
             "text": "Bepanthen Antiseptische Creme",
             "href": "https://www.dm.de/p/d/3096460/bepanthen-bepanthen-antiseptische-wundcreme-5-mg-g-50-mg-g-creme"
           },
-          ". The tattoo will weep plasma and ink — this is normal. Sleep on clean sheets. Wear loose or no clothing over the area."
+          ". The tattoo will weep plasma and ink — this is normal. Sleep on clean sheets. Wear loose clothing over the area."
         ]
       },
       {
         "label": "Days 4-14",
         "body": [
-          "It will scab and flake. Do not pick, scratch, or peel. Keep moisturising with an unscented lotion. Itch is normal — slap, don't scratch. No pools, no baths, no saunas, no sea."
+          "It will scab and flake. Do not pick, scratch, or peel. Keep moisturising with an unscented lotion of your choice. Itch is normal — slap, don't scratch. No pools, no baths, no saunas, no sea."
         ]
       },
       {
         "label": "Weeks 2-6",
         "body": [
-          "The surface heals first, the deeper skin takes longer. Stay out of direct sun. Once fully healed, use SPF 50+ on the tattoo any time it sees sunlight — this is the single biggest thing you can do to keep it sharp for decades."
+          "The surface heals first, the deeper skin takes longer. Stay out of direct sun if possible. Once fully healed, use SPF 50+ on the tattoo any time it sees sunlight — this is the single biggest thing you can do to keep it sharp for decades."
         ]
       }
     ],
     "donts": [
-      "No sun, no tanning beds.",
+      "Keep it out of the sun for the first two weeks. No tanning beds, either.",
       "No pools, baths, sea, or saunas for at least two weeks.",
       "No picking or scratching, ever.",
-      "No scented lotions, no petroleum jelly on a fresh tattoo.",
+      "No scented lotions or vaseline on a fresh tattoo.",
       "No gym sessions that stretch or sweat-soak the area for the first week."
     ]
   },
@@ -86,19 +86,27 @@
     "items": [
       {
         "title": "Buy baby products",
-        "body": ["Everything you need for aftercare exists in the baby aisle — and it costs a fraction of what tattoo-branded products charge for the same thing. Bepanthen started as a nappy rash cream. The absorbing pads are baby changing mats. The skin does not know the difference."]
+        "body": [
+          "Everything you need for aftercare exists in the baby aisle, and it costs a fraction of what tattoo-branded products charge for the same thing. Bepanthen started as a nappy rash cream. The absorbing pads are baby changing mats. The skin does not know the difference."
+        ]
       },
       {
         "title": "Skip second skin",
-        "body": ["I don't use second skin on my clients. I had a bad experience with a contaminated batch — people got infections. Even without that, some skin simply doesn't tolerate it. Baby pads, on the other hand, everybody tolerates."]
+        "body": [
+          "I don't use second skin on my clients. I had a bad experience with a contaminated batch with which people got infections. Even without that, some skin simply doesn't tolerate it. Baby pads, on the other hand, everybody tolerates."
+        ]
       },
       {
         "title": "Finding the right pad",
-        "body": ["Head to the diaper aisle and look at the packaging. When it stops listing weight in kg and starts listing size in centimetres — something like 60x60 cm — that's the one you want. Those are the changing mats. They absorb exactly the same as any pad sold in a tattoo shop."]
+        "body": [
+          "Head to the diaper aisle and look at the packaging. When it stops listing weight in kg and starts listing size in centimetres — something like 60x60 cm — that's the one you want. Those are the changing mats. They absorb exactly the same as any pad sold in a tattoo shop."
+        ]
       },
       {
         "title": "Moisturise beforehand",
-        "body": ["Hydrate the target area once or twice a day for 1-2 weeks before your appointment — fragrance-free, unscented lotion. Soft, elastic skin holds ink more evenly and tears less under the needle. Day of the session: skip the lotion entirely. Any residue interferes with the stencil transfer and creates hygiene problems."]
+        "body": [
+          "Hydrate the target area once or twice a day for 1-2 weeks before your appointment with a fragrance-free, unscented lotion. Soft, elastic skin holds ink more evenly and tears less under the needle. Day of the session: skip the lotion entirely. Any residue interferes with the stencil transfer and creates hygiene problems."
+        ]
       },
       {
         "title": "If it looks infected",
@@ -117,5 +125,30 @@
         ]
       }
     ]
+  },
+  "page": {
+    "headingSegments": [
+      {
+        "text": "Before",
+        "br": true
+      },
+      {
+        "text": "& after.",
+        "italic": true
+      }
+    ],
+    "subtitle": "Read this before your session. Come back to it when you need it for two weeks after. Bookmark it.",
+    "ctaLink": "Ready to book a session"
+  },
+  "sectionLabels": {
+    "before": "01 — Before",
+    "after": "02 — After",
+    "tips": "03 — Tips",
+    "donts": "ᛉ   What not to do"
+  },
+  "teaser": {
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "ctaLink": "Full before & aftercare guide"
   }
 }

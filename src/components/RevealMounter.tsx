@@ -1,4 +1,4 @@
-import { useRevealOnScroll } from "~/lib/use-reveal";
+import { useRevealOnScroll } from "~/hooks/useReveal";
 
 export const RevealMounter = () => {
   useRevealOnScroll();

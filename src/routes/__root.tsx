@@ -12,9 +12,9 @@ const RootComponent = () => (
   <>
     <a
       href="#main-content"
-      className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-300 focus:px-4 focus:py-2 focus:bg-(--blood-bright) focus:text-(--bone-paper) mono"
+      className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-skip focus:px-4 focus:py-2 focus:bg-(--blood-bright) focus:text-(--bone-paper) mono"
     >
-      Skip to content
+      {site.skipLink}
     </a>
     <RevealMounter />
     <Nav />
@@ -61,8 +61,8 @@ export const Route = createRootRoute({
       },
       { property: "og:url", content: site.artist.siteUrl },
       { property: "og:image", content: `${site.artist.siteUrl}${site.artist.ogImage}` },
-      { property: "og:image:width", content: "956" },
-      { property: "og:image:height", content: "965" },
+      { property: "og:image:width", content: "2274" },
+      { property: "og:image:height", content: "1280" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: site.seo.defaultTitle },
       {

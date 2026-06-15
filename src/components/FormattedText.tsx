@@ -1,12 +1,20 @@
 import { BodyLink } from "~/components/BodyLink";
 
-type TextSegmentObject = {
+type TextSegmentLink = {
   text: string;
-  href?: string;
-  bold?: boolean;
+  href: string;
 };
 
+type TextSegmentBold = {
+  text: string;
+  bold: boolean;
+};
+
+type TextSegmentObject = TextSegmentLink | TextSegmentBold;
+
 type BodyContent = string | (string | TextSegmentObject)[];
+
+export type { BodyContent, TextSegmentObject, TextSegmentLink, TextSegmentBold };
 
 export const FormattedText = ({ segments }: { segments: BodyContent | undefined }) => {
   if (typeof segments === "undefined") return null;
@@ -16,7 +24,7 @@ export const FormattedText = ({ segments }: { segments: BodyContent | undefined 
     <>
       {segments.map((seg, i) => {
         if (typeof seg === "string") return <span key={i}>{seg}</span>;
-        if (seg.href) {
+        if ("href" in seg) {
           return (
             <BodyLink key={i} href={seg.href}>
               {seg.text}

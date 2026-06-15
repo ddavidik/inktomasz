@@ -1,5 +1,14 @@
 @import "tailwindcss" source("../");
 
+@theme {
+  --z-below: -10;
+  --z-base: 10;
+  --z-nav: 50;
+  --z-backdrop: 200;
+  --z-lightbox: 201;
+  --z-skip: 300;
+}
+
 /* ── Self-hosted fonts ────────────────────────────────────────── */
 @font-face {
   font-family: "Manufacturing Consent";
@@ -95,6 +104,7 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: clip;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -173,6 +183,14 @@
 }
 
 @layer utilities {
+  /* z-index scale — @theme block silently ignored in TW v4.3, define explicitly */
+  .z-below    { z-index: -10; }
+  .z-base     { z-index: 10;  }
+  .z-nav      { z-index: 50;  }
+  .z-backdrop { z-index: 200; }
+  .z-lightbox { z-index: 201; }
+  .z-skip     { z-index: 300; }
+
   .text-balance {
     text-wrap: balance;
   }

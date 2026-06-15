@@ -29,3 +29,15 @@
 - Use descriptive prop names instead of `k`/`v` (e.g. `title`, `text`)
 - Use object destructuring with meaningful names: `const { title, text } = item`
 - Avoid spread operators in JSX props without clear naming
+
+## Directory Conventions
+
+- **`src/utils/`** — pure utility functions, types, and schema objects. No React hooks.
+- **`src/hooks/`** — React hooks exclusively (`use*` functions).
+- **camelCase filenames** for all files in `src/utils/` and `src/hooks/`. No kebab-case.
+
+## File Naming
+
+- **Components**: PascalCase matching component name (e.g. `SectionNav.tsx`). One component per file.
+- **Hooks**: camelCase matching hook name (e.g. `useActiveSection.ts`).
+- **Utilities**: camelCase (e.g. `scrollToHash.ts`, not `scroll-to-hash.ts`).

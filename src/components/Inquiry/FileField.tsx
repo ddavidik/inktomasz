@@ -1,6 +1,7 @@
 import type { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent, MouseEvent, RefObject } from "react";
 import { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
+import site from "@content/site.json";
 
 type Props = {
   label: string;
@@ -66,7 +67,7 @@ export const FileField = ({
     const newFiles = Array.from(e.target.files ?? []);
     const oversized = newFiles.some((f) => f.size > 8_388_608);
     if (oversized) {
-      setSizeError("File exceeds 8 MB");
+      setSizeError(site.fileField.sizeError);
       if (inputRef.current) inputRef.current.value = "";
       return;
     }
@@ -96,6 +97,13 @@ export const FileField = ({
     }
   };
 
+  const buildAriaLabel = (): string => {
+    const len = files.length;
+    if (len === 0) return multiple ? site.fileField.ariaChooseFiles : site.fileField.ariaChooseFile;
+    if (multiple) return site.fileField.ariaFiles.replace("{n}", String(len));
+    return site.fileField.ariaOneFile;
+  };
+
   return (
     <label className="block bg-(--ink-iron) px-5 pt-4 pb-3 focus-within:bg-(--ink-stone) cursor-pointer">
       <span className="mono block text-[10px] text-(--bone-fade)">{label}</span>
@@ -116,15 +124,7 @@ export const FileField = ({
         onKeyDown={handleKeyDown(inputRef)}
         tabIndex={0}
         role="button"
-        aria-label={
-          files.length > 0
-            ? multiple
-              ? `${files.length} files selected`
-              : (files[0]?.name ?? "1 file selected")
-            : multiple
-              ? "Choose files"
-              : "Choose a file"
-        }
+        aria-label={buildAriaLabel()}
       >
         {files.length > 0 ? (
           <>
@@ -133,9 +133,9 @@ export const FileField = ({
                 type="button"
                 onClick={handleClearAll(clearAllFiles)}
                 className="mono mb-1 self-end text-[10px] text-(--bone-fade) hover:text-(--blood-bright) cursor-pointer"
-                aria-label="Clear all files"
+                aria-label={site.fileField.clearAllAria}
               >
-                Clear all
+                {site.fileField.clearAllLabel}
               </button>
             )}
             {files.map((file, i) => (
@@ -148,7 +148,7 @@ export const FileField = ({
                   type="button"
                   onClick={handleRemoveFile(removeFile, i)}
                   className="mono text-base leading-none cursor-pointer text-(--bone-fade) hover:text-(--blood-bright)"
-                  aria-label={`Remove ${file.name}`}
+                  aria-label={site.fileField.clearAllAria.replace("all", file.name).replace("Clear ", "Remove ")}
                 >
                   ×
                 </button>
@@ -157,7 +157,7 @@ export const FileField = ({
           </>
         ) : (
           <span className="text-(--bone-fade)">
-            {multiple ? "Choose files…" : "Choose a file…"}
+            {multiple ? site.fileField.placeholderFiles : site.fileField.placeholderFile}
           </span>
         )}
       </div>

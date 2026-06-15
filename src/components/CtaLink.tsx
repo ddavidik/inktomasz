@@ -1,9 +1,9 @@
 import { type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import clsx from "clsx";
-import { parseHref } from "~/lib/href";
-import { scrollToHash } from "~/lib/scroll-to-hash";
-import { ctaBaseClass } from "~/lib/cta-styles";
+import { parseHref } from "~/utils/href";
+import { scrollToHash } from "~/utils/scrollToHash";
+import { ctaBaseClass } from "~/utils/ctaStyles";
 import { CtaArrow } from "~/components/CtaArrow";
 
 type CtaLinkProps = {

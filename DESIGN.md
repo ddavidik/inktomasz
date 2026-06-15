@@ -282,6 +282,7 @@ Mapped to five foundational web design skills:
 - **Canonical utilities**: Tailwind v4 names (`bg-linear-to-*`, `min-h-svh`). Variable shorthand `utility-(--token)`.
 - **Prerendering**: `/`, `/about`, `/aftercare` statically prerendered at build.
 - **Image optimization**: TanStack Start image optimization.
+- **Pricing**: values live in `site.json` under `pricing.fullDay` / `pricing.halfDay` — no environment variable indirection.
 - **Buttons** should have cursor-pointer.
 
 ### 5. Conversion
@@ -290,7 +291,7 @@ Mapped to five foundational web design skills:
 - **CTA above fold**: blood-bright border button in hero, visible on load.
 - **CTA frequency rule**: every 2–3 sections must carry an inquiry CTA. Pattern: Hero (CTA) → Portfolio (trailing CTA) → Wanna-do (per-card + bottom CTA). Nav carries an outlined blood-bright "Inquire" button distinct from plain text links. Mobile sheet surfaces same button at bottom of drawer.
 - **Nav CTA pattern**: the "Inquire" navLink is flagged `cta: true` in `site.json`; Nav.tsx renders it as `border border-(--blood-bright) px-4 py-2 text-(--blood-bright)` on desktop and full-width in mobile drawer, not styled as a text link.
-- **Prefill flow**: Wanna-do idea selection auto-fills inquiry form via `sessionStorage`.
+- **Prefill flow**: Wanna-do idea selection writes to `sessionStorage` under key `inktomasz:idea`. The Inquiry component reads it on mount via `usePrefillIdea()` hook and populates the idea textarea with a `Wanna-do: {title}` prefix. Clearing resets both sessionStorage and form state.
 - **Trust signals**: Real portfolio work, about section, physical studio location, precise GPS coords.
 
 ---

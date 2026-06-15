@@ -1,10 +1,18 @@
 import testimonials from "@content/testimonials.json";
+import site from "@content/site.json";
 import { SectionHeader } from "~/components/SectionHeader";
 
 export const Testimonials = () => (
-  <section className="relative border-t border-white/5 bg-(--ink-pitch) py-28 md:py-40">
+  <section
+    id="voices"
+    className="relative scroll-mt-16 border-t border-white/5 bg-(--ink-pitch) py-28 md:py-40"
+  >
     <div className="mx-auto max-w-350 px-6 md:px-10">
-      <SectionHeader rune="ᛟ" label="Voices" heading={testimonials.heading} />
+      <SectionHeader
+        rune={site.testimonialsSection.rune}
+        label={site.testimonialsSection.label}
+        heading={testimonials.heading}
+      />
 
       <div className="mt-16 grid gap-px bg-white/5 border border-white/5 md:grid-cols-3">
         {testimonials.items.map(({ quote, author }) => (

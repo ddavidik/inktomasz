@@ -13,7 +13,7 @@
     "tiktok": "https://www.tiktok.com/@inktomasz",
     "tagline": "Custom blackwork & nordic-inspired tattoo artist in Berlin",
     "siteUrl": "https://inktomasz.com",
-    "ogImage": "/images/about/mugshot.jpg"
+    "ogImage": "/images/og-sideshot.jpg"
   },
   "seo": {
     "defaultTitle": "Tomasz Górnicki — Blackwork & Nordic Tattoo Artist in Berlin | Inktomasz",
@@ -27,15 +27,34 @@
     "weeksOut": 8
   },
   "pricing": {
-    "fullDay": "$VITE_PRICING_FULL_DAY",
-    "halfDay": "$VITE_PRICING_HALF_DAY",
+    "fullDay": "€1,400",
+    "halfDay": "€700",
     "disclaimer": "Free consultation · no deposit until confirmed"
   },
   "hero": {
     "kicker": "Carved in Berlin",
     "title": "Skin is the oldest canvas",
     "subtitle": "Characters, creatures, and rune compositions — for people who know something darker came before the gods.",
-    "cta": "Book a consultation"
+    "titleSegments": [
+      {
+        "text": "Skin is the",
+        "br": true
+      },
+      {
+        "text": "oldest",
+        "italic": true
+      },
+      {
+        "text": " canvas",
+        "underline": true
+      },
+      {
+        "text": "."
+      }
+    ],
+    "cta": "Book a consultation",
+    "ctaAlt": "or",
+    "ctaSecondary": "See the work"
   },
   "navLinks": [
     {
@@ -59,5 +78,170 @@
       "href": "/#inquire",
       "cta": true
     }
-  ]
+  ],
+  "inquiry": {
+    "kickerRune": "ᛒ",
+    "kickerLabel": "Inquire",
+    "headingSegments": [
+      {
+        "text": "Tell me the",
+        "br": true
+      },
+      {
+        "text": "story",
+        "italic": true,
+        "br": true
+      },
+      {
+        "text": "first."
+      }
+    ],
+    "description": "Every piece starts with a conversation — describe the idea, placement, and what it means to you. I'll be back within a few days.",
+    "successKicker": "ᛒ  Sent",
+    "successMessage": "Message received. I'll be in touch.",
+    "sendAnother": "Send another",
+    "prefillClaiming": "Claiming",
+    "prefillClear": "clear",
+    "honeypotLabel": "Don't fill this out if you're human:",
+    "fieldName": "Your name *",
+    "fieldContact": "Contact *",
+    "fieldEmail": "Email address",
+    "fieldInstagram": "Instagram handle",
+    "fieldInstagramPlaceholder": "@yourhandle",
+    "fieldPlacement": "Placement (arm, ribs, calf…)",
+    "fieldDate": "Preferred date",
+    "fieldDatePlaceholder": "e.g. June 2025",
+    "fieldIdea": "Describe the idea — story, mood, references *",
+    "fieldReferences": "Reference links (Instagram, Pinterest, etc.)",
+    "fieldFile": "Reference image (max 8 MB)",
+    "submitLabel": "Send inquiry",
+    "submitLoading": "Sending…",
+    "errorGeneric": "Something went wrong — try again or email directly.",
+    "validationContact": "Provide your email or Instagram — at least one is required.",
+    "validationName": "Your name is required.",
+    "validationEmail": "That doesn't look like a valid email.",
+    "validationIdea": "Tell me the idea — story, mood, what it means.",
+    "bookingLabel": "Currently booking ~{weeks} weeks out",
+    "bookingSubtext": "Fast needle — a full back piece in a single session is not unusual.",
+    "pricingFullDay": "Full day",
+    "pricingHalfDay": "Half day",
+    "contactLinkDM": "→ DM @{handle} on Instagram",
+    "bookingRune": "ᛏ"
+  },
+  "footer": {
+    "findLabel": "Find",
+    "instagramLabel": "@{handle} on Instagram",
+    "tiktokLabel": "@{handle} on TikTok",
+    "facebookLabel": "{handle} on Facebook",
+    "readLabel": "Read",
+    "linkAbout": "About Tomasz",
+    "linkAftercare": "Before & after",
+    "linkInquire": "Inquire",
+    "creditSuffix": "Site by Daniel Davidík",
+    "futhark": "ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ"
+  },
+  "notFound": {
+    "kickerRune": "ᚾ",
+    "kickerLabel": "Not found",
+    "headingSegments": [
+      {
+        "text": "Path not",
+        "br": true
+      },
+      {
+        "text": "carved.",
+        "italic": true
+      }
+    ],
+    "subtitle": "Whatever you sought was not carved here.",
+    "runeRule": "ᚾ"
+  },
+  "sectionNav": {
+    "ariaLabel": "Page sections"
+  },
+  "lightbox": {
+    "ariaLabel": "Image lightbox",
+    "closeLabel": "Close",
+    "prevLabel": "Previous",
+    "nextLabel": "Next",
+    "claimLabel": "Claim this one"
+  },
+  "skipLink": "Skip to content",
+  "portfolioSection": {
+    "rune": "ᛉ",
+    "label": "Portfolio",
+    "ctaPrompt": "Seen something that speaks to you?",
+    "ctaLink": "Tell me your idea"
+  },
+  "wannadoSection": {
+    "rune": "ᚹ",
+    "label": "Wanna-do",
+    "ctaPrompt": "See something you want? First message wins it.",
+    "ctaLink": "Inquire about a wanna-do",
+    "claimLabel": "Claim this one",
+    "claimLabelMobile": "Claim",
+    "lightboxAria": "View {title} in lightbox"
+  },
+  "testimonialsSection": {
+    "rune": "ᛟ",
+    "label": "Voices"
+  },
+  "aboutTeaserSection": {
+    "rune": "ᛁ",
+    "label": "About",
+    "ctaLink": "Read the full story"
+  },
+  "aboutPageSection": {
+    "rune": "ᛁ",
+    "label": "About",
+    "headingSegments": [
+      {
+        "text": "The hand",
+        "br": true
+      },
+      {
+        "text": "behind",
+        "italic": true,
+        "br": true
+      },
+      {
+        "text": "the needle."
+      }
+    ],
+    "ctaLink": "Start an inquiry",
+    "ctaAlt": "or",
+    "ctaSecondary": "Browse the work"
+  },
+  "aftercarePageSection": {
+    "rune": "ᛟ",
+    "label": "Care",
+    "headingSegments": [
+      {
+        "text": "Before",
+        "br": true
+      },
+      {
+        "text": "& after.",
+        "italic": true
+      }
+    ],
+    "subtitle": "Read this before your session. Come back to it when you need it for two weeks after. Bookmark it.",
+    "ctaLink": "Ready to book a session"
+  },
+  "aftercareTeaser": {
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "ctaLink": "Full before & aftercare guide"
+  },
+  "fileField": {
+    "sizeError": "File exceeds 8 MB",
+    "ariaFiles": "{n} files selected",
+    "ariaOneFile": "1 file selected",
+    "ariaChooseFiles": "Choose files",
+    "ariaChooseFile": "Choose a file",
+    "clearAllAria": "Clear all files",
+    "clearAllLabel": "Clear all",
+    "placeholderFiles": "Choose files…",
+    "placeholderFile": "Choose a file…"
+  }
 }

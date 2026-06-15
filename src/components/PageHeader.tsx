@@ -12,7 +12,7 @@ export const PageHeader = ({ rune, label, heading, subtitle }: PageHeaderProps) 
     <p className="mono mb-6 text-(--blood-bright)">
       {rune}&nbsp; {label}
     </p>
-    <h1 className="display text-balance text-[clamp(2.2rem,11vw,9rem)] leading-[0.9] md:text-[clamp(4rem,8vw,9rem)]">
+    <h1 className="display text-balance text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] md:text-[clamp(4rem,8vw,9rem)]">
       {heading}
     </h1>
     {subtitle !== undefined && (

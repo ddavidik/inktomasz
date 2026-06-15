@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import site from "@content/site.json";
 
+const resolveFooterString = (template: string): string =>
+  template.replace("{handle}", site.artist.handle);
+
 export const Footer = () => (
   <footer className="border-t border-white/5 bg-(--ink-pitch)">
     <div className="mx-auto grid max-w-350 gap-10 px-6 py-16 md:grid-cols-3 md:px-10">
@@ -13,7 +16,7 @@ export const Footer = () => (
       </div>
 
       <div>
-        <div className="mono mb-3">Find</div>
+        <div className="mono mb-3">{site.footer.findLabel}</div>
         <ul className="space-y-1.5 text-(--bone-warm)">
           <li>
             <a
@@ -22,7 +25,7 @@ export const Footer = () => (
               rel="noopener noreferrer"
               className="link-underline"
             >
-              @{site.artist.handle} on Instagram
+              {resolveFooterString(site.footer.instagramLabel)}
             </a>
           </li>
           <li>
@@ -32,7 +35,7 @@ export const Footer = () => (
               rel="noopener noreferrer"
               className="link-underline"
             >
-              @{site.artist.handle} on TikTok
+              {resolveFooterString(site.footer.tiktokLabel)}
             </a>
           </li>
           <li>
@@ -42,7 +45,7 @@ export const Footer = () => (
               rel="noopener noreferrer"
               className="link-underline"
             >
-              inktomasz on Facebook
+              {resolveFooterString(site.footer.facebookLabel)}
             </a>
           </li>
           <li className="text-(--bone-fade)">
@@ -60,21 +63,21 @@ export const Footer = () => (
       </div>
 
       <div>
-        <div className="mono mb-3">Read</div>
+        <div className="mono mb-3">{site.footer.readLabel}</div>
         <ul className="space-y-1.5 text-(--bone-warm)">
           <li>
             <Link to="/about" className="link-underline">
-              About Tomasz
+              {site.footer.linkAbout}
             </Link>
           </li>
           <li>
             <Link to="/aftercare" className="link-underline">
-              Before &amp; after
+              {site.footer.linkAftercare}
             </Link>
           </li>
           <li>
             <Link to="/" hash="inquire" className="link-underline">
-              Inquire
+              {site.footer.linkInquire}
             </Link>
           </li>
         </ul>
@@ -83,9 +86,9 @@ export const Footer = () => (
     <div className="border-t border-white/5">
       <div className="mx-auto flex max-w-350 flex-col gap-2 px-6 py-6 text-xs text-(--bone-fade) md:flex-row md:items-center md:justify-between md:px-10">
         <span className="mono">
-          © {new Date().getFullYear()} {site.artist.name} · Site by Daniel Davidík
+          © {new Date().getFullYear()} {site.artist.name} · {site.footer.creditSuffix}
         </span>
-        <span className="mono">ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ</span>
+        <span className="mono">{site.footer.futhark}</span>
       </div>
     </div>
   </footer>
