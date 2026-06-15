@@ -3,8 +3,8 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import clsx from "clsx";
 import site from "@content/site.json";
 import { CtaLink } from "./CtaLink";
-import { parseHref } from "~/lib/href";
-import { scrollToHash, scrollToHashDelayed } from "~/lib/scroll-to-hash";
+import { parseHref } from "~/utils/href";
+import { scrollToHash, scrollToHashDelayed } from "~/utils/scrollToHash";
 
 const handleScroll = (setIsScrolled: (v: boolean) => void) => () =>
   setIsScrolled(window.scrollY > 24);
@@ -37,16 +37,17 @@ export const Nav = () => {
   return (
     <header
       className={clsx(
-        "fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color] duration-500",
+        "fixed inset-x-0 top-0 z-nav transition-[background,backdrop-filter,border-color] duration-500",
         isScrolled
           ? "bg-(--ink-void)/80 backdrop-blur-md border-b border-white/5"
           : "bg-transparent border-b border-transparent",
       )}
     >
-      <div className="mx-auto flex max-w-350 items-center justify-between px-6 py-4 lg:px-10">
+      <div className="mx-auto flex max-w-350 items-center justify-between px-6 py-3.5 lg:px-10">
         <div className="flex items-baseline gap-2 text-(--bone-paper)">
           <Link
             to="/"
+            onClick={closeMobileMenu(setIsOpen)}
             className="display text-2xl leading-none lg:text-3xl"
             aria-label={`${site.artist.name} home`}
           >

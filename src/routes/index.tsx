@@ -6,8 +6,18 @@ import { WannaDo } from "~/components/WannaDo";
 import { AftercareTease } from "~/components/AftercareTease";
 import { Testimonials } from "~/components/Testimonials";
 import { Inquiry } from "~/components/Inquiry";
-import { usePrefillIdea } from "~/lib/use-prefill-idea";
-import { scrollToHash } from "~/lib/scroll-to-hash";
+import { usePrefillIdea } from "~/hooks/usePrefillIdea";
+import { scrollToHash } from "~/utils/scrollToHash";
+import { SectionNav } from "~/components/SectionNav";
+
+const HOME_SECTIONS = [
+  { id: "about", label: "About" },
+  { id: "portfolio", label: "Portfolio" },
+  { id: "wannado", label: "Wanna-do" },
+  { id: "care", label: "Care" },
+  { id: "voices", label: "Voices" },
+  { id: "inquire", label: "Inquire" },
+];
 
 const Home = () => {
   const { prefill, setPrefillIdea, clearPrefill } = usePrefillIdea();
@@ -20,6 +30,7 @@ const Home = () => {
 
   return (
     <>
+      <SectionNav sections={HOME_SECTIONS} />
       <Hero />
       <AboutTeaser />
       <Portfolio />

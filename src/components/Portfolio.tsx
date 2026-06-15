@@ -4,6 +4,7 @@ import site from "@content/site.json";
 import { SectionHeader } from "~/components/SectionHeader";
 import { CtaLink } from "~/components/CtaLink";
 import { ImageLightbox } from "~/components/ImageLightbox";
+import { createOpenHandler, createKeyDownHandler, createPreloadHandler } from "~/utils/lightboxHandlers";
 
 type LightboxItem = {
   src: string;
@@ -12,36 +13,31 @@ type LightboxItem = {
   meta: string;
 };
 
-const preloadImage = (src: string) => {
-  const img = new Image();
-  img.src = src;
-};
-
-const handleOpenLightbox =
-  (setLightboxIndex: (i: number) => void, index: number) => () =>
-    setLightboxIndex(index);
-
-const handlePreload = (src: string) => () => preloadImage(src);
-
 export const Portfolio = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const lightboxItems: LightboxItem[] = portfolio.pieces.map(({ id: _id, src, alt, title, style, year }) => ({
-    src,
-    alt,
-    title,
-    meta: `${style} · ${year}`,
-  }));
+  const lightboxItems: LightboxItem[] = portfolio.pieces.map(
+    ({ id: _id, src, alt, title, style, year }) => ({
+      src,
+      alt,
+      title,
+      meta: `${style} · ${year}`,
+    }),
+  );
 
   return (
     <section
       id="portfolio"
-      className="relative scroll-mt-20 border-t border-white/5 bg-(--ink-pitch) py-28 md:py-40"
+      className="relative scroll-mt-16 border-t border-white/5 bg-(--ink-pitch) py-28 md:py-40"
     >
       <div className="mx-auto max-w-350 px-6 md:px-10">
         <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <SectionHeader rune="ᛉ" label="Portfolio" heading={portfolio.heading} />
+            <SectionHeader
+              rune={site.portfolioSection.rune}
+              label={site.portfolioSection.label}
+              heading={portfolio.heading}
+            />
           </div>
           <p className="max-w-md text-(--bone-warm)">
             {portfolio.lead}{" "}
@@ -62,9 +58,13 @@ export const Portfolio = () => {
             <figure
               key={id}
               suppressHydrationWarning
-              onClick={handleOpenLightbox(setLightboxIndex, i)}
-              onMouseEnter={handlePreload(src)}
-              className="reveal group relative mb-6 break-inside-avoid overflow-hidden border border-white/5 bg-(--ink-iron) cursor-pointer"
+              role="button"
+              tabIndex={0}
+              onClick={createOpenHandler(setLightboxIndex, i)}
+              onKeyDown={createKeyDownHandler(setLightboxIndex, i)}
+              onMouseEnter={createPreloadHandler(src)}
+              aria-label={`View ${title} in lightbox`}
+              className="reveal group relative mb-6 break-inside-avoid overflow-hidden border border-white/5 bg-(--ink-iron) cursor-pointer focus-visible:outline-2 focus-visible:outline-(--blood-bright) focus-visible:outline-offset-2"
             >
               <img
                 src={src}
@@ -90,10 +90,10 @@ export const Portfolio = () => {
 
         <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-white/5 pt-10">
           <p className="serif-tight max-w-xl text-pretty text-xl text-(--bone-warm) md:text-2xl">
-            Seen something that speaks to you?
+            {site.portfolioSection.ctaPrompt}
           </p>
           <CtaLink href="/#inquire" showArrow className="px-7 py-4">
-            {site.hero.cta}
+            {site.portfolioSection.ctaLink}
           </CtaLink>
         </div>
       </div>

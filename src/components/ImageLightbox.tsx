@@ -1,6 +1,7 @@
 import { createPortal } from "react-dom";
 import { useEffect, useRef, useState, type TouchEvent, type MouseEvent } from "react";
 import { CtaButton } from "./CtaButton";
+import site from "@content/site.json";
 
 type LightboxItem = {
   src: string;
@@ -51,12 +52,11 @@ export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Prop
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
+
     return () => {
       document.body.style.overflow = "";
     };
   }, []);
-
-  if (!currentItem) return null;
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -69,8 +69,11 @@ export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Prop
       }
     };
     window.addEventListener("keydown", handleKey);
+
     return () => window.removeEventListener("keydown", handleKey);
   }, [index, total, onClose, onChange]);
+
+  if (!currentItem) return null;
 
   const handleTouchStart = (e: TouchEvent) => {
     const touch = e.touches[0];
@@ -101,19 +104,19 @@ export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Prop
 
   return createPortal(
     <div
-      className="fixed inset-0 z-200 bg-black/90"
+      className="fixed inset-0 z-backdrop bg-black/90"
       onClick={handleBackdropClick}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       role="dialog"
       aria-modal="true"
-      aria-label="Image lightbox"
+      aria-label={site.lightbox.ariaLabel}
     >
-      <div className="fixed inset-0 z-201 flex flex-col items-center justify-center p-4">
+      <div className="fixed inset-0 z-lightbox flex flex-col items-center justify-center p-4">
         <button
           onClick={onClose}
-          className="absolute top-5 right-6 text-(--bone-fade) hover:text-(--bone-paper) transition-colors text-4xl leading-none cursor-pointer"
-          aria-label="Close"
+          className="absolute top-5 right-6 z-base text-(--bone-fade) hover:text-(--bone-paper) transition-colors text-4xl leading-none cursor-pointer"
+          aria-label={site.lightbox.closeLabel}
         >
           ×
         </button>
@@ -124,7 +127,7 @@ export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Prop
 
         <div className="relative max-h-[85vh] max-w-[90vw] border border-white/5">
           {isLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-base">
               <svg
                 className="animate-spin h-10 w-10 text-(--blood-bright)"
                 xmlns="http://www.w3.org/2000/svg"
@@ -174,21 +177,21 @@ export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Prop
             className="mt-4 px-7 py-4 mb-4"
             showArrow
           >
-            <span>Claim this one</span>
+            <span>{site.lightbox.claimLabel}</span>
           </CtaButton>
         )}
 
         <button
           onClick={handlePrev(onChange, prevIndex)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 display text-4xl md:text-5xl text-(--bone-fade) hover:text-(--blood-bright) transition-colors cursor-pointer"
-          aria-label="Previous"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-base display text-4xl md:text-5xl text-(--bone-fade) hover:text-(--blood-bright) transition-colors cursor-pointer"
+          aria-label={site.lightbox.prevLabel}
         >
           ←
         </button>
         <button
           onClick={handleNext(onChange, nextIndex)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 display text-4xl md:text-5xl text-(--bone-fade) hover:text-(--blood-bright) transition-colors cursor-pointer"
-          aria-label="Next"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-base display text-4xl md:text-5xl text-(--bone-fade) hover:text-(--blood-bright) transition-colors cursor-pointer"
+          aria-label={site.lightbox.nextLabel}
         >
           →
         </button>

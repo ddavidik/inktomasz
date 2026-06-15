@@ -35,7 +35,7 @@ export const AboutChapter = ({
 
   if (!hasImage)
     return (
-      <section className="reveal grid grid-cols-12 gap-6 md:gap-10">
+      <section id={chapter.id} className="reveal grid grid-cols-12 gap-6 md:gap-10">
         <div className="col-span-12 md:col-span-3">
           <AboutChapterText
             chapterNumber={chapterNumber}
@@ -53,7 +53,7 @@ export const AboutChapter = ({
     );
 
   return (
-    <section className="reveal grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-10">
+    <section id={chapter.id} className="reveal grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-10">
       {isRight ? (
         <>
           <div className="md:col-span-6">

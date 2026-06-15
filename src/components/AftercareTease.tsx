@@ -1,25 +1,30 @@
 import aftercare from "@content/aftercare.json";
-import { Link } from "@tanstack/react-router";
+import site from "@content/site.json";
 import { SectionHeader } from "~/components/SectionHeader";
 import { FormattedText } from "~/components/FormattedText";
+import { TextLink } from "~/components/TextLink";
 
 export const AftercareTease = () => {
   const previewItems = aftercare.before.items.slice(0, 3);
   const previewPhases = aftercare.after.phases.slice(0, 2);
 
   return (
-    <section className="relative border-t border-white/5 py-28 md:py-40">
+    <section id="care" className="relative scroll-mt-16 border-t border-white/5 py-28 md:py-40">
       <div className="mx-auto max-w-350 px-6 md:px-10">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <SectionHeader rune="ᛟ" label="Care" heading={aftercare.heading} />
+            <SectionHeader
+              rune={site.aftercarePageSection.rune}
+              label={site.aftercarePageSection.label}
+              heading={aftercare.heading}
+            />
           </div>
           <p className="max-w-md text-(--bone-warm)">{aftercare.lead}</p>
         </div>
 
         <div className="grid gap-px border border-white/5 bg-white/5 md:grid-cols-2">
           <div className="bg-(--ink-iron) p-8 md:p-10">
-            <div className="mono mb-6 text-(--bone-fade)">Before</div>
+            <div className="mono mb-6 text-(--bone-fade)">{aftercare.teaser.beforeLabel}</div>
             <h3 className="display mb-6 text-3xl">{aftercare.before.title}</h3>
             <ul className="space-y-4">
               {previewItems.map(({ title, text }) => (
@@ -35,7 +40,7 @@ export const AftercareTease = () => {
           </div>
 
           <div className="bg-(--ink-iron) p-8 md:p-10">
-            <div className="mono mb-6 text-(--bone-fade)">After</div>
+            <div className="mono mb-6 text-(--bone-fade)">{aftercare.teaser.afterLabel}</div>
             <h3 className="display mb-6 text-3xl">{aftercare.after.title}</h3>
             <ol className="space-y-6">
               {previewPhases.map((phase, index) => (
@@ -56,15 +61,9 @@ export const AftercareTease = () => {
         </div>
 
         <div className="mt-10 flex justify-end">
-          <Link
-            to="/aftercare"
-            className="mono group inline-flex items-center gap-3 border-b border-(--bone-fade) pb-2 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
-          >
-            Full before &amp; aftercare guide
-            <span aria-hidden className="transition-transform group-hover:translate-x-1">
-              →
-            </span>
-          </Link>
+          <TextLink href="/aftercare">
+            {aftercare.teaser.ctaLink}
+          </TextLink>
         </div>
       </div>
     </section>

@@ -1,9 +1,8 @@
 import { type ReactNode } from "react";
-import { FormattedText } from "~/components/FormattedText";
-
-type BodyContent = string | ({ text: string; href?: string; bold?: boolean } | string)[];
+import { FormattedText, type BodyContent } from "~/components/FormattedText";
 
 type Chapter = {
+  id?: string;
   title: string;
   body: BodyContent;
   image?: string;
@@ -18,7 +17,7 @@ type AboutChapterTextProps = {
   compact?: boolean;
 };
 
-export { type Chapter, type BodyContent };
+export { type Chapter };
 
 export const AboutChapterText = ({
   chapterNumber,

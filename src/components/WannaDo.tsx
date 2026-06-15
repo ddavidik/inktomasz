@@ -1,9 +1,11 @@
-import { useMemo, useState, type MouseEvent } from "react";
+import { useState, type MouseEvent } from "react";
 import clsx from "clsx";
 import wannado from "@content/wannado.json";
+import site from "@content/site.json";
 import { SectionHeader } from "~/components/SectionHeader";
 import { CtaLink } from "~/components/CtaLink";
 import { ImageLightbox } from "~/components/ImageLightbox";
+import { createOpenHandler, createKeyDownHandler, createPreloadHandler } from "~/utils/lightboxHandlers";
 
 type Props = {
   onClaim: (id: string, title: string) => void;
@@ -18,24 +20,10 @@ type LightboxItem = {
   claimTitle: string;
 };
 
-const preloadImage = (src: string) => {
-  const img = new Image();
-  img.src = src;
-};
-
-const handleTagClick =
-  (setActive: (tag: string) => void, tag: string) => () =>
-    setActive(tag);
-
-const handleOpenLightbox =
-  (setLightboxIndex: (i: number) => void, index: number) => () =>
-    setLightboxIndex(index);
-
-const handlePreload = (src: string) => () => preloadImage(src);
+const handleTagClick = (setActive: (tag: string) => void, tag: string) => () => setActive(tag);
 
 const handleClaimClick =
-  (onClaim: (id: string, title: string) => void, id: string, title: string) =>
-  (e: MouseEvent) => {
+  (onClaim: (id: string, title: string) => void, id: string, title: string) => (e: MouseEvent) => {
     e.stopPropagation();
     onClaim(id, title);
   };
@@ -44,10 +32,8 @@ export const WannaDo = ({ onClaim }: Props) => {
   const [active, setActive] = useState<string>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const filtered = useMemo(
-    () => (active === "all" ? wannado.ideas : wannado.ideas.filter((i) => i.tags.includes(active))),
-    [active],
-  );
+  const filtered =
+    active === "all" ? wannado.ideas : wannado.ideas.filter((i) => i.tags.includes(active));
 
   const lightboxItems: LightboxItem[] = filtered.map(({ id, alt, src, title, tags }) => ({
     src,
@@ -59,11 +45,15 @@ export const WannaDo = ({ onClaim }: Props) => {
   }));
 
   return (
-    <section id="wannado" className="relative scroll-mt-20 border-t border-white/5 py-28 md:py-40">
+    <section id="wannado" className="relative scroll-mt-16 border-t border-white/5 py-28 md:py-40">
       <div className="mx-auto max-w-350 px-6 md:px-10">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <SectionHeader rune="ᚹ" label="Wanna-do" heading={wannado.heading} />
+            <SectionHeader
+              rune={site.wannadoSection.rune}
+              label={site.wannadoSection.label}
+              heading={wannado.heading}
+            />
           </div>
           <p className="max-w-md text-(--bone-warm)">{wannado.lead}</p>
         </div>
@@ -94,9 +84,13 @@ export const WannaDo = ({ onClaim }: Props) => {
             <figure
               key={id}
               suppressHydrationWarning
-              onClick={handleOpenLightbox(setLightboxIndex, i)}
-              onMouseEnter={handlePreload(src)}
-              className="reveal group relative flex flex-col overflow-hidden border border-white/5 bg-(--ink-iron) cursor-pointer"
+              role="button"
+              tabIndex={0}
+              onClick={createOpenHandler(setLightboxIndex, i)}
+              onKeyDown={createKeyDownHandler(setLightboxIndex, i)}
+              onMouseEnter={createPreloadHandler(src)}
+              aria-label={site.wannadoSection.lightboxAria.replace("{title}", title)}
+              className="reveal group relative flex flex-col overflow-hidden border border-white/5 bg-(--ink-iron) cursor-pointer focus-visible:outline-2 focus-visible:outline-(--blood-bright) focus-visible:outline-offset-2"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -122,8 +116,8 @@ export const WannaDo = ({ onClaim }: Props) => {
                 onClick={handleClaimClick(onClaim, id, title)}
                 className="mono group/btn flex items-center justify-between gap-2 border-t border-white/5 bg-(--ink-stone) px-4 py-3 text-[10px] text-(--bone-paper) transition-colors hover:bg-(--blood-bright)/10 hover:text-(--blood-bright) cursor-pointer"
               >
-                <span className="hidden sm:inline">Claim this one</span>
-                <span className="sm:hidden">Claim</span>
+                <span className="hidden sm:inline">{site.wannadoSection.claimLabel}</span>
+                <span className="sm:hidden">{site.wannadoSection.claimLabelMobile}</span>
                 <span aria-hidden className="transition-transform group-hover/btn:translate-x-1">
                   →
                 </span>
@@ -134,10 +128,10 @@ export const WannaDo = ({ onClaim }: Props) => {
 
         <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-white/5 pt-10">
           <p className="serif-tight max-w-xl text-pretty text-xl text-(--bone-warm) md:text-2xl">
-            See something you want? First message wins it.
+            {site.wannadoSection.ctaPrompt}
           </p>
           <CtaLink href="#inquire" showArrow className="px-7 py-4">
-            Inquire about a wanna-do
+            {site.wannadoSection.ctaLink}
           </CtaLink>
         </div>
       </div>

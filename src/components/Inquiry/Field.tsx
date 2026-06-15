@@ -1,10 +1,10 @@
-import type { InputHTMLAttributes, FormEvent, DetailedHTMLProps } from "react";
+import type { InputHTMLAttributes, InputEvent, DetailedHTMLProps } from "react";
 import clsx from "clsx";
 
 type Props = {
   label: string;
   error?: string;
-  onInput?: (e: FormEvent<HTMLInputElement>) => void;
+  onInput?: (e: InputEvent<HTMLInputElement>) => void;
 } & Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "onInput">;
 
 export const Field = ({ label, error, onInput, type = "text", className, ...props }: Props) => (

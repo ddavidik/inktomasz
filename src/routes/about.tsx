@@ -1,32 +1,32 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import about from "@content/about.json";
 import site from "@content/site.json";
 import { PageHeader } from "~/components/PageHeader";
 import { CarvedDivider } from "~/components/CarvedDivider";
 import { CtaLink } from "~/components/CtaLink";
-import { scrollToHash } from "~/lib/scroll-to-hash";
-import { type Chapter } from "~/components/AboutChapterText";
+import { TextLink } from "~/components/TextLink";
 import { AboutChapter } from "~/components/AboutChapter";
 
-const scrollToPortfolio = () => scrollToHash("portfolio");
-
 const AboutPage = () => {
-  const chapters = about.full.chapters as Chapter[];
+  const chapters = about.full.chapters;
   const totalStr = String(chapters.length).padStart(2, "0");
+
+  const headingSegments = about.page.headingSegments;
+  const heading = (
+    <>
+      <span className="block leading-none">{headingSegments[0]!.text}</span>
+      <span className="block italic leading-none mt-1 md:mt-0">{headingSegments[1]!.text}</span>
+      <span className="block leading-none mt-1 md:mt-0">{headingSegments[2]!.text}</span>
+    </>
+  );
 
   return (
     <>
       <article className="pt-40 pb-32">
         <PageHeader
-          rune="ᛁ"
-          label="About"
-          heading={
-            <>
-              The hand
-              <br />
-              <span className="italic">behind</span> the needle.
-            </>
-          }
+          rune={site.aboutPageSection.rune}
+          label={site.aboutPageSection.label}
+          heading={heading}
         />
 
         <CarvedDivider className="mt-24" />
@@ -67,20 +67,10 @@ const AboutPage = () => {
           <div className="rune-rule mono">ᛟ</div>
           <div className="mt-12 flex flex-col items-start gap-4 md:flex-row md:flex-wrap md:items-center md:gap-6">
             <CtaLink href="/#inquire" showArrow className="px-7 py-4">
-              Start an inquiry
+              {about.page.ctaLink}
             </CtaLink>
-            <span className="mono text-(--bone-fade)">or</span>
-            <Link
-              to="/"
-              hash="portfolio"
-              onClick={scrollToPortfolio}
-              className="mono group inline-flex items-center gap-3 border-b border-(--bone-fade) pb-2 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
-            >
-              Browse the work
-              <span aria-hidden className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </Link>
+            <span className="mono text-(--bone-fade)">{about.page.ctaAlt}</span>
+            <TextLink href="/#portfolio">{about.page.ctaSecondary}</TextLink>
           </div>
         </div>
       </article>

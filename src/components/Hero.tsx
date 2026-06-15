@@ -1,7 +1,8 @@
 import site from "@content/site.json";
-import { Link } from "@tanstack/react-router";
 import { CtaLink } from "~/components/CtaLink";
-import { scrollToHash } from "~/lib/scroll-to-hash";
+import { scrollToHash } from "~/utils/scrollToHash";
+import { TextLink } from "~/components/TextLink";
+import { renderHeroTitle } from "~/utils/heroTitle";
 
 const scrollToPortfolio = () => scrollToHash("portfolio");
 
@@ -10,9 +11,9 @@ export const Hero = () => (
     {/* background runic ornament */}
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center"
+      className="pointer-events-none absolute inset-0 z-below flex items-center justify-center"
     >
-      <div className="display flicker select-none text-[40vw] leading-none text-(--bone-paper)/[0.06] md:text-[28vw]">
+      <div className="display flicker select-none text-[40vw] leading-none text-(--bone-paper)/6 md:text-[28vw]">
         ᛏ
       </div>
     </div>
@@ -20,7 +21,7 @@ export const Hero = () => (
     {/* decorative side runes */}
     <div
       aria-hidden
-      className="mono pointer-events-none absolute left-6 top-32 hidden flex-col gap-3 text-[10px] tracking-[0.6em] text-(--bone-fade) md:flex"
+      className="mono pointer-events-none absolute left-3 top-32 flex flex-col gap-2 text-[7px] tracking-[0.5em] text-(--bone-fade) md:left-6 md:gap-3 md:text-[10px] md:tracking-[0.6em]"
     >
       <span>ᚠ</span>
       <span>ᚢ</span>
@@ -30,7 +31,7 @@ export const Hero = () => (
     </div>
     <div
       aria-hidden
-      className="mono pointer-events-none absolute right-6 top-40 hidden flex-col gap-3 text-[10px] tracking-[0.6em] text-(--bone-fade) md:flex"
+      className="mono pointer-events-none absolute right-3 top-40 flex flex-col gap-2 text-[7px] tracking-[0.5em] text-(--bone-fade) md:right-6 md:gap-3 md:text-[10px] md:tracking-[0.6em]"
     >
       <span>ᚾ 52.56°</span>
       <span>·</span>
@@ -38,19 +39,12 @@ export const Hero = () => (
     </div>
 
     {/* vignette overlay */}
-    <div aria-hidden className="hero-vignette absolute inset-0 -z-10" />
+    <div aria-hidden className="hero-vignette absolute inset-0 z-below" />
 
     <div className="mx-auto w-full max-w-350 px-6 pb-20 md:px-10 md:pb-32">
       <p className="mono mb-6 text-(--blood-bright)">ᛟ &nbsp; {site.hero.kicker}</p>
       <h1 className="display text-balance text-[14vw] leading-[0.9] md:text-[clamp(5rem,9vw,11rem)]">
-        Skin is the
-        <br />
-        <span className="italic">oldest</span>{" "}
-        <span className="relative">
-          canvas
-          <span aria-hidden className="absolute -bottom-0.5 left-0 h-1 w-full bg-(--blood)" />
-        </span>
-        .
+        {renderHeroTitle(site.hero.titleSegments)}
       </h1>
       <div className="mt-10 grid gap-8 md:grid-cols-12">
         <p className="serif-tight col-span-12 max-w-2xl text-pretty text-xl leading-snug text-(--bone-warm) md:col-span-7 md:text-2xl pr-2">
@@ -59,20 +53,15 @@ export const Hero = () => (
       </div>
       <div className="mt-10 flex flex-col items-start gap-4 md:flex-row md:flex-wrap md:items-center md:gap-6">
         <CtaLink href="/#inquire" showArrow className="px-7 py-4">
-          Book a consultation
+          {site.hero.cta}
         </CtaLink>
-        <span className="mono text-(--bone-fade)">or</span>
-        <Link
-          to="/"
-          hash="portfolio"
+        <span className="mono text-(--bone-fade)">{site.hero.ctaAlt}</span>
+        <TextLink
+          href="/#portfolio"
           onClick={scrollToPortfolio}
-          className="mono group inline-flex items-center gap-3 border-b border-(--bone-fade) pb-2 text-(--bone-paper) transition-colors hover:border-(--blood-bright) hover:text-(--blood-bright)"
         >
-          See the work
-          <span aria-hidden className="transition-transform group-hover:translate-x-1">
-            →
-          </span>
-        </Link>
+          {site.hero.ctaSecondary}
+        </TextLink>
       </div>
     </div>
 
