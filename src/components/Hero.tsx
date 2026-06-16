@@ -43,8 +43,11 @@ export const Hero = () => (
 
     <div className="mx-auto w-full max-w-350 px-6 pb-20 md:px-10 md:pb-32">
       <p className="mono mb-6 text-(--blood-bright)">ᛟ &nbsp; {site.hero.kicker}</p>
-      <h1 className="display text-balance text-[14vw] leading-[0.9] md:text-[clamp(5rem,9vw,11rem)]">
-        {renderHeroTitle(site.hero.titleSegments)}
+      <h1 className="display text-[11vw] leading-none md:text-[clamp(5rem,9vw,11rem)]">
+        <span className="block">{site.hero.titleSegments[0]!.text}</span>
+        <span className="block mt-1 md:mt-0">
+          {renderHeroTitle(site.hero.titleSegments.slice(1))}
+        </span>
       </h1>
       <div className="mt-10 grid gap-8 md:grid-cols-12">
         <p className="serif-tight col-span-12 max-w-2xl text-pretty text-xl leading-snug text-(--bone-paper) md:col-span-7 md:text-2xl pr-2">
