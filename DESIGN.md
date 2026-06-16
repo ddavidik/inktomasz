@@ -18,11 +18,11 @@ Design system reference for **inktomasz** — tattoo artist portfolio, Gdańsk, 
 
 | Token            | Hex       | Role                            |
 | ---------------- | --------- | ------------------------------- |
-| `--ink-void`     | `#07060a` | Deepest background              |
-| `--ink-pitch`    | `#0b0a0f` | Alternate section bg            |
-| `--ink-iron`     | `#14121a` | Card / surface bg               |
-| `--ink-stone`    | `#1d1a23` | Interactive hover bg            |
-| `--ink-ash`      | `#2a2630` | Light surface                   |
+| `--ink-void`     | `#050507` | Deepest background              |
+| `--ink-pitch`    | `#08080c` | Alternate section bg            |
+| `--ink-iron`     | `#131314` | Card / surface bg               |
+| `--ink-stone`    | `#1c1c1e` | Interactive hover bg            |
+| `--ink-ash`      | `#26262b` | Light surface                   |
 | `--bone-paper`   | `#e8dfc9` | Primary text, high emphasis     |
 | `--bone-warm`    | `#d6c9a8` | Body text, descriptions         |
 | `--bone-mid`     | `#9a8e75` | Kicker / meta color             |
@@ -51,13 +51,12 @@ Design system reference for **inktomasz** — tattoo artist portfolio, Gdańsk, 
 
 ### Typefaces
 
-| Role                 | Font                                 | Class                       |
-| -------------------- | ------------------------------------ | --------------------------- |
-| Display / headings   | `Manufacturing Consent`                 | `display`, `h1`, `h2`, `h3` |
-| Body / serif         | `Fraunces` variable                  | default body                |
-| Lead text            | `Fraunces` w/ `"opsz" 96, "SOFT" 60` | `.serif-tight`              |
-| Mono / kicker / meta | `JetBrains Mono`                     | `.mono`                     |
-
+| Role                 | Font                    | Class                       |
+| -------------------- | ----------------------- | --------------------------- |
+| Display / headings   | `Manufacturing Consent` | `display`, `h1`, `h2`, `h3` |
+| Body / serif         | `Spectral`              | default body                |
+| Lead text            | `Spectral`              | `.serif-tight`              |
+| Mono / kicker / meta | `Spectral` uppercase    | `.mono`                     |
 
 ### Type Scale
 
@@ -69,7 +68,7 @@ Design system reference for **inktomasz** — tattoo artist portfolio, Gdańsk, 
 | Sub-heading `h2` (in-page) | `text-4xl md:text-5xl` or `text-5xl md:text-6xl`            |
 | Sub-heading `h3`           | `text-3xl`                                                  |
 | Lead / subtitle            | `serif-tight text-xl md:text-2xl leading-snug`              |
-| Body                       | Fraunces default (~16px)                                    |
+| Body                       | Spectral default (~16px)                                    |
 | Kicker / meta              | `.mono` = 0.72rem, uppercase, `letter-spacing: 0.22em`      |
 
 ### Rules
@@ -260,6 +259,7 @@ Mapped to five foundational web design skills:
 - **Scale**: display text at fluid `14vw` clamped, section h2 at 5xl → 7xl, kicker at 0.72rem.
 - **Rhythm**: tight leading (0.9–0.95) on display, 1.375 (`leading-snug`) on body.
 - **Tracking**: kicker 0.22em (airy), display 0.005em (tight), body default.
+- **Font stack**: `"Spectral", "Iowan Old Style", Georgia, serif` for body. `"Manufacturing Consent", serif` for display. Mono/kicker use Spectral uppercase at 0.7rem.
 
 ### 2. Layout
 

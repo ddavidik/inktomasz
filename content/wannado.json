@@ -1,21 +1,12 @@
 {
   "heading": "Wanna-do",
   "lead": "Designs Tomasz is itching to put on skin. First-come, first-served.",
-  "tags": [
-    "all",
-    "blackwork",
-    "linework",
-    "ornament",
-    "lettering",
-    "demonic"
-  ],
+  "tags": ["all", "blackwork", "linework", "ornament", "lettering", "demonic"],
   "ideas": [
     {
       "id": "w1",
       "title": "Stag of the longwinter",
-      "tags": [
-        "blackwork"
-      ],
+      "tags": ["blackwork"],
       "src": "/images/wannado/w1.svg",
       "alt": "Concept sketch of a stag with ornamental antlers",
       "width": 800,
@@ -24,9 +15,7 @@
     {
       "id": "w2",
       "title": "Knotwork chestpiece",
-      "tags": [
-        "ornament"
-      ],
+      "tags": ["ornament"],
       "src": "/images/wannado/w2.svg",
       "alt": "Symmetrical knotwork chestpiece concept",
       "width": 800,
@@ -35,9 +24,7 @@
     {
       "id": "w3",
       "title": "Younger Futhark band",
-      "tags": [
-        "lettering"
-      ],
+      "tags": ["lettering"],
       "src": "/images/wannado/w3.svg",
       "alt": "Younger Futhark runic band concept",
       "width": 800,
@@ -46,10 +33,7 @@
     {
       "id": "w4",
       "title": "Crow & sigil",
-      "tags": [
-        "linework",
-        "demonic"
-      ],
+      "tags": ["linework", "demonic"],
       "src": "/images/wannado/w4.svg",
       "alt": "Linework crow perched on a sigil",
       "width": 800,
@@ -58,10 +42,7 @@
     {
       "id": "w5",
       "title": "Mjölnir reimagined",
-      "tags": [
-        "blackwork",
-        "ornament"
-      ],
+      "tags": ["blackwork", "ornament"],
       "src": "/images/wannado/w5.svg",
       "alt": "Mjölnir reimagined with dense ornament",
       "width": 800,
@@ -70,9 +51,7 @@
     {
       "id": "w6",
       "title": "Wolfshead medallion",
-      "tags": [
-        "blackwork"
-      ],
+      "tags": ["blackwork"],
       "src": "/images/wannado/w6.svg",
       "alt": "Circular medallion with a wolf head",
       "width": 800,
@@ -81,10 +60,7 @@
     {
       "id": "w7",
       "title": "Baphomet vesica",
-      "tags": [
-        "demonic",
-        "blackwork"
-      ],
+      "tags": ["demonic", "blackwork"],
       "src": "/images/wannado/w7.svg",
       "alt": "Baphomet head inside a vesica piscis frame",
       "width": 800,
@@ -93,10 +69,7 @@
     {
       "id": "w8",
       "title": "Goetic seal sleeve",
-      "tags": [
-        "demonic",
-        "ornament"
-      ],
+      "tags": ["demonic", "ornament"],
       "src": "/images/wannado/w8.svg",
       "alt": "Goetic seal arranged as a sleeve composition",
       "width": 800,

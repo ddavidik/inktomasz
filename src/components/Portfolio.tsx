@@ -2,9 +2,9 @@ import { useState } from "react";
 import portfolio from "@content/portfolio.json";
 import site from "@content/site.json";
 import { SectionHeader } from "~/components/SectionHeader";
-import { CtaLink } from "~/components/CtaLink";
+import { CtaRow } from "~/components/CtaRow";
+import { GalleryFigure } from "~/components/GalleryFigure";
 import { ImageLightbox } from "~/components/ImageLightbox";
-import { createOpenHandler, createKeyDownHandler, createPreloadHandler } from "~/utils/lightboxHandlers";
 
 type LightboxItem = {
   src: string;
@@ -26,10 +26,7 @@ export const Portfolio = () => {
   );
 
   return (
-    <section
-      id="portfolio"
-      className="relative scroll-mt-16 border-t border-white/5 bg-(--ink-pitch) py-28 md:py-40"
-    >
+    <section id="portfolio" className="relative scroll-mt-16 py-28 md:py-40">
       <div className="mx-auto max-w-350 px-6 md:px-10">
         <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
@@ -39,7 +36,7 @@ export const Portfolio = () => {
               heading={portfolio.heading}
             />
           </div>
-          <p className="max-w-md text-(--bone-warm)">
+          <p className="max-w-md text-(--bone-warm) text-sm md:text-lg">
             {portfolio.lead}{" "}
             <a
               href={site.artist.instagram}
@@ -53,49 +50,61 @@ export const Portfolio = () => {
           </p>
         </div>
 
-        <div className="columns-2 gap-6 lg:columns-3 [column-fill:balance]">
+        {/* Mobile: explicit 2-col alternating masonry (fixes CSS columns balance bug on iOS) */}
+        <div className="grid grid-cols-2 gap-6 lg:hidden">
+          {[0, 1].map((col) => (
+            <div key={col} className="flex flex-col gap-6">
+              {portfolio.pieces
+                .filter((_, i) => i % 2 === col)
+                .map(({ id, src, alt, title, style, year, width, height }) => {
+                  const globalIndex = portfolio.pieces.findIndex((p) => p.id === id);
+                  return (
+                    <GalleryFigure
+                      key={id}
+                      src={src}
+                      alt={alt}
+                      width={width}
+                      height={height}
+                      title={title}
+                      meta={style}
+                      metaSecondary={String(year)}
+                      index={globalIndex}
+                      ariaLabel={`View ${title} in lightbox`}
+                      onOpen={setLightboxIndex}
+                      titleClassName="text-2xl"
+                    />
+                  );
+                })}
+            </div>
+          ))}
+        </div>
+
+        {/* Lg+: CSS 3-column masonry */}
+        <div className="hidden lg:block columns-3 gap-6">
           {portfolio.pieces.map(({ id, src, alt, title, style, year, width, height }, i) => (
-            <figure
-              key={id}
-              suppressHydrationWarning
-              role="button"
-              tabIndex={0}
-              onClick={createOpenHandler(setLightboxIndex, i)}
-              onKeyDown={createKeyDownHandler(setLightboxIndex, i)}
-              onMouseEnter={createPreloadHandler(src)}
-              aria-label={`View ${title} in lightbox`}
-              className="reveal group relative mb-6 break-inside-avoid overflow-hidden border border-white/5 bg-(--ink-iron) cursor-pointer focus-visible:outline-2 focus-visible:outline-(--blood-bright) focus-visible:outline-offset-2"
-            >
-              <img
+            <div key={id} className="mb-6 break-inside-avoid">
+              <GalleryFigure
                 src={src}
                 alt={alt}
                 width={width}
                 height={height}
-                loading="lazy"
-                className="block w-full transition-transform duration-1200 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
+                title={title}
+                meta={style}
+                metaSecondary={String(year)}
+                index={i}
+                ariaLabel={`View ${title} in lightbox`}
+                onOpen={setLightboxIndex}
+                titleClassName="text-2xl"
               />
-              <div className="absolute top-3 right-3 text-(--bone-fade) group-hover:text-(--bone-paper) transition-colors text-lg">
-                ⤢
-              </div>
-              <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-linear-to-t from-black/85 via-black/40 to-transparent p-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <div>
-                  <div className="display text-2xl leading-tight">{title}</div>
-                  <div className="mono mt-1">{style}</div>
-                </div>
-                <div className="mono">{year}</div>
-              </figcaption>
-            </figure>
+            </div>
           ))}
         </div>
 
-        <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-white/5 pt-10">
-          <p className="serif-tight max-w-xl text-pretty text-xl text-(--bone-warm) md:text-2xl">
-            {site.portfolioSection.ctaPrompt}
-          </p>
-          <CtaLink href="/#inquire" showArrow className="px-7 py-4">
-            {site.portfolioSection.ctaLink}
-          </CtaLink>
-        </div>
+        <CtaRow
+          prompt={site.portfolioSection.ctaPrompt}
+          linkText={site.portfolioSection.ctaLink}
+          linkHref="/#inquire"
+        />
       </div>
 
       {lightboxIndex !== null && (

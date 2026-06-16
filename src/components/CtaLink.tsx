@@ -40,12 +40,7 @@ export const CtaLink = ({
   };
 
   return (
-    <Link
-      to={to}
-      hash={hash}
-      onClick={handleClick}
-      className={clsx(ctaBaseClass, className)}
-    >
+    <Link to={to} hash={hash} onClick={handleClick} className={clsx(ctaBaseClass, className)}>
       {children}
       {showArrow && <CtaArrow />}
     </Link>

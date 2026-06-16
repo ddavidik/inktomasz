@@ -9,7 +9,7 @@ export const AftercareTease = () => {
   const previewPhases = aftercare.after.phases.slice(0, 2);
 
   return (
-    <section id="care" className="relative scroll-mt-16 border-t border-white/5 py-28 md:py-40">
+    <section id="care" className="relative scroll-mt-16 py-28 md:py-40">
       <div className="mx-auto max-w-350 px-6 md:px-10">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
@@ -19,7 +19,7 @@ export const AftercareTease = () => {
               heading={aftercare.heading}
             />
           </div>
-          <p className="max-w-md text-(--bone-warm)">{aftercare.lead}</p>
+          <p className="max-w-md text-(--bone-warm) text-sm md:text-lg">{aftercare.lead}</p>
         </div>
 
         <div className="grid gap-px border border-white/5 bg-white/5 md:grid-cols-2">
@@ -61,9 +61,7 @@ export const AftercareTease = () => {
         </div>
 
         <div className="mt-10 flex justify-end">
-          <TextLink href="/aftercare">
-            {aftercare.teaser.ctaLink}
-          </TextLink>
+          <TextLink href="/aftercare">{aftercare.teaser.ctaLink}</TextLink>
         </div>
       </div>
     </section>

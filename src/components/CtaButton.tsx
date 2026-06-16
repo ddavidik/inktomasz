@@ -24,7 +24,11 @@ export const CtaButton = ({
     type={type}
     disabled={disabled}
     onClick={onClick}
-    className={clsx(ctaBaseClass, "cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed", className)}
+    className={clsx(
+      ctaBaseClass,
+      "cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
+      className,
+    )}
   >
     {children}
     {showArrow && <CtaArrow />}

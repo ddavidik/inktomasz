@@ -1,5 +1,6 @@
 import site from "@content/site.json";
 import { renderHeroTitle } from "~/utils/heroTitle";
+import { TextLink } from "./TextLink";
 
 export const NotFound = () => (
   <article className="flex flex-1 flex-col pt-40 pb-32">
@@ -15,6 +16,9 @@ export const NotFound = () => (
           <p className="serif-tight mt-8 text-pretty text-xl text-(--bone-warm) md:text-2xl">
             {site.notFound.subtitle}
           </p>
+          <TextLink href="/" className="mt-10 py-4">
+            {site.notFound.ctaHome}
+          </TextLink>
         </div>
       </div>
     </div>

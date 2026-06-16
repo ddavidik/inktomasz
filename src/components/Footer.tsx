@@ -1,11 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import site from "@content/site.json";
-
-const resolveFooterString = (template: string): string =>
-  template.replace("{handle}", site.artist.handle);
+import { resolveHandle } from "~/utils/resolveHandle";
 
 export const Footer = () => (
-  <footer className="border-t border-white/5 bg-(--ink-pitch)">
+  <footer className="border-t border-(--ink-stone) bg-(--ink-void)">
     <div className="mx-auto grid max-w-350 gap-10 px-6 py-16 md:grid-cols-3 md:px-10">
       <div>
         <div className="display text-3xl">
@@ -25,7 +23,7 @@ export const Footer = () => (
               rel="noopener noreferrer"
               className="link-underline"
             >
-              {resolveFooterString(site.footer.instagramLabel)}
+              {resolveHandle(site.footer.instagramLabel)}
             </a>
           </li>
           <li>
@@ -35,7 +33,7 @@ export const Footer = () => (
               rel="noopener noreferrer"
               className="link-underline"
             >
-              {resolveFooterString(site.footer.tiktokLabel)}
+              {resolveHandle(site.footer.tiktokLabel)}
             </a>
           </li>
           <li>
@@ -45,7 +43,7 @@ export const Footer = () => (
               rel="noopener noreferrer"
               className="link-underline"
             >
-              {resolveFooterString(site.footer.facebookLabel)}
+              {resolveHandle(site.footer.facebookLabel)}
             </a>
           </li>
           <li className="text-(--bone-fade)">
@@ -83,7 +81,7 @@ export const Footer = () => (
         </ul>
       </div>
     </div>
-    <div className="border-t border-white/5">
+    <div className="border-t border-(--ink-stone)">
       <div className="mx-auto flex max-w-350 flex-col gap-2 px-6 py-6 text-xs text-(--bone-fade) md:flex-row md:items-center md:justify-between md:px-10">
         <span className="mono">
           © {new Date().getFullYear()} {site.artist.name} · {site.footer.creditSuffix}

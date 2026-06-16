@@ -13,9 +13,7 @@ export const SectionHeader = ({ rune, label, heading, headingClassName }: Sectio
     <p className="mono mb-6 text-(--bone-fade)">
       {rune}&nbsp; {label}
     </p>
-    <h2
-      className={clsx("display text-5xl leading-[0.95] md:text-7xl", headingClassName)}
-    >
+    <h2 className={clsx("display text-5xl leading-[0.95] md:text-7xl", headingClassName)}>
       {heading}
     </h2>
   </>

@@ -1,14 +1,5 @@
 @import "tailwindcss" source("../");
 
-@theme {
-  --z-below: -10;
-  --z-base: 10;
-  --z-nav: 50;
-  --z-backdrop: 200;
-  --z-lightbox: 201;
-  --z-skip: 300;
-}
-
 /* ── Self-hosted fonts ────────────────────────────────────────── */
 @font-face {
   font-family: "Manufacturing Consent";
@@ -33,57 +24,63 @@
 }
 
 @font-face {
-  font-family: "Fraunces";
+  font-family: "Spectral";
   font-style: normal;
-  font-weight: 300 900;
+  font-weight: 300;
   font-display: swap;
-  src: url("/fonts/fraunces-latin-ext.woff2") format("woff2");
-  unicode-range:
-    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
-    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
-    U+A720-A7FF;
+  src: url("/fonts/spectral-300.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Fraunces";
-  font-style: normal;
-  font-weight: 300 900;
+  font-family: "Spectral";
+  font-style: italic;
+  font-weight: 300;
   font-display: swap;
-  src: url("/fonts/fraunces-latin.woff2") format("woff2");
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
-    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 400 500;
-  font-display: swap;
-  src: url("/fonts/jetbrains-mono-latin-ext.woff2") format("woff2");
-  unicode-range:
-    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
-    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
-    U+A720-A7FF;
+  src: url("/fonts/spectral-300italic.woff2") format("woff2");
 }
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: "Spectral";
   font-style: normal;
-  font-weight: 400 500;
+  font-weight: 400;
   font-display: swap;
-  src: url("/fonts/jetbrains-mono-latin.woff2") format("woff2");
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
-    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url("/fonts/spectral-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Spectral";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/spectral-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Spectral";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/spectral-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Spectral";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/spectral-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Spectral";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/spectral-700.woff2") format("woff2");
 }
 
 @layer base {
   :root {
-    /* base — obsidian / weathered iron */
-    --ink-void: #07060a;
-    --ink-pitch: #0b0a0f;
-    --ink-iron: #14121a;
-    --ink-stone: #1d1a23;
-    --ink-ash: #2a2630;
+    /* base — blackwork / carbon */
+    --ink-void: #050507;
+    --ink-pitch: #08080c;
+    --ink-iron: #131314;
+    --ink-stone: #1c1c1e;
+    --ink-ash: #26262b;
 
     /* parchment / bone */
     --bone-paper: #e8dfc9;
@@ -108,7 +105,7 @@
   }
 
   body {
-    font-family: "Fraunces", "Iowan Old Style", Georgia, serif;
+    font-family: "Spectral", "Iowan Old Style", Georgia, serif;
     font-feature-settings: "ss01", "ss02", "liga";
     font-optical-sizing: auto;
     background:
@@ -143,8 +140,7 @@
   h2,
   h3,
   .display {
-    font-family:
-      "Manufacturing Consent", serif;
+    font-family: "Manufacturing Consent", serif;
     font-weight: 400;
     letter-spacing: 0.005em;
   }
@@ -152,15 +148,16 @@
   .kicker,
   .meta,
   .mono {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: "Spectral", ui-monospace, monospace;
     text-transform: uppercase;
     letter-spacing: 0.22em;
-    font-size: 0.72rem;
+    font-weight: 600;
+    font-size: 0.7rem;
     color: var(--bone-mid);
   }
 
   .serif-tight {
-    font-family: "Fraunces", serif;
+    font-family: "Spectral", serif;
     font-variation-settings:
       "opsz" 96,
       "SOFT" 60;
@@ -183,13 +180,25 @@
 }
 
 @layer utilities {
-  /* z-index scale — @theme block silently ignored in TW v4.3, define explicitly */
-  .z-below    { z-index: -10; }
-  .z-base     { z-index: 10;  }
-  .z-nav      { z-index: 50;  }
-  .z-backdrop { z-index: 200; }
-  .z-lightbox { z-index: 201; }
-  .z-skip     { z-index: 300; }
+  /* z-index scale */
+  .z-below {
+    z-index: -10;
+  }
+  .z-base {
+    z-index: 10;
+  }
+  .z-nav {
+    z-index: 50;
+  }
+  .z-backdrop {
+    z-index: 200;
+  }
+  .z-lightbox {
+    z-index: 201;
+  }
+  .z-skip {
+    z-index: 300;
+  }
 
   .text-balance {
     text-wrap: balance;
@@ -198,9 +207,6 @@
     text-wrap: pretty;
   }
 
-  .edge-fade-b {
-    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-  }
 
   /* hover line for links */
   .link-underline {
@@ -268,14 +274,88 @@
   animation: flicker 7s infinite;
 }
 
-@keyframes drift {
-  from {
-    transform: translateY(0);
+/* ── Print ───────────────────────────────────────────────── */
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-family: Georgia, serif;
+    min-height: auto;
   }
-  to {
-    transform: translateY(-12px);
+
+  body::before {
+    display: none;
   }
-}
-.drift {
-  animation: drift 6s ease-in-out infinite alternate;
+
+  /* hide nav, decorative, footer, CTAs */
+  header,
+  [class*="fixed"],
+  footer,
+  button,
+  .hero-vignette,
+  .rune-rule,
+  .flicker {
+    display: none !important;
+  }
+
+  /* force readable colors */
+  *,
+  *::before,
+  *::after {
+    color: black !important;
+    background: white !important;
+    border-color: #ccc !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* keep headings readable */
+  .display,
+  h1,
+  h2,
+  h3 {
+    font-family: Georgia, serif !important;
+    letter-spacing: 0 !important;
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+
+  main {
+    display: block !important;
+    padding: 1rem !important;
+    margin: 0 !important;
+  }
+
+  section {
+    padding: 1.5rem 0 !important;
+    border: none !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+
+  /* show link targets */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75rem;
+  }
+
+  /* keep images; hide SVGs that are decorative */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* keep forms readable, hide interactive bits */
+  input,
+  textarea {
+    border: 1px solid #ccc !important;
+    background: white !important;
+  }
+
+  article,
+  section {
+    page-break-inside: avoid;
+  }
 }

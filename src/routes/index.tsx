@@ -6,9 +6,11 @@ import { WannaDo } from "~/components/WannaDo";
 import { AftercareTease } from "~/components/AftercareTease";
 import { Testimonials } from "~/components/Testimonials";
 import { Inquiry } from "~/components/Inquiry";
+import { SectionDivider } from "~/components/SectionDivider";
 import { usePrefillIdea } from "~/hooks/usePrefillIdea";
 import { scrollToHash } from "~/utils/scrollToHash";
 import { SectionNav } from "~/components/SectionNav";
+import site from "@content/site.json";
 
 const HOME_SECTIONS = [
   { id: "about", label: "About" },
@@ -32,11 +34,17 @@ const Home = () => {
     <>
       <SectionNav sections={HOME_SECTIONS} />
       <Hero />
+      <SectionDivider rune={site.aboutTeaserSection.rune} />
       <AboutTeaser />
+      <SectionDivider rune={site.portfolioSection.rune} />
       <Portfolio />
+      <SectionDivider rune={site.wannadoSection.rune} />
       <WannaDo onClaim={handleClaim} />
+      <SectionDivider rune={site.aftercarePageSection.rune} />
       <AftercareTease />
+      <SectionDivider rune={site.testimonialsSection.rune} />
       <Testimonials />
+      <SectionDivider rune={site.inquiry.kickerRune} />
       <Inquiry prefill={prefill} onClearPrefill={clearPrefill} />
     </>
   );

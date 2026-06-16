@@ -1,5 +1,6 @@
 import type { InputHTMLAttributes, InputEvent, DetailedHTMLProps } from "react";
 import clsx from "clsx";
+import { FormLabelWrapper } from "./FormLabelWrapper";
 
 type Props = {
   label: string;
@@ -8,20 +9,7 @@ type Props = {
 } & Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "onInput">;
 
 export const Field = ({ label, error, onInput, type = "text", className, ...props }: Props) => (
-  <label
-    className={clsx(
-      "block bg-(--ink-iron) px-5 pt-4 pb-3 focus-within:bg-(--ink-stone) border-l-2",
-      error ? "border-(--blood-bright)" : "border-transparent",
-    )}
-  >
-    <span
-      className={clsx(
-        "mono block text-[10px]",
-        error ? "text-(--blood-bright)" : "text-(--bone-fade)",
-      )}
-    >
-      {label}
-    </span>
+  <FormLabelWrapper label={label} error={error}>
     <input
       type={type}
       onInput={onInput}
@@ -31,5 +19,5 @@ export const Field = ({ label, error, onInput, type = "text", className, ...prop
       )}
       {...props}
     />
-  </label>
+  </FormLabelWrapper>
 );
