@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Field } from "./Field";
 import { Textarea } from "./Textarea";
 import { FileField } from "./FileField";
@@ -20,11 +21,33 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
     idea,
     errors,
     status,
+    hasAttempted,
     handleIdeaChange,
     handleFieldChange,
     handleSubmit,
     handleSendAnother,
   } = useInquiryForm(prefill, onClearPrefill);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (status !== "success") return;
+    const el = formRef.current;
+    if (!el) return;
+
+    const id = setTimeout(() => {
+      const rect = el.getBoundingClientRect();
+      const absoluteTop = rect.top + window.scrollY;
+      const centered = absoluteTop - (window.innerHeight - rect.height) / 2;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({
+        top: Math.max(0, centered),
+        behavior: reducedMotion ? "instant" : "smooth",
+      });
+    }, 50);
+
+    return () => clearTimeout(id);
+  }, [status]);
 
   return (
     <section id="inquire" className="relative scroll-mt-16 py-28 md:py-40">
@@ -53,6 +76,7 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
         </div>
 
         <form
+          ref={formRef}
           className="md:col-span-7"
           netlify-honeypot="bot-field"
           data-netlify="true"
@@ -138,6 +162,12 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
               {status === "error" && (
                 <p className="mono mt-4 text-[11px] text-(--blood-bright)">
                   {site.inquiry.errorGeneric}
+                </p>
+              )}
+
+              {hasAttempted && Object.keys(errors).length > 0 && (
+                <p className="mono mt-4 text-[11px] text-(--blood-bright)">
+                  {site.inquiry.validationSummary}
                 </p>
               )}
 
