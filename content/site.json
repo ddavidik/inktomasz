@@ -51,7 +51,7 @@
         "text": "."
       }
     ],
-    "cta": "Book a consultation",
+    "cta": "Begin your piece",
     "ctaAlt": "or",
     "ctaSecondary": "See the work"
   },
@@ -95,7 +95,7 @@
         "text": "first."
       }
     ],
-    "description": "Every piece starts with a conversation \u2014 describe the idea, placement, and what it means to you. I'll be back within a few days.",
+    "description": "Every piece starts with a conversation \u2014 describe the idea, placement, and what it means to you. I'll reply within a few days.",
     "successKicker": "\u16d2  Sent",
     "successMessage": "Message received. I'll be in touch.",
     "sendAnother": "Send another",

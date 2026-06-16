@@ -23,7 +23,7 @@ export const NotFound = () => (
       </div>
     </div>
     <div className="flex-1" />
-    <div className="mx-auto w-full max-w-350 px-6 md:px-10">
+    <div className="mx-auto w-full max-w-350 px-6 md:px-10 mt-10">
       <div className="rune-rule mono">{site.notFound.runeRule}</div>
     </div>
   </article>

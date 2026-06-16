@@ -72,7 +72,7 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
               <button
                 type="button"
                 onClick={handleSendAnother}
-                className="mono self-start text-[11px] text-(--bone-fade) hover:text-(--bone-paper) cursor-pointer"
+                className="mono self-start text-[11px] text-(--bone-fade) hover:text-(--blood-bright) cursor-pointer"
               >
                 {site.inquiry.sendAnother}
               </button>
