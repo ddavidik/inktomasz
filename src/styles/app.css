@@ -207,7 +207,6 @@
     text-wrap: pretty;
   }
 
-
   /* hover line for links */
   .link-underline {
     background-image: linear-gradient(currentColor, currentColor);

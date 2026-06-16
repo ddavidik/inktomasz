@@ -10,7 +10,8 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "fmt:check": "oxfmt --check",
+    "postinstall": "bunx simple-git-hooks"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.95",
@@ -26,11 +27,25 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^6.0.2",
+    "nano-staged": "^1.0.2",
     "oxfmt": "^0.51.0",
     "oxlint": "^1.66.0",
+    "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.2",
     "vite": "^8.0.14"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bunx nano-staged && bun run typecheck"
+  },
+  "nano-staged": {
+    "*.{ts,tsx}": [
+      "bun run fmt",
+      "bun run lint:fix"
+    ],
+    "*.{js,jsx,json,css,md}": [
+      "bun run fmt"
+    ]
   },
   "trustedDependencies": [
     "@parcel/watcher"
