@@ -94,7 +94,7 @@ export const Nav = () => {
       {/* mobile sheet */}
       <div
         className={clsx(
-          "md:hidden overflow-hidden border-t border-white/5 bg-(--ink-pitch)/95 backdrop-blur-md transition-[max-height,opacity] duration-500",
+          "md:hidden overflow-hidden border-t border-white/5 bg-(--ink-void)/80 backdrop-blur-md transition-[max-height,opacity] duration-500",
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
         )}
       >
