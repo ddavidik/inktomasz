@@ -47,7 +47,7 @@ export const Hero = () => (
         {renderHeroTitle(site.hero.titleSegments)}
       </h1>
       <div className="mt-10 grid gap-8 md:grid-cols-12">
-        <p className="serif-tight col-span-12 max-w-2xl text-pretty text-xl leading-snug text-(--bone-warm) md:col-span-7 md:text-2xl pr-2">
+        <p className="serif-tight col-span-12 max-w-2xl text-pretty text-xl leading-snug text-(--bone-paper) md:col-span-7 md:text-2xl pr-2">
           {site.hero.subtitle}
         </p>
       </div>

@@ -49,7 +49,7 @@ const AftercarePage = () => {
                 <span className="mono text-(--blood-bright)">ᛏ</span>
                 <span className="display ml-3 text-2xl">{title}</span>
               </div>
-              <div className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-warm)">
+              <div className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-paper)">
                 {text}
               </div>
             </li>
@@ -72,9 +72,9 @@ const AftercarePage = () => {
                     <div className="mono text-(--bone-fade)">
                       Phase {String(i + 1).padStart(2, "0")}
                     </div>
-                    <div className="display mt-1 text-2xl text-(--bone-paper)">{p.label}</div>
+                    <div className="display mt-1 text-2xl text-white">{p.label}</div>
                   </div>
-                  <p className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-warm)">
+                  <p className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-paper)">
                     <FormattedText segments={p.body} />
                   </p>
                 </li>
@@ -92,7 +92,7 @@ const AftercarePage = () => {
             </div>
             <ul className="grid gap-3 md:grid-cols-2">
               {aftercare.after.donts.map((d) => (
-                <li key={d} className="serif-tight flex gap-3 text-lg text-(--bone-warm)">
+                <li key={d} className="serif-tight flex gap-3 text-lg text-(--bone-paper)">
                   <span aria-hidden className="text-(--blood-bright)">
                     ×
                   </span>
@@ -118,7 +118,7 @@ const AftercarePage = () => {
                 <span className="mono text-(--bone-fade)">ᚠ</span>
                 <span className="display ml-3 text-2xl">{item.title}</span>
               </div>
-              <div className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-warm)">
+              <div className="col-span-12 md:col-span-9 serif-tight text-pretty text-xl leading-relaxed text-(--bone-paper)">
                 <FormattedText segments={item.body} />
               </div>
             </li>

@@ -36,7 +36,7 @@ export const Portfolio = () => {
               heading={portfolio.heading}
             />
           </div>
-          <p className="max-w-md text-(--bone-warm) text-sm md:text-lg">
+          <p className="max-w-md text-(--bone-paper) text-sm md:text-lg">
             {portfolio.lead}{" "}
             <a
               href={site.artist.instagram}

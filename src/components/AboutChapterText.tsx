@@ -31,7 +31,7 @@ export const AboutChapterText = ({
     </div>
     <h2 className="display mt-2 text-4xl md:text-5xl">{chapter.title}</h2>
     {!compact && (
-      <p className="serif-tight mt-6 wrap-break-word text-pretty text-xl leading-relaxed text-(--bone-warm) md:text-2xl">
+      <p className="serif-tight mt-6 wrap-break-word text-pretty text-xl leading-relaxed text-(--bone-paper) md:text-2xl">
         <FormattedText segments={chapter.body} />
       </p>
     )}

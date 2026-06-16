@@ -16,7 +16,7 @@ export const PageHeader = ({ rune, label, heading, subtitle }: PageHeaderProps) 
       {heading}
     </h1>
     {subtitle !== undefined && (
-      <p className="serif-tight mt-8 max-w-2xl text-pretty text-xl text-(--bone-warm) md:text-2xl">
+      <p className="serif-tight mt-8 max-w-2xl text-pretty text-xl text-(--bone-paper) md:text-2xl">
         {subtitle}
       </p>
     )}

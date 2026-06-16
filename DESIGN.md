@@ -24,7 +24,6 @@ Design system reference for **inktomasz** — tattoo artist portfolio, Gdańsk, 
 | `--ink-stone`    | `#1c1c1e` | Interactive hover bg            |
 | `--ink-ash`      | `#26262b` | Light surface                   |
 | `--bone-paper`   | `#e8dfc9` | Primary text, high emphasis     |
-| `--bone-warm`    | `#d6c9a8` | Body text, descriptions         |
 | `--bone-mid`     | `#9a8e75` | Kicker / meta color             |
 | `--bone-fade`    | `#6a6256` | Muted / decorative              |
 | `--blood`        | `#8b1d1a` | Accent bg, selection, underline |
@@ -75,7 +74,7 @@ Design system reference for **inktomasz** — tattoo artist portfolio, Gdańsk, 
 
 - Display headings: tight leading (0.9–0.95). Never default leading on `Manufacturing Consent`.
 - Kickers: always `.mono`. Prefix with a rune glyph + `&nbsp;&nbsp;`. Color `text-(--bone-fade)` in components, `text-(--blood-bright)` in page-level headers.
-- Body text: `text-(--bone-warm)` for descriptions, `text-(--bone-paper)` for emphasis.
+- Body text: `text-(--bone-paper)` for descriptions, `text-(--bone-paper)` for emphasis.
 - Italic variation: `<span className="italic">` within display headings for rhythmic contrast.
 - **Letter-spacing on display headings**: intentionally `0.005em` (near-zero), **not** negative. Manufacturing Consent blackletter collapses in legibility with negative tracking (`-0.04em` etc.). This is a deliberate deviation from conventional tight-heading rules that apply to grotesque/sans display fonts.
 

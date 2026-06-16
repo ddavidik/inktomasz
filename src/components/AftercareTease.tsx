@@ -19,7 +19,7 @@ export const AftercareTease = () => {
               heading={aftercare.heading}
             />
           </div>
-          <p className="max-w-md text-(--bone-warm) text-sm md:text-lg">{aftercare.lead}</p>
+          <p className="max-w-md text-(--bone-paper) text-sm md:text-lg">{aftercare.lead}</p>
         </div>
 
         <div className="grid gap-px border border-white/5 bg-white/5 md:grid-cols-2">
@@ -28,10 +28,10 @@ export const AftercareTease = () => {
             <h3 className="display mb-6 text-3xl">{aftercare.before.title}</h3>
             <ul className="space-y-4">
               {previewItems.map(({ title, text }) => (
-                <li key={title} className="flex gap-4 text-(--bone-warm)">
+                <li key={title} className="flex gap-4 text-(--bone-paper)">
                   <span className="mono shrink-0 pt-1 text-(--blood-bright)">ᛏ</span>
                   <span>
-                    <span className="display block text-lg text-(--bone-paper)">{title}</span>
+                    <span className="display block text-lg text-white">{title}</span>
                     <span className="text-sm">{text}</span>
                   </span>
                 </li>
@@ -49,8 +49,8 @@ export const AftercareTease = () => {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span>
-                    <span className="display block text-lg text-(--bone-paper)">{phase.label}</span>
-                    <span className="text-sm text-(--bone-warm)">
+                    <span className="display block text-lg text-white">{phase.label}</span>
+                    <span className="text-sm text-(--bone-paper)">
                       <FormattedText segments={phase.body} />
                     </span>
                   </span>

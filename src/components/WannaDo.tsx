@@ -55,7 +55,7 @@ export const WannaDo = ({ onClaim }: Props) => {
               heading={wannado.heading}
             />
           </div>
-          <p className="max-w-md text-(--bone-warm) text-sm md:text-lg">{wannado.lead}</p>
+          <p className="max-w-md text-(--bone-paper) text-sm md:text-lg">{wannado.lead}</p>
         </div>
 
         <div className="mb-10 flex flex-wrap gap-2">

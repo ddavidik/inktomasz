@@ -84,7 +84,6 @@
 
     /* parchment / bone */
     --bone-paper: #e8dfc9;
-    --bone-warm: #d6c9a8;
     --bone-mid: #9a8e75;
     --bone-fade: #6a6256;
 
@@ -143,6 +142,7 @@
     font-family: "Manufacturing Consent", serif;
     font-weight: 400;
     letter-spacing: 0.005em;
+    color: white;
   }
 
   .kicker,
