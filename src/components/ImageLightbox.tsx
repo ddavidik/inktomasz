@@ -27,6 +27,7 @@ type EnterDir = "from-right" | "from-left" | "from-bottom" | null;
 export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Props) => {
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const imgContainerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   const total = items.length;
   const [isLoading, setIsLoading] = useState(true);
@@ -58,7 +59,7 @@ export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Prop
   }, []);
 
   useEffect(() => {
-    const el = containerRef.current;
+    const el = imgContainerRef.current;
     if (!el) return;
     const preventTouchScroll = (e: globalThis.TouchEvent) => e.preventDefault();
     el.addEventListener("touchmove", preventTouchScroll, { passive: false });
@@ -169,8 +170,6 @@ export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Prop
     <div
       className="fixed inset-0 z-backdrop bg-black/90"
       onClick={handleBackdropClick}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
       role="dialog"
       aria-modal="true"
       aria-label={site.lightbox.ariaLabel}
@@ -193,7 +192,12 @@ export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Prop
         <img src={prevItem.src} alt="" hidden aria-hidden="true" />
         <img src={nextItem.src} alt="" hidden aria-hidden="true" />
 
-        <div className="relative flex h-[70vh] w-[85vw] max-w-3xl items-center justify-center border border-white/5 overflow-hidden">
+        <div
+          className="relative flex h-[70vh] w-[85vw] max-w-3xl items-center justify-center border border-white/5 overflow-hidden"
+          ref={imgContainerRef}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {isLoading && <Spinner />}
           <img
             ref={imgRef}
@@ -207,7 +211,7 @@ export const ImageLightbox = ({ items, index, onClose, onChange, onClaim }: Prop
           />
         </div>
 
-        <div className="mt-4 text-center px-4">
+        <div className="mt-4 text-center px-4 select-text cursor-text">
           <div className="display text-2xl md:text-3xl text-(--bone-paper) leading-tight">
             {currentItem.title}
           </div>

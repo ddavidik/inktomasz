@@ -88,15 +88,10 @@ export const useInquiryForm = (prefill: Prefill | null, onClearPrefill: () => vo
     setHasAttempted(true);
     setStatus("submitting");
 
-    const form = e.currentTarget;
-
     fetch("/", { method: "POST", body: formData })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         setStatus("success");
-        requestAnimationFrame(() => {
-          form.scrollIntoView({ behavior: "smooth", block: "center" });
-        });
       })
       .catch(() => setStatus("error"));
   };
