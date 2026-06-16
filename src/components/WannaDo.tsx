@@ -3,9 +3,9 @@ import clsx from "clsx";
 import wannado from "@content/wannado.json";
 import site from "@content/site.json";
 import { SectionHeader } from "~/components/SectionHeader";
-import { CtaLink } from "~/components/CtaLink";
+import { CtaRow } from "~/components/CtaRow";
+import { GalleryFigure } from "~/components/GalleryFigure";
 import { ImageLightbox } from "~/components/ImageLightbox";
-import { createOpenHandler, createKeyDownHandler, createPreloadHandler } from "~/utils/lightboxHandlers";
 
 type Props = {
   onClaim: (id: string, title: string) => void;
@@ -45,9 +45,9 @@ export const WannaDo = ({ onClaim }: Props) => {
   }));
 
   return (
-    <section id="wannado" className="relative scroll-mt-16 border-t border-white/5 py-28 md:py-40">
+    <section id="wannado" className="relative scroll-mt-16 py-28 md:py-40">
       <div className="mx-auto max-w-350 px-6 md:px-10">
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between text-lg">
           <div>
             <SectionHeader
               rune={site.wannadoSection.rune}
@@ -55,7 +55,7 @@ export const WannaDo = ({ onClaim }: Props) => {
               heading={wannado.heading}
             />
           </div>
-          <p className="max-w-md text-(--bone-warm)">{wannado.lead}</p>
+          <p className="max-w-md text-(--bone-warm) text-sm md:text-lg">{wannado.lead}</p>
         </div>
 
         <div className="mb-10 flex flex-wrap gap-2">
@@ -81,36 +81,19 @@ export const WannaDo = ({ onClaim }: Props) => {
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
           {filtered.map(({ id, alt, src, title, tags, width, height }, i) => (
-            <figure
+            <GalleryFigure
               key={id}
-              suppressHydrationWarning
-              role="button"
-              tabIndex={0}
-              onClick={createOpenHandler(setLightboxIndex, i)}
-              onKeyDown={createKeyDownHandler(setLightboxIndex, i)}
-              onMouseEnter={createPreloadHandler(src)}
-              aria-label={site.wannadoSection.lightboxAria.replace("{title}", title)}
-              className="reveal group relative flex flex-col overflow-hidden border border-white/5 bg-(--ink-iron) cursor-pointer focus-visible:outline-2 focus-visible:outline-(--blood-bright) focus-visible:outline-offset-2"
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+              title={title}
+              meta={tags.join(" · ")}
+              index={i}
+              ariaLabel={site.wannadoSection.lightboxAria.replace("{title}", title)}
+              onOpen={setLightboxIndex}
+              imgClassName="aspect-4/5 object-cover"
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={src}
-                  alt={alt}
-                  width={width}
-                  height={height}
-                  loading="lazy"
-                  className="block aspect-4/5 w-full object-cover transition-transform duration-1200 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
-                />
-                <div className="absolute top-3 right-3 text-(--bone-fade) group-hover:text-(--bone-paper) transition-colors text-lg">
-                  ⤢
-                </div>
-                <div className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-linear-to-b from-transparent via-transparent to-black/85 p-4">
-                  <div>
-                    <div className="display text-xl leading-tight">{title}</div>
-                    <div className="mono mt-1 text-[10px]">{tags.join(" · ")}</div>
-                  </div>
-                </div>
-              </div>
               <button
                 type="button"
                 onClick={handleClaimClick(onClaim, id, title)}
@@ -122,18 +105,15 @@ export const WannaDo = ({ onClaim }: Props) => {
                   →
                 </span>
               </button>
-            </figure>
+            </GalleryFigure>
           ))}
         </div>
 
-        <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-white/5 pt-10">
-          <p className="serif-tight max-w-xl text-pretty text-xl text-(--bone-warm) md:text-2xl">
-            {site.wannadoSection.ctaPrompt}
-          </p>
-          <CtaLink href="#inquire" showArrow className="px-7 py-4">
-            {site.wannadoSection.ctaLink}
-          </CtaLink>
-        </div>
+        <CtaRow
+          prompt={site.wannadoSection.ctaPrompt}
+          linkText={site.wannadoSection.ctaLink}
+          linkHref="#inquire"
+        />
       </div>
 
       {lightboxIndex !== null && (

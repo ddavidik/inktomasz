@@ -7,35 +7,23 @@ export type HeroTitle = readonly HeroTitleSegment[];
 export const renderHeroTitle = (segments: HeroTitle): ReactNode => (
   <>
     {segments.map((seg, i) => {
-      const inner = seg.br ? (
-        <Fragment key={i}>
-          {seg.text}
-          <br />
-        </Fragment>
-      ) : null;
+      let el: ReactNode = seg.text;
 
-      if (seg.underline) {
-        return (
-          <span key={i} className="relative">
-            {inner ?? seg.text}
+      if (seg.italic) el = <span className="italic">{el}</span>;
+      if (seg.underline)
+        el = (
+          <span className="relative">
+            {el}
             <span aria-hidden className="absolute -bottom-0.5 left-0 h-1 w-full bg-(--blood)" />
           </span>
         );
-      }
 
-      if (seg.italic) {
-        return (
-          <span key={i} className="italic">
-            {inner ?? seg.text}
-          </span>
-        );
-      }
-
-      if (seg.br) {
-        return inner;
-      }
-
-      return <Fragment key={i}>{seg.text}</Fragment>;
+      return (
+        <Fragment key={i}>
+          {el}
+          {seg.br && <br />}
+        </Fragment>
+      );
     })}
   </>
 );

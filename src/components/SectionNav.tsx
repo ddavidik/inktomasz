@@ -35,7 +35,7 @@ export const SectionNav = ({ sections }: SectionNavProps): ReactNode => {
               title={label}
               aria-label={label}
               aria-current={isActive ? "true" : undefined}
-              className="flex items-center gap-2.5 no-underline"
+              className="flex items-center gap-2.5 no-underline p-2 -m-2"
             >
               {/* Label — desktop hover-reveal (all expand together) */}
               <span

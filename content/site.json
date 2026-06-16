@@ -1,10 +1,9 @@
 {
   "artist": {
-    "name": "Tomasz Górnicki",
+    "name": "Tomasz G\u00f3rnicki",
     "firstName": "Tomasz",
-    "lastName": "Górnicki",
+    "lastName": "G\u00f3rnicki",
     "handle": "inktomasz",
-    "location": "Berlin",
     "studio": "Der Grimm Tattoo",
     "studioCity": "Berlin",
     "email": "tomassorr@gmail.com",
@@ -16,25 +15,25 @@
     "ogImage": "/images/og-sideshot.jpg"
   },
   "seo": {
-    "defaultTitle": "Tomasz Górnicki — Blackwork & Nordic Tattoo Artist in Berlin | Inktomasz",
-    "defaultDescription": "Tomasz Górnicki (@inktomasz) — custom blackwork, nordic, and rune-inspired tattoos at Der Grimm Tattoo, Berlin. Characters, creatures, and compositions for people who know something darker came before the gods. By appointment.",
-    "aboutTitle": "About Tomasz Górnicki — Blackwork Tattoo Artist in Berlin | Inktomasz",
-    "aboutDescription": "Meet Tomasz Górnicki, a tattoo artist working out of Der Grimm Tattoo in Berlin. Polish-born, specializing in blackwork, nordic, and rune-inspired custom tattoos.",
-    "aftercareTitle": "Tattoo Aftercare — Before & After Instructions | Inktomasz",
-    "aftercareDescription": "How to prepare for your tattoo session and care for it afterwards. Read before your appointment — come back for two weeks after. Professional aftercare guidance from Der Grimm Tattoo, Berlin."
+    "defaultTitle": "Tomasz G\u00f3rnicki \u2014 Blackwork & Nordic Tattoo Artist in Berlin | Inktomasz",
+    "defaultDescription": "Tomasz G\u00f3rnicki (@inktomasz) \u2014 custom blackwork, nordic, and rune-inspired tattoos at Der Grimm Tattoo, Berlin. Characters, creatures, and compositions for people who know something darker came before the gods. By appointment.",
+    "aboutTitle": "About Tomasz G\u00f3rnicki \u2014 Blackwork Tattoo Artist in Berlin | Inktomasz",
+    "aboutDescription": "Meet Tomasz G\u00f3rnicki, a tattoo artist working out of Der Grimm Tattoo in Berlin. Polish-born, specializing in blackwork, nordic, and rune-inspired custom tattoos.",
+    "aftercareTitle": "Tattoo Aftercare \u2014 Before & After Instructions | Inktomasz",
+    "aftercareDescription": "How to prepare for your tattoo session and care for it afterwards. Read before your appointment \u2014 come back for two weeks after. Professional aftercare guidance from Der Grimm Tattoo, Berlin."
   },
   "booking": {
     "weeksOut": 8
   },
   "pricing": {
-    "fullDay": "€1,400",
-    "halfDay": "€700",
-    "disclaimer": "Free consultation · no deposit until confirmed"
+    "fullDay": "~\u20ac1,400",
+    "halfDay": "~\u20ac700",
+    "deposit": "\u20ac100",
+    "disclaimer": "Free consultation \u00b7 deposit required to book"
   },
   "hero": {
     "kicker": "Carved in Berlin",
-    "title": "Skin is the oldest canvas",
-    "subtitle": "Characters, creatures, and rune compositions — for people who know something darker came before the gods.",
+    "subtitle": "Characters, creatures, and rune compositions \u2014 for people who know something darker came before the gods.",
     "titleSegments": [
       {
         "text": "Skin is the",
@@ -80,15 +79,15 @@
     }
   ],
   "inquiry": {
-    "kickerRune": "ᛒ",
+    "kickerRune": "\u16d2",
     "kickerLabel": "Inquire",
     "headingSegments": [
       {
-        "text": "Tell me the",
+        "text": "Tell me",
         "br": true
       },
       {
-        "text": "story",
+        "text": "the story",
         "italic": true,
         "br": true
       },
@@ -96,8 +95,8 @@
         "text": "first."
       }
     ],
-    "description": "Every piece starts with a conversation — describe the idea, placement, and what it means to you. I'll be back within a few days.",
-    "successKicker": "ᛒ  Sent",
+    "description": "Every piece starts with a conversation \u2014 describe the idea, placement, and what it means to you. I'll be back within a few days.",
+    "successKicker": "\u16d2  Sent",
     "successMessage": "Message received. I'll be in touch.",
     "sendAnother": "Send another",
     "prefillClaiming": "Claiming",
@@ -108,25 +107,26 @@
     "fieldEmail": "Email address",
     "fieldInstagram": "Instagram handle",
     "fieldInstagramPlaceholder": "@yourhandle",
-    "fieldPlacement": "Placement (arm, ribs, calf…)",
+    "fieldPlacement": "Placement (arm, ribs, calf\u2026)",
     "fieldDate": "Preferred date",
     "fieldDatePlaceholder": "e.g. June 2025",
-    "fieldIdea": "Describe the idea — story, mood, references *",
+    "fieldIdea": "Describe the idea \u2014 story, mood, references *",
     "fieldReferences": "Reference links (Instagram, Pinterest, etc.)",
     "fieldFile": "Reference image (max 8 MB)",
     "submitLabel": "Send inquiry",
-    "submitLoading": "Sending…",
-    "errorGeneric": "Something went wrong — try again or email directly.",
-    "validationContact": "Provide your email or Instagram — at least one is required.",
+    "submitLoading": "Sending\u2026",
+    "errorGeneric": "Something went wrong \u2014 try again or email directly.",
+    "validationContact": "Provide your email or Instagram \u2014 at least one is required.",
     "validationName": "Your name is required.",
     "validationEmail": "That doesn't look like a valid email.",
-    "validationIdea": "Tell me the idea — story, mood, what it means.",
+    "validationIdea": "Tell me the idea \u2014 story, mood, what it means.",
     "bookingLabel": "Currently booking ~{weeks} weeks out",
-    "bookingSubtext": "Fast needle — a full back piece in a single session is not unusual.",
+    "bookingSubtext": "Fast needle \u2014 a full back piece in a single session is not unusual.",
     "pricingFullDay": "Full day",
     "pricingHalfDay": "Half day",
-    "contactLinkDM": "→ DM @{handle} on Instagram",
-    "bookingRune": "ᛏ"
+    "pricingDeposit": "Deposit",
+    "contactLinkDM": "\u2192 DM @{handle} on Instagram",
+    "bookingRune": "\u16cf"
   },
   "footer": {
     "findLabel": "Find",
@@ -137,11 +137,11 @@
     "linkAbout": "About Tomasz",
     "linkAftercare": "Before & after",
     "linkInquire": "Inquire",
-    "creditSuffix": "Site by Daniel Davidík",
-    "futhark": "ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ"
+    "creditSuffix": "Site by Daniel David\u00edk",
+    "futhark": "\u16a0 \u16a2 \u16a6 \u16a8 \u16b1 \u16b2"
   },
   "notFound": {
-    "kickerRune": "ᚾ",
+    "kickerRune": "\u16be",
     "kickerLabel": "Not found",
     "headingSegments": [
       {
@@ -154,7 +154,8 @@
       }
     ],
     "subtitle": "Whatever you sought was not carved here.",
-    "runeRule": "ᚾ"
+    "runeRule": "\u16be",
+    "ctaHome": "Back to home"
   },
   "sectionNav": {
     "ariaLabel": "Page sections"
@@ -168,13 +169,13 @@
   },
   "skipLink": "Skip to content",
   "portfolioSection": {
-    "rune": "ᛉ",
+    "rune": "\u16c9",
     "label": "Portfolio",
     "ctaPrompt": "Seen something that speaks to you?",
     "ctaLink": "Tell me your idea"
   },
   "wannadoSection": {
-    "rune": "ᚹ",
+    "rune": "\u16b9",
     "label": "Wanna-do",
     "ctaPrompt": "See something you want? First message wins it.",
     "ctaLink": "Inquire about a wanna-do",
@@ -183,50 +184,21 @@
     "lightboxAria": "View {title} in lightbox"
   },
   "testimonialsSection": {
-    "rune": "ᛟ",
+    "rune": "\u16df",
     "label": "Voices"
   },
   "aboutTeaserSection": {
-    "rune": "ᛁ",
+    "rune": "\u16c1",
     "label": "About",
     "ctaLink": "Read the full story"
   },
   "aboutPageSection": {
-    "rune": "ᛁ",
-    "label": "About",
-    "headingSegments": [
-      {
-        "text": "The hand",
-        "br": true
-      },
-      {
-        "text": "behind",
-        "italic": true,
-        "br": true
-      },
-      {
-        "text": "the needle."
-      }
-    ],
-    "ctaLink": "Start an inquiry",
-    "ctaAlt": "or",
-    "ctaSecondary": "Browse the work"
+    "rune": "\u16c1",
+    "label": "About"
   },
   "aftercarePageSection": {
-    "rune": "ᛟ",
-    "label": "Care",
-    "headingSegments": [
-      {
-        "text": "Before",
-        "br": true
-      },
-      {
-        "text": "& after.",
-        "italic": true
-      }
-    ],
-    "subtitle": "Read this before your session. Come back to it when you need it for two weeks after. Bookmark it.",
-    "ctaLink": "Ready to book a session"
+    "rune": "\u16df",
+    "label": "Care"
   },
   "aftercareTeaser": {
     "beforeLabel": "Before",
@@ -241,7 +213,7 @@
     "ariaChooseFile": "Choose a file",
     "clearAllAria": "Clear all files",
     "clearAllLabel": "Clear all",
-    "placeholderFiles": "Choose files…",
-    "placeholderFile": "Choose a file…"
+    "placeholderFiles": "Choose files\u2026",
+    "placeholderFile": "Choose a file\u2026"
   }
 }

@@ -14,9 +14,6 @@ type AboutChapterProps = {
   loading?: "lazy" | "eager";
 };
 
-const handleLoad = (loading: "lazy" | "eager" | undefined) =>
-  loading === "eager" ? undefined : "lazy";
-
 export const AboutChapter = ({
   chapter,
   chapterNumber,
@@ -31,7 +28,7 @@ export const AboutChapter = ({
   const hasImage = Boolean(imageSrc);
   const alt = imageAlt ?? imageSrc ?? chapter.imageAlt ?? chapter.title;
   const isRight = (imageSide ?? chapter.imageSide) === "right";
-  const lazyLoad = handleLoad(loading);
+  const lazyLoad = loading === "eager" ? undefined : "lazy";
 
   if (!hasImage)
     return (

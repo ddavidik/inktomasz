@@ -5,6 +5,7 @@ import { CtaButton } from "~/components/CtaButton";
 import { PricingTable } from "./PricingTable";
 import { BookingInfo } from "./BookingInfo";
 import { ContactLinks } from "./ContactLinks";
+import { PrefillBanner } from "./PrefillBanner";
 import { type Prefill } from "~/hooks/usePrefillIdea";
 import { useInquiryForm } from "~/hooks/useInquiryForm";
 import site from "@content/site.json";
@@ -26,10 +27,7 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
   } = useInquiryForm(prefill, onClearPrefill);
 
   return (
-    <section
-      id="inquire"
-      className="relative scroll-mt-16 border-t border-white/5 bg-(--ink-pitch) py-28 md:py-40"
-    >
+    <section id="inquire" className="relative scroll-mt-16 py-28 md:py-40">
       <div className="mx-auto grid max-w-350 gap-16 px-6 md:grid-cols-12 md:px-10">
         <div className="md:col-span-5">
           <p className="mono mb-6 text-(--blood-bright)">
@@ -81,27 +79,12 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
             </div>
           ) : (
             <>
-              {prefill && (
-                <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border border-(--blood-bright)/40 bg-(--blood-bright)/5 px-4 py-3">
-                  <div className="mono text-[11px] text-(--bone-paper)">
-                    {site.inquiry.prefillClaiming}{" "}
-                    <span className="text-(--blood-bright)">{prefill.title}</span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={onClearPrefill}
-                    className="mono text-[10px] text-(--bone-fade) hover:text-(--bone-paper)"
-                  >
-                    {site.inquiry.prefillClear}
-                  </button>
-                </div>
-              )}
+              {prefill && <PrefillBanner prefill={prefill} onClear={onClearPrefill} />}
 
               <div className="grid gap-px bg-white/5 border border-white/5">
                 <p className="hidden">
                   <label>
-                    {site.inquiry.honeypotLabel}{" "}
-                    <input name="bot-field" type="text" />
+                    {site.inquiry.honeypotLabel} <input name="bot-field" type="text" />
                   </label>
                 </p>
 
@@ -109,7 +92,7 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
                   label={site.inquiry.fieldName}
                   name="name"
                   error={errors.name}
-                  onInput={handleFieldChange("name")}
+                  onInput={handleFieldChange()}
                 />
 
                 <div className="bg-(--ink-stone) px-5 py-2">
@@ -122,20 +105,17 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
                   name="email"
                   type="email"
                   error={errors.email}
-                  onInput={handleFieldChange("email")}
+                  onInput={handleFieldChange()}
                 />
                 <Field
                   label={site.inquiry.fieldInstagram}
                   name="instagram"
                   placeholder={site.inquiry.fieldInstagramPlaceholder}
                   error={errors.instagram}
-                  onInput={handleFieldChange("instagram")}
+                  onInput={handleFieldChange()}
                 />
                 <div className="bg-(--ink-stone) px-5 py-2" />
-                <Field
-                  label={site.inquiry.fieldPlacement}
-                  name="placement"
-                />
+                <Field label={site.inquiry.fieldPlacement} name="placement" />
                 <Field
                   label={site.inquiry.fieldDate}
                   name="date"
@@ -148,19 +128,11 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
                   onChange={handleIdeaChange}
                   name="idea"
                   error={errors.idea}
-                  onInput={handleFieldChange("idea")}
+                  onInput={handleFieldChange()}
                 />
 
-                <Textarea
-                  label={site.inquiry.fieldReferences}
-                  rows={3}
-                  name="references"
-                />
-                <FileField
-                  label={site.inquiry.fieldFile}
-                  name="file"
-                  accept="image/*"
-                />
+                <Textarea label={site.inquiry.fieldReferences} rows={3} name="references" />
+                <FileField label={site.inquiry.fieldFile} name="file" accept="image/*" />
               </div>
 
               {status === "error" && (

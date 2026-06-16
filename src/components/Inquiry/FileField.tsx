@@ -1,4 +1,11 @@
-import type { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent, MouseEvent, RefObject } from "react";
+import type {
+  ChangeEvent,
+  DetailedHTMLProps,
+  InputHTMLAttributes,
+  KeyboardEvent,
+  MouseEvent,
+  RefObject,
+} from "react";
 import { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
 import site from "@content/site.json";
@@ -21,27 +28,22 @@ const filesToFileList = (files: File[]): FileList => {
 };
 
 const handleKeyDown =
-  (inputRef: RefObject<HTMLInputElement | null>) =>
-  (e: KeyboardEvent<HTMLDivElement>) => {
+  (inputRef: RefObject<HTMLInputElement | null>) => (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       inputRef.current?.click();
     }
   };
 
-const handleClearAll =
-  (clearAllFiles: () => void) =>
-  (e: MouseEvent) => {
-    e.stopPropagation();
-    clearAllFiles();
-  };
+const handleClearAll = (clearAllFiles: () => void) => (e: MouseEvent) => {
+  e.stopPropagation();
+  clearAllFiles();
+};
 
-const handleRemoveFile =
-  (removeFile: (i: number) => void, index: number) =>
-  (e: MouseEvent) => {
-    e.stopPropagation();
-    removeFile(index);
-  };
+const handleRemoveFile = (removeFile: (i: number) => void, index: number) => (e: MouseEvent) => {
+  e.stopPropagation();
+  removeFile(index);
+};
 
 export const FileField = ({
   label,
@@ -148,7 +150,9 @@ export const FileField = ({
                   type="button"
                   onClick={handleRemoveFile(removeFile, i)}
                   className="mono text-base leading-none cursor-pointer text-(--bone-fade) hover:text-(--blood-bright)"
-                  aria-label={site.fileField.clearAllAria.replace("all", file.name).replace("Clear ", "Remove ")}
+                  aria-label={site.fileField.clearAllAria
+                    .replace("all", file.name)
+                    .replace("Clear ", "Remove ")}
                 >
                   ×
                 </button>

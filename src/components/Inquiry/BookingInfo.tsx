@@ -8,9 +8,7 @@ export const BookingInfo = () => {
       <p className="mono mt-4 text-[11px] text-(--blood-bright)">
         {site.inquiry.bookingRune ?? "\u16cf"} &nbsp; {bookingLabel}
       </p>
-      <p className="mono mt-2 text-[11px] text-(--bone-fade)">
-        {site.inquiry.bookingSubtext}
-      </p>
+      <p className="mono mt-2 text-[11px] text-(--bone-fade)">{site.inquiry.bookingSubtext}</p>
     </>
   );
 };

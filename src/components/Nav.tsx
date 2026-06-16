@@ -1,4 +1,11 @@
-import { useEffect, useState, type ReactElement, type MouseEvent, type Dispatch, type SetStateAction } from "react";
+import {
+  useEffect,
+  useState,
+  type ReactElement,
+  type MouseEvent,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import clsx from "clsx";
 import site from "@content/site.json";
@@ -12,12 +19,10 @@ const handleScroll = (setIsScrolled: (v: boolean) => void) => () =>
 const toggleOpen = (setIsOpen: Dispatch<SetStateAction<boolean>>) => () =>
   setIsOpen((prev) => !prev);
 
-const closeMobileMenu = (setIsOpen: Dispatch<SetStateAction<boolean>>) => () =>
-  setIsOpen(false);
+const closeMobileMenu = (setIsOpen: Dispatch<SetStateAction<boolean>>) => () => setIsOpen(false);
 
 const handleMobileNavClick =
-  (setIsOpen: Dispatch<SetStateAction<boolean>>, hash: string | undefined) =>
-  (_e: MouseEvent) => {
+  (setIsOpen: Dispatch<SetStateAction<boolean>>, hash: string | undefined) => (_e: MouseEvent) => {
     setIsOpen(false);
     if (hash) scrollToHashDelayed(hash, 320);
   };
@@ -155,7 +160,11 @@ const NavLink = ({ href, label, isCta }: NavLinkProps): ReactElement => {
       hash={hash}
       onClick={handleClick}
       className="mono link-underline whitespace-nowrap text-(--bone-paper)"
-      activeProps={!hash ? { className: "text-(--blood-bright)", "aria-current": "page" as const } : { "aria-current": "page" as const }}
+      activeProps={
+        !hash
+          ? { className: "text-(--blood-bright)", "aria-current": "page" as const }
+          : { "aria-current": "page" as const }
+      }
       activeOptions={!hash ? undefined : { exact: false }}
     >
       {label}

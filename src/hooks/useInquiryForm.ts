@@ -56,21 +56,20 @@ export const useInquiryForm = (prefill: Prefill | null, onClearPrefill: () => vo
     setIdea(val);
   };
 
-  const handleFieldChange =
-    (_fieldName: string) => (e: InputEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      if (!hasAttempted) return;
-      const form = e.currentTarget.form;
-      if (!form) return;
-      const formData = new FormData(form);
-      const values = buildFormValues(formData);
-      const result = inquirySchema.safeParse(values);
-      if (result.success) {
-        setErrors({});
-        return;
-      }
-      const next = extractErrors(result);
-      setErrors(next);
-    };
+  const handleFieldChange = () => (e: InputEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    if (!hasAttempted) return;
+    const form = e.currentTarget.form;
+    if (!form) return;
+    const formData = new FormData(form);
+    const values = buildFormValues(formData);
+    const result = inquirySchema.safeParse(values);
+    if (result.success) {
+      setErrors({});
+      return;
+    }
+    const next = extractErrors(result);
+    setErrors(next);
+  };
 
   const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();

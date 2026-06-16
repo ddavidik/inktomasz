@@ -8,7 +8,13 @@ type AftercareSectionProps = {
   listTag?: "ol" | "ul";
 };
 
-export const AftercareSection = ({ id, label, title, children, listTag = "ul" }: AftercareSectionProps): ReactNode => {
+export const AftercareSection = ({
+  id,
+  label,
+  title,
+  children,
+  listTag = "ul",
+}: AftercareSectionProps): ReactNode => {
   const ListTag = listTag;
 
   return (

@@ -56,10 +56,7 @@ export const Hero = () => (
           {site.hero.cta}
         </CtaLink>
         <span className="mono text-(--bone-fade)">{site.hero.ctaAlt}</span>
-        <TextLink
-          href="/#portfolio"
-          onClick={scrollToPortfolio}
-        >
+        <TextLink href="/#portfolio" onClick={scrollToPortfolio}>
           {site.hero.ctaSecondary}
         </TextLink>
       </div>

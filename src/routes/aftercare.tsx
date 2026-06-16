@@ -87,7 +87,8 @@ const AftercarePage = () => {
         <section className="mx-auto mt-32 max-w-350 px-6 md:px-10">
           <div className="border border-(--blood)/40 bg-(--blood)/6 p-8 md:p-12">
             <div className="mono mb-6 text-(--blood-bright)">
-              {aftercare.sectionLabels.donts.substring(0, 3)} &nbsp; {aftercare.sectionLabels.donts.substring(3)}
+              {aftercare.sectionLabels.donts.substring(0, 3)} &nbsp;{" "}
+              {aftercare.sectionLabels.donts.substring(3)}
             </div>
             <ul className="grid gap-3 md:grid-cols-2">
               {aftercare.after.donts.map((d) => (

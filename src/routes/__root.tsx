@@ -5,25 +5,28 @@ import appCss from "~/styles/app.css?url";
 import site from "@content/site.json";
 import { Nav } from "~/components/Nav";
 import { Footer } from "~/components/Footer";
-import { RevealMounter } from "~/components/RevealMounter";
+import { useRevealOnScroll } from "~/hooks/useReveal";
 import { NotFound } from "~/components/NotFound";
 
-const RootComponent = () => (
-  <>
-    <a
-      href="#main-content"
-      className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-skip focus:px-4 focus:py-2 focus:bg-(--blood-bright) focus:text-(--bone-paper) mono"
-    >
-      {site.skipLink}
-    </a>
-    <RevealMounter />
-    <Nav />
-    <main id="main-content" className="flex flex-1 flex-col" tabIndex={-1}>
-      <Outlet />
-    </main>
-    <Footer />
-  </>
-);
+const RootComponent = () => {
+  useRevealOnScroll();
+
+  return (
+    <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-skip focus:px-4 focus:py-2 focus:bg-(--blood-bright) focus:text-(--bone-paper) mono"
+      >
+        {site.skipLink}
+      </a>
+      <Nav />
+      <main id="main-content" className="flex flex-1 flex-col" tabIndex={-1}>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 const RootDocument = ({ children }: { children: ReactNode }) => (
   <html lang="en">

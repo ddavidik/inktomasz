@@ -1,8 +1,9 @@
 import site from "@content/site.json";
+import { resolveHandle } from "~/utils/resolveHandle";
 
 export const ContactLinks = () => {
   const igDM = `https://ig.me/m/${site.artist.handle}`;
-  const linkText = site.inquiry.contactLinkDM.replace("{handle}", site.artist.handle);
+  const linkText = resolveHandle(site.inquiry.contactLinkDM);
 
   return (
     <div className="mt-10 flex flex-col gap-3">
