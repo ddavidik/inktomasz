@@ -42,7 +42,7 @@ export const AboutChapter = ({
           />
         </div>
         <div className="col-span-12 min-w-0 md:col-span-8 md:col-start-5">
-          <p className="serif-tight wrap-break-word text-pretty text-xl leading-relaxed text-(--bone-warm) md:text-2xl">
+          <p className="serif-tight wrap-break-word text-pretty text-xl leading-relaxed text-(--bone-paper) md:text-2xl">
             <FormattedText segments={chapter.body} />
           </p>
         </div>

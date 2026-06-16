@@ -20,7 +20,7 @@ export const Testimonials = () => (
             <span aria-hidden className="display text-5xl leading-none text-(--blood-bright)">
               "
             </span>
-            <p className="serif-tight flex-1 text-pretty text-lg leading-relaxed text-(--bone-warm) md:text-xl">
+            <p className="serif-tight flex-1 text-pretty text-lg leading-relaxed text-(--bone-paper) md:text-xl">
               {quote}
             </p>
             <footer className="mono text-(--bone-fade)">{author}</footer>

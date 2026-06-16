@@ -46,7 +46,7 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
           <PricingTable />
           <BookingInfo />
 
-          <p className="serif-tight mt-8 max-w-md text-pretty text-xl text-(--bone-warm)">
+          <p className="serif-tight mt-8 max-w-md text-pretty text-xl text-(--bone-paper)">
             {site.inquiry.description}
           </p>
           <ContactLinks />
@@ -66,7 +66,7 @@ export const Inquiry = ({ prefill, onClearPrefill }: Props) => {
           {status === "success" ? (
             <div className="flex flex-col gap-6 border border-white/5 bg-(--ink-iron) px-8 py-12">
               <p className="mono text-(--blood-bright)">{site.inquiry.successKicker}</p>
-              <p className="serif-tight text-pretty text-xl text-(--bone-warm)">
+              <p className="serif-tight text-pretty text-xl text-(--bone-paper)">
                 {site.inquiry.successMessage}
               </p>
               <button

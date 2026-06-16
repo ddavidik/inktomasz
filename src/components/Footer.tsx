@@ -15,7 +15,7 @@ export const Footer = () => (
 
       <div>
         <div className="mono mb-3">{site.footer.findLabel}</div>
-        <ul className="space-y-1.5 text-(--bone-warm)">
+        <ul className="space-y-1.5 text-(--bone-paper)">
           <li>
             <a
               href={site.artist.instagram}
@@ -62,7 +62,7 @@ export const Footer = () => (
 
       <div>
         <div className="mono mb-3">{site.footer.readLabel}</div>
-        <ul className="space-y-1.5 text-(--bone-warm)">
+        <ul className="space-y-1.5 text-(--bone-paper)">
           <li>
             <Link to="/about" className="link-underline">
               {site.footer.linkAbout}

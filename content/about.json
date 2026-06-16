@@ -1,6 +1,19 @@
 {
   "teaser": {
-    "heading": "The hand behind the needle.",
+    "headingSegments": [
+      {
+        "text": "The hand",
+        "br": true
+      },
+      {
+        "text": "behind",
+        "italic": true,
+        "br": true
+      },
+      {
+        "text": "the needle."
+      }
+    ],
     "lead": "Born in Poland, holding a master's in fine arts, and built on years drawing creatures for video games — Tomasz arrived at the needle by way of realism: hyperdetailed portraits, photographic skin. Then the runes found him. Then the demons followed.",
     "ctaLink": "Read the full story"
   },

@@ -13,7 +13,7 @@ export const NotFound = () => (
           <h1 className="display text-[14vw] leading-[0.9] md:text-[clamp(4rem,8vw,9rem)]">
             {renderHeroTitle(site.notFound.headingSegments)}
           </h1>
-          <p className="serif-tight mt-8 text-pretty text-xl text-(--bone-warm) md:text-2xl">
+          <p className="serif-tight mt-8 text-pretty text-xl text-(--bone-paper) md:text-2xl">
             {site.notFound.subtitle}
           </p>
           <TextLink href="/" className="mt-10 py-4">
