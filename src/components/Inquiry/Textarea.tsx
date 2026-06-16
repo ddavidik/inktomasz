@@ -13,7 +13,15 @@ type Props = {
   "onChange" | "onInput"
 >;
 
-export const Textarea = ({ label, error, rows = 5, onChange, onInput, className, ...props }: Props) => (
+export const Textarea = ({
+  label,
+  error,
+  rows = 5,
+  onChange,
+  onInput,
+  className,
+  ...props
+}: Props) => (
   <FormLabelWrapper label={label} error={error}>
     <textarea
       rows={rows}
